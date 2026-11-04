@@ -1,0 +1,1691 @@
+/* ----------------------------------------------------------
+   WOOCOMMERCE
+   ---------------------------------------------------------- */
+
+.woocommerce-product-attributes-wrapper table.shop_attributes {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border-spacing: 0 !important;
+    table-layout: fixed !important;
+}
+
+.woocommerce-product-attributes-wrapper table.shop_attributes tbody {
+    display: table-row-group !important;
+}
+
+.woocommerce-product-attributes-wrapper table.shop_attributes tr {
+    display: table-row !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+.woocommerce-product-attributes-wrapper table.shop_attributes th,
+.woocommerce-product-attributes-wrapper table.shop_attributes td {
+    display: table-cell !important;
+    padding: 1rem 0 !important;
+    text-align: left !important;
+    vertical-align: top !important;
+    background: transparent !important;
+}
+
+.woocommerce-product-attributes-wrapper table.shop_attributes th {
+    width: 32% !important;
+    padding-right: 2rem !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: #111827 !important;
+    white-space: normal !important;
+}
+
+.woocommerce-product-attributes-wrapper table.shop_attributes td {
+    width: 68% !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    font-style: normal !important;
+    color: #374151 !important;
+}
+
+.woocommerce-product-attributes-wrapper table.shop_attributes th p,
+.woocommerce-product-attributes-wrapper table.shop_attributes td p {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-style: normal !important;
+    line-height: 1.5 !important;
+}
+
+.transactional-add-to-cart form.cart {
+    display: block;
+    margin: 0;
+}
+
+.transactional-add-to-cart .stock {
+    margin: 0 0 0.75rem;
+    font-size: 0.875rem;
+    color: rgb(64 64 64);
+}
+
+.transactional-add-to-cart .qty {
+    width: 4.75rem;
+    height: 3rem;
+    border: 1px solid rgb(212 212 212);
+    background: #fff;
+    padding: 0 0.75rem;
+    text-align: center;
+    font-size: 0.95rem;
+    color: rgb(23 23 23);
+}
+
+.transactional-add-to-cart .single_add_to_cart_button,
+.transactional-add-to-cart button.single_add_to_cart_button,
+.transactional-add-to-cart .button.single_add_to_cart_button,
+.transactional-add-to-cart .single_add_to_cart_button.button.alt {
+    display: block;
+    width: 100%;
+    min-height: 3rem;
+    border: 1px solid rgb(17 24 39) !important;
+    background: rgb(17 24 39) !important;
+    color: #fff !important;
+    padding: 0 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    line-height: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: none;
+    border-radius: 0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.transactional-add-to-cart .single_add_to_cart_button:hover,
+.transactional-add-to-cart .single_add_to_cart_button:focus,
+.transactional-add-to-cart .single_add_to_cart_button.button.alt:hover,
+.transactional-add-to-cart .single_add_to_cart_button.button.alt:focus {
+    border-color: #000 !important;
+    background: #000 !important;
+    color: #fff !important;
+}
+
+.transactional-add-to-cart .single_add_to_cart_button.disabled,
+.transactional-add-to-cart .single_add_to_cart_button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.transactional-add-to-cart .stock,
+.transactional-add-to-cart .quantity {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .transactional-add-to-cart form.cart {
+        flex-direction: column;
+    }
+
+    .transactional-add-to-cart .qty,
+    .transactional-add-to-cart .single_add_to_cart_button {
+        width: 100%;
+    }
+}
+/* ==========================================================================
+   R3A — Transactional single-product retail foundation
+   ========================================================================== */
+
+.blaines-retail--product {
+    color: var(--retail-ink);
+    font-family: var(--font-body);
+}
+
+.blaines-retail--product .retail-product-page {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.blaines-retail--product .retail-product-breadcrumbs {
+    color: var(--retail-muted);
+}
+
+/* Product identity */
+.blaines-retail--product .retail-product-identity__brand {
+    display: flex;
+    min-height: 3.5rem;
+    align-items: center;
+}
+
+.blaines-retail--product .retail-product-identity__brand-image {
+    width: auto;
+    max-width: 11rem;
+    max-height: 3.5rem;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.blaines-retail--product .retail-product-identity__title {
+    max-width: 52rem;
+    margin-top: 1rem;
+    color: var(--retail-ink);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.15rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+}
+
+.blaines-retail--product .retail-product-identity__code {
+    margin-top: 1rem;
+    color: var(--retail-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+.blaines-retail--product .retail-product-identity__code span {
+    color: var(--retail-brand-dark);
+    font-weight: 700;
+}
+
+/* Gallery */
+.blaines-retail--product .retail-product-gallery {
+    display: grid;
+    gap: 1rem;
+}
+
+.blaines-retail--product .retail-product-gallery__stage {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--retail-border-soft);
+    background: #fff;
+}
+
+.blaines-retail--product .retail-product-gallery__open {
+    border: 0;
+    background: #fff;
+}
+
+.blaines-retail--product .retail-product-gallery__image {
+    transition: transform 220ms ease;
+}
+
+.blaines-retail--product .retail-product-gallery__open:hover
+.retail-product-gallery__image {
+    transform: scale(1.012);
+}
+
+.blaines-retail--product .retail-product-gallery__count {
+    z-index: 2;
+    padding: 0.4rem 0.55rem;
+    background: var(--retail-brand-dark);
+    color: #fff;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.04em;
+}
+
+.blaines-retail--product .retail-product-gallery__nav {
+    z-index: 2;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid var(--retail-brand-dark);
+    border-radius: 0;
+    background: #fff;
+    color: var(--retail-brand-dark);
+    box-shadow: none;
+}
+
+.blaines-retail--product .retail-product-gallery__nav:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+    color: #fff;
+}
+
+.blaines-retail--product .retail-product-gallery__full-size {
+    color: var(--retail-brand-dark);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--product .retail-product-gallery__full-size:hover {
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--product .retail-product-gallery__thumb-track {
+    scroll-snap-type: x mandatory;
+}
+
+.blaines-retail--product .retail-product-gallery__thumb {
+    border: 1px solid var(--retail-border-soft);
+    border-radius: 0;
+    background: #fff;
+    opacity: 0.62;
+}
+
+.blaines-retail--product .retail-product-gallery__thumb:hover,
+.blaines-retail--product .retail-product-gallery__thumb[aria-current="true"] {
+    border-color: var(--retail-brand-dark);
+    background: #fff;
+    opacity: 1;
+}
+
+.blaines-retail--product
+.retail-product-gallery__thumb[aria-current="true"]::after {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0;
+    left: 0.5rem;
+    height: 3px;
+    background: var(--retail-brand-light);
+    content: "";
+}
+
+.blaines-retail--product .retail-product-gallery__caption {
+    color: var(--retail-muted);
+}
+
+/* Purchase panel */
+.blaines-retail--product .retail-purchase-panel {
+    border-color: var(--retail-border-soft);
+    border-top: 4px solid var(--retail-brand-dark);
+    box-shadow: none;
+}
+
+.blaines-retail--product .retail-purchase-panel__pricing {
+    background: var(--retail-surface);
+}
+
+.blaines-retail--product .retail-purchase-panel__price {
+    max-width: 100%;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.012em;
+    white-space: nowrap;
+}
+
+.blaines-retail--product .retail-purchase-panel__price--sale {
+    color: #b42318;
+}
+
+.blaines-retail--product .retail-purchase-panel__price
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+.blaines-retail--product .retail-purchase-panel__saving {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 0;
+    background: #b42318;
+    color: #fff;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--product .retail-purchase-panel__saving
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+.blaines-retail--product .retail-purchase-panel__agency {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.blaines-retail--product .retail-purchase-panel__agency img {
+    max-width: 8rem;
+    object-position: right top;
+}
+
+.blaines-retail--product .retail-purchase-panel__section {
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--product .retail-purchase-panel__section-title {
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-purchase-panel__features ul {
+    margin-top: 0.85rem;
+    color: var(--retail-muted);
+    font-size: 0.85rem;
+    line-height: 1.48;
+}
+
+.blaines-retail--product .retail-purchase-panel__features li {
+    gap: 0.65rem;
+}
+
+.blaines-retail--product .retail-purchase-panel__features li > span:first-child {
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--product .retail-purchase-panel__energy {
+    background: #fff;
+}
+
+.blaines-retail--product .retail-purchase-panel__energy img {
+    height: 3.2rem;
+}
+
+.blaines-retail--product .retail-purchase-panel__energy a {
+    color: var(--retail-brand-light);
+    text-decoration-color: rgba(33, 94, 217, 0.35);
+}
+
+.blaines-retail--product .retail-purchase-panel__availability {
+    color: var(--retail-muted);
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.blaines-retail--product .retail-purchase-panel__availability
+> :first-child {
+    margin-top: 0;
+}
+
+.blaines-retail--product .retail-purchase-panel__add-to-cart {
+    margin-top: 1.1rem;
+}
+
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button,
+.blaines-retail--product
+.transactional-add-to-cart
+button.single_add_to_cart_button,
+.blaines-retail--product
+.transactional-add-to-cart
+.button.single_add_to_cart_button,
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button.button.alt {
+    display: inline-flex;
+    width: 100%;
+    min-height: 3.5rem;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--retail-brand-dark) !important;
+    border-radius: 0;
+    background: var(--retail-brand-dark) !important;
+    color: #fff !important;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    box-shadow: none;
+}
+
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button:hover,
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button:focus {
+    border-color: var(--retail-brand-light) !important;
+    background: var(--retail-brand-light) !important;
+    color: #fff !important;
+}
+
+.blaines-retail--product .retail-purchase-panel__short-description {
+    color: var(--retail-muted);
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+/* Promotion highlight */
+.blaines-retail--product .retail-purchase-promotion {
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--product .retail-purchase-promotion__panel {
+    border-width: 0 0 0 4px;
+    border-style: solid;
+}
+
+.blaines-retail--product .retail-purchase-promotion__label {
+    font-size: 0.65rem;
+    letter-spacing: 0.11em;
+}
+
+.blaines-retail--product .retail-purchase-promotion__title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-purchase-promotion__meta a {
+    font-weight: 700;
+}
+
+/* Supporting accordions */
+.blaines-retail--product .retail-purchase-information {
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--product .retail-purchase-information__item {
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--product .retail-purchase-information__summary {
+    min-height: 3.5rem;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-purchase-information__summary:hover {
+    background: var(--retail-surface);
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--product .retail-purchase-information__chevron {
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--product .retail-purchase-information__content {
+    border-color: var(--retail-border-soft);
+    background: var(--retail-surface);
+    color: var(--retail-muted);
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.blaines-retail--product .retail-purchase-information__content a {
+    color: var(--retail-brand-dark);
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-purchase-information__content strong {
+    color: var(--retail-ink);
+}
+
+/* Focus */
+.blaines-retail--product .retail-product-gallery__open:focus-visible,
+.blaines-retail--product .retail-product-gallery__nav:focus-visible,
+.blaines-retail--product .retail-product-gallery__full-size:focus-visible,
+.blaines-retail--product .retail-product-gallery__thumb:focus-visible,
+.blaines-retail--product .retail-purchase-information__summary:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+/* Responsive */
+@media (min-width: 1024px) {
+    .blaines-retail--product .retail-product-page__purchase {
+        align-self: start;
+    }
+}
+
+@media (max-width: 767px) {
+    .blaines-retail--product .retail-product-identity__brand {
+        min-height: 2.75rem;
+    }
+
+    .blaines-retail--product .retail-product-identity__brand-image {
+        max-width: 9rem;
+        max-height: 2.75rem;
+    }
+
+    .blaines-retail--product .retail-product-identity__title {
+        font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
+
+    .blaines-retail--product .retail-product-gallery__nav {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__pricing-layout {
+        align-items: flex-start;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency {
+        width: 100%;
+        justify-content: flex-start;
+        padding-top: 0.85rem;
+        border-top: 1px solid var(--retail-border-soft);
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency img {
+        object-position: left top;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__price {
+        font-size: clamp(2.35rem, 13vw, 3rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--product .retail-product-gallery__image,
+    .blaines-retail--product .retail-product-gallery__nav,
+    .blaines-retail--product .retail-product-gallery__thumb {
+        transition: none;
+    }
+}
+/* ========================================================================== 
+   R3A.1 — Product-title scale and purchase-panel alignment
+   ========================================================================== */
+
+.blaines-retail--product .retail-product-identity__title {
+    font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+    line-height: 1.07;
+}
+
+@media (min-width: 1024px) {
+    /*
+     * When a brand logo is present, the title begins after the reserved
+     * 3.5rem logo area plus its 1rem title spacing. Match that position so
+     * the purchase panel aligns with the product title rather than the logo.
+     */
+    .blaines-retail--product
+    .retail-product-page__purchase--aligned-title {
+        margin-top: 4.5rem;
+    }
+}
+
+@media (max-width: 1023px) {
+    .blaines-retail--product
+    .retail-product-page__purchase--aligned-title {
+        margin-top: 0;
+    }
+}
+/* ==========================================================================
+   R3B — Product information
+   ========================================================================== */
+
+.blaines-retail--product .retail-product-information {
+    margin-top: 0.5rem;
+    padding-top: clamp(2rem, 4vw, 3rem);
+    border-top: 2px solid var(--retail-brand-dark);
+}
+
+.blaines-retail--product .retail-product-information__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 2rem;
+}
+
+.blaines-retail--product .retail-product-information__title {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.blaines-retail--product .retail-product-information__intro {
+    max-width: 42rem;
+    margin: 0.75rem 0 0;
+    color: var(--retail-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.blaines-retail--product .retail-product-information__tabs {
+    display: flex;
+    flex: none;
+    border-bottom: 2px solid var(--retail-border-soft);
+}
+
+.blaines-retail--product .retail-product-information__tab {
+    position: relative;
+    min-height: 2.75rem;
+    padding: 0.65rem 0.9rem;
+    border: 0;
+    background: transparent;
+    color: var(--retail-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.blaines-retail--product .retail-product-information__tab:hover {
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--product .retail-product-information__tab.is-active {
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--product .retail-product-information__tab:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+.blaines-retail--product .retail-product-information__panel {
+    padding-top: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.blaines-retail--product .retail-product-information__panel-title {
+    margin: 0 0 1.25rem;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-product-information__description {
+    max-width: 48rem;
+    color: var(--retail-muted);
+}
+
+.blaines-retail--product
+.retail-product-information__description
+> :first-child {
+    margin-top: 0;
+}
+
+.blaines-retail--product
+.retail-product-information__description
+p {
+    line-height: 1.72;
+}
+
+.blaines-retail--product
+.retail-product-information__description
+a {
+    color: var(--retail-brand-light);
+    text-decoration-color: rgba(33, 94, 217, 0.35);
+    text-underline-offset: 0.25rem;
+}
+
+.blaines-retail--product .retail-product-specifications {
+    max-width: 58rem;
+}
+
+.blaines-retail--product .retail-product-specifications table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    text-align: left;
+}
+
+.blaines-retail--product .retail-product-specifications tr {
+    border-bottom: 1px solid var(--retail-border-soft);
+}
+
+.blaines-retail--product
+.retail-product-specifications
+tr:last-child {
+    border-bottom: 0;
+}
+
+.blaines-retail--product .retail-product-specifications th,
+.blaines-retail--product .retail-product-specifications td {
+    padding: 1rem 1.1rem;
+    vertical-align: top;
+    font-size: 0.875rem;
+    line-height: 1.55;
+}
+
+.blaines-retail--product .retail-product-specifications th {
+    width: 34%;
+    background: var(--retail-surface);
+    color: var(--retail-brand-dark);
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-product-specifications td {
+    color: var(--retail-muted);
+}
+
+.blaines-retail--product .retail-product-specifications td a {
+    color: var(--retail-brand-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(14, 41, 94, 0.28);
+    text-underline-offset: 0.25rem;
+}
+
+/* ==========================================================================
+   R3B — Similar products
+   ========================================================================== */
+
+.blaines-retail--product .retail-similar-products {
+    margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.blaines-retail--product .retail-similar-products__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem 2rem;
+    padding: clamp(1.35rem, 3vw, 2rem);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--product .retail-similar-products__header h2 {
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.blaines-retail--product .retail-similar-products__header p {
+    max-width: 40rem;
+    margin: 0.65rem 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.85rem;
+    line-height: 1.55;
+}
+
+.blaines-retail--product .retail-similar-products__controls {
+    display: flex;
+    flex: none;
+    gap: 0.6rem;
+}
+
+.blaines-retail--product .retail-similar-products__control {
+    display: inline-flex;
+    width: 2.9rem;
+    height: 2.9rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.76);
+    background: transparent;
+    color: #ffffff;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease;
+}
+
+.blaines-retail--product
+.retail-similar-products__control:hover {
+    border-color: #ffffff;
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--product
+.retail-similar-products__control:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+.blaines-retail--product .retail-similar-products__control svg {
+    width: 1.35rem;
+    height: 1.35rem;
+}
+
+.blaines-retail--product .retail-similar-products__track {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    padding: 1.5rem 0 0.25rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.blaines-retail--product .retail-similar-products__track:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+.blaines-retail--product .retail-similar-products__item {
+    width: 82vw;
+    max-width: 20rem;
+    flex: none;
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+.blaines-retail--product .retail-similar-card {
+    display: flex;
+    height: 100%;
+}
+
+.blaines-retail--product .retail-similar-card__link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+}
+
+.blaines-retail--product
+.retail-similar-card__link:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+.blaines-retail--product .retail-similar-card__image-frame {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--retail-brand-dark);
+    background: #ffffff;
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.blaines-retail--product
+.retail-similar-card__link:hover
+.retail-similar-card__image-frame {
+    border-color: var(--retail-brand-light);
+    box-shadow: 4px 4px 0 rgba(20, 57, 129, 0.1);
+    transform: translateY(-2px);
+}
+
+.blaines-retail--product .retail-similar-card__image {
+    display: flex;
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.blaines-retail--product .retail-similar-card__product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 320ms ease;
+}
+
+.blaines-retail--product
+.retail-similar-card__link:hover
+.retail-similar-card__product-image {
+    transform: scale(1.03);
+}
+
+.blaines-retail--product .retail-similar-card__saving {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    display: inline-flex;
+    min-height: 2.15rem;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.65rem;
+    background: #b42318;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--product
+.retail-similar-card__saving
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+.blaines-retail--product .retail-similar-card__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 0.9rem;
+}
+
+.blaines-retail--product .retail-similar-card__title {
+    display: -webkit-box;
+    min-height: 4.15rem;
+    overflow: hidden;
+    margin: 0;
+    color: var(--retail-ink);
+    font-family: var(--font-body);
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.42;
+    letter-spacing: -0.01em;
+    transition: color 180ms ease;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.blaines-retail--product
+.retail-similar-card__link:hover
+.retail-similar-card__title {
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--product .retail-similar-card__price-block {
+    display: flex;
+    min-height: 4.2rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 0.85rem;
+}
+
+.blaines-retail--product .retail-similar-card__was-price {
+    margin: 0 0 0.35rem;
+    color: var(--retail-muted);
+    font-size: 0.72rem;
+    line-height: 1.3;
+}
+
+.blaines-retail--product
+.retail-similar-card__was-price
+del {
+    font-weight: 700;
+}
+
+.blaines-retail--product .retail-similar-card__price {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(1.45rem, 2.6vw, 1.85rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+}
+
+.blaines-retail--product
+.retail-similar-card__price--sale {
+    color: #b42318;
+}
+
+.blaines-retail--product
+.retail-similar-card__price
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+@media (min-width: 640px) {
+    .blaines-retail--product .retail-similar-products__item {
+        width: calc((100% - 1.25rem) / 2);
+        max-width: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .blaines-retail--product .retail-similar-products__item {
+        width: calc((100% - 2.5rem) / 3);
+    }
+}
+
+@media (min-width: 1024px) {
+    .blaines-retail--product .retail-similar-products__item {
+        width: calc((100% - 3.75rem) / 4);
+    }
+}
+
+@media (min-width: 1280px) {
+    .blaines-retail--product .retail-similar-products__item {
+        width: calc((100% - 5rem) / 5);
+    }
+}
+
+@media (max-width: 767px) {
+    .blaines-retail--product .retail-product-information__header,
+    .blaines-retail--product .retail-similar-products__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .blaines-retail--product .retail-product-information__tabs {
+        width: 100%;
+    }
+
+    .blaines-retail--product .retail-product-information__tab {
+        flex: 1;
+    }
+
+    .blaines-retail--product .retail-product-specifications table,
+    .blaines-retail--product .retail-product-specifications tbody,
+    .blaines-retail--product .retail-product-specifications tr,
+    .blaines-retail--product .retail-product-specifications th,
+    .blaines-retail--product .retail-product-specifications td {
+        display: block;
+        width: 100%;
+    }
+
+    .blaines-retail--product .retail-product-specifications tr {
+        padding: 0.9rem 0;
+    }
+
+    .blaines-retail--product .retail-product-specifications th {
+        padding: 0.75rem 0.85rem;
+    }
+
+    .blaines-retail--product .retail-product-specifications td {
+        padding: 0.75rem 0.85rem 0;
+    }
+
+    .blaines-retail--product
+    .retail-similar-products__controls {
+        align-self: flex-end;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--product .retail-product-information__tab,
+    .blaines-retail--product .retail-similar-products__control,
+    .blaines-retail--product .retail-similar-card__image-frame,
+    .blaines-retail--product .retail-similar-card__product-image,
+    .blaines-retail--product .retail-similar-card__title {
+        transition: none;
+    }
+
+    .blaines-retail--product .retail-similar-products__track {
+        scroll-behavior: auto;
+    }
+}
+/* ==========================================================================
+   R3C — Responsive and regression refinement
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Content resilience
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--product .retail-product-identity__title,
+.blaines-retail--product .retail-product-identity__code,
+.blaines-retail--product .retail-purchase-promotion__title,
+.blaines-retail--product .retail-purchase-promotion__summary,
+.blaines-retail--product .retail-purchase-information__content,
+.blaines-retail--product .retail-product-specifications th,
+.blaines-retail--product .retail-product-specifications td,
+.blaines-retail--product .retail-similar-card__title {
+    overflow-wrap: anywhere;
+}
+
+.blaines-retail--product .retail-purchase-panel__price,
+.blaines-retail--product .retail-purchase-panel__was-price,
+.blaines-retail--product .retail-purchase-panel__saving,
+.blaines-retail--product .retail-purchase-information__services li > span,
+.blaines-retail--product .retail-similar-card__price,
+.blaines-retail--product .retail-similar-card__was-price,
+.blaines-retail--product .retail-similar-card__saving {
+    font-variant-numeric: tabular-nums;
+}
+
+.blaines-retail--product .retail-purchase-panel__price {
+    max-width: 100%;
+}
+
+.blaines-retail--product .retail-purchase-panel__saving,
+.blaines-retail--product .retail-similar-card__saving {
+    max-width: 100%;
+}
+
+.blaines-retail--product .retail-product-gallery__image,
+.blaines-retail--product .retail-product-gallery__thumb img,
+.blaines-retail--product .retail-similar-card__product-image {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* --------------------------------------------------------------------------
+   Keyboard and form-state resilience
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button:focus-visible,
+.blaines-retail--product .retail-purchase-panel__energy-links a:focus-visible,
+.blaines-retail--product .retail-purchase-promotion__meta a:focus-visible,
+.blaines-retail--product .retail-purchase-information__content a:focus-visible,
+.blaines-retail--product .retail-product-information__description a:focus-visible,
+.blaines-retail--product .retail-product-specifications a:focus-visible,
+.blaines-retail--product .retail-similar-card__link:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button.disabled,
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button:disabled,
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button.loading {
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+}
+
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button.loading {
+    position: relative;
+}
+
+.blaines-retail--product
+.transactional-add-to-cart
+.single_add_to_cart_button.loading::after {
+    width: 0.95rem;
+    height: 0.95rem;
+    margin-left: 0.7rem;
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    content: "";
+    animation: blaines-retail-spin 700ms linear infinite;
+}
+
+@keyframes blaines-retail-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Gallery state stability
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--product .retail-product-gallery__stage {
+    isolation: isolate;
+}
+
+.blaines-retail--product .retail-product-gallery__open {
+    cursor: zoom-in;
+}
+
+.blaines-retail--product .retail-product-gallery__image {
+    min-width: 0;
+}
+
+.blaines-retail--product .retail-product-gallery__thumb-track {
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 0.25rem;
+}
+
+.blaines-retail--product .retail-product-gallery__caption {
+    max-width: 46rem;
+}
+
+/* --------------------------------------------------------------------------
+   Purchase-panel state stability
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--product .retail-purchase-panel__pricing-layout,
+.blaines-retail--product .retail-purchase-panel__sale-row,
+.blaines-retail--product .retail-purchase-panel__energy-links,
+.blaines-retail--product .retail-purchase-promotion__meta,
+.blaines-retail--product .retail-purchase-information__promotion-meta {
+    min-width: 0;
+}
+
+.blaines-retail--product .retail-purchase-panel__availability:empty,
+.blaines-retail--product .retail-purchase-panel__energy-links:empty,
+.blaines-retail--product .retail-purchase-promotion__meta:empty {
+    display: none;
+}
+
+.blaines-retail--product .retail-purchase-information__services li > div {
+    min-width: 0;
+}
+
+.blaines-retail--product .retail-purchase-information__promotion-copy img,
+.blaines-retail--product .retail-purchase-information__content img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Product-information stability
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--product .retail-product-information__description {
+    overflow-wrap: anywhere;
+}
+
+.blaines-retail--product .retail-product-information__description img,
+.blaines-retail--product .retail-product-information__description iframe,
+.blaines-retail--product .retail-product-information__description video {
+    max-width: 100%;
+}
+
+.blaines-retail--product .retail-product-information__description iframe,
+.blaines-retail--product .retail-product-information__description video {
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.blaines-retail--product .retail-product-specifications td {
+    overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------------------
+   Similar-products stability
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--product .retail-similar-products__track {
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 0.25rem;
+}
+
+.blaines-retail--product .retail-similar-products__control:disabled {
+    cursor: not-allowed;
+    opacity: 0.35;
+}
+
+.blaines-retail--product .retail-similar-card__price {
+    max-width: 100%;
+}
+
+.blaines-retail--product .retail-similar-card__saving {
+    white-space: normal;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet and narrow desktop
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .blaines-retail--product .retail-product-page__layout {
+        gap-y: 2.25rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__open {
+        min-height: 30rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__image {
+        max-height: 28rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__pricing-layout {
+        align-items: center;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency img {
+        max-width: 7.5rem;
+    }
+
+    .blaines-retail--product .retail-product-information__header {
+        align-items: flex-start;
+    }
+
+    .blaines-retail--product .retail-product-information__tabs {
+        flex: none;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .blaines-retail--product .retail-product-page__layout {
+        column-gap: 2rem;
+    }
+
+    .blaines-retail--product .retail-product-identity__title {
+        font-size: clamp(1.9rem, 2.8vw, 2.45rem);
+    }
+
+    .blaines-retail--product .retail-product-gallery__open {
+        min-height: 31rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__image {
+        max-height: 29rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__pricing-layout {
+        flex-direction: column;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency {
+        width: 100%;
+        min-height: 0;
+        justify-content: flex-start;
+        padding-top: 0.85rem;
+        border-top: 1px solid var(--retail-border-soft);
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency img {
+        max-width: 7.5rem;
+        object-position: left top;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__price {
+        font-size: clamp(2.25rem, 4.2vw, 2.9rem);
+    }
+
+    .blaines-retail--product .retail-purchase-panel__sale-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+    .blaines-retail--product .retail-product-page {
+        padding-top: 1.25rem;
+        padding-bottom: 3.5rem;
+    }
+
+    .blaines-retail--product .retail-product-page__layout {
+        gap-y: 1.75rem;
+    }
+
+    .blaines-retail--product .retail-product-identity__title {
+        font-size: clamp(1.65rem, 7.5vw, 2.1rem);
+        line-height: 1.1;
+    }
+
+    .blaines-retail--product .retail-product-identity__code {
+        margin-top: 0.75rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.045em;
+    }
+
+    .blaines-retail--product .retail-product-page__gallery {
+        margin-top: 1.35rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery {
+        gap: 0.8rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__open {
+        min-height: 18rem;
+        padding: 0.75rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__image {
+        max-height: 17rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__count {
+        top: 0.65rem;
+        left: 0.65rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__nav {
+        width: 2.75rem;
+        height: 2.75rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__nav--previous {
+        left: 0.55rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__nav--next {
+        right: 0.55rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__thumb {
+        width: 4.75rem;
+        height: 4.75rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__pricing,
+    .blaines-retail--product .retail-purchase-panel__section,
+    .blaines-retail--product .retail-purchase-promotion {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__pricing-layout {
+        gap: 1rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__sale-row {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__price {
+        font-size: clamp(2.15rem, 12vw, 2.75rem);
+        white-space: normal;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__saving {
+        gap: 0.4rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency {
+        padding-top: 0.75rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__agency img {
+        max-width: 7rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__feature-list {
+        gap: 0.48rem;
+        font-size: 0.82rem;
+        line-height: 1.42;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__energy-links {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .blaines-retail--product .retail-purchase-information__summary {
+        min-height: 3.25rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .blaines-retail--product .retail-purchase-information__content {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    .blaines-retail--product .retail-purchase-information__services li {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+
+    .blaines-retail--product
+    .retail-purchase-information__services
+    li > span {
+        align-self: flex-start;
+    }
+
+    .blaines-retail--product .retail-product-information {
+        padding-top: 2rem;
+    }
+
+    .blaines-retail--product .retail-product-information__header {
+        gap: 1.25rem;
+    }
+
+    .blaines-retail--product .retail-product-information__title,
+    .blaines-retail--product .retail-similar-products__header h2 {
+        font-size: clamp(1.65rem, 7vw, 2.05rem);
+    }
+
+    .blaines-retail--product .retail-product-information__tabs {
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+
+    .blaines-retail--product .retail-product-information__tab {
+        min-width: 0;
+        padding-right: 0.65rem;
+        padding-left: 0.65rem;
+        font-size: 0.68rem;
+    }
+
+    .blaines-retail--product .retail-product-information__panel {
+        padding-top: 1.5rem;
+    }
+
+    .blaines-retail--product .retail-product-specifications tr {
+        padding: 0.75rem 0;
+    }
+
+    .blaines-retail--product .retail-product-specifications th {
+        padding: 0.65rem 0.75rem;
+    }
+
+    .blaines-retail--product .retail-product-specifications td {
+        padding: 0.65rem 0.75rem 0;
+        font-size: 0.84rem;
+    }
+
+    .blaines-retail--product .retail-similar-products {
+        margin-top: 3.5rem;
+    }
+
+    .blaines-retail--product .retail-similar-products__header {
+        padding: 1.25rem;
+    }
+
+    .blaines-retail--product .retail-similar-products__track {
+        gap: 1rem;
+        padding-top: 1.25rem;
+    }
+
+    .blaines-retail--product .retail-similar-products__item {
+        width: min(82vw, 19rem);
+    }
+
+    .blaines-retail--product .retail-similar-card__image {
+        padding: 0.8rem;
+    }
+
+    .blaines-retail--product .retail-similar-card__title {
+        min-height: 4rem;
+        font-size: 0.9rem;
+    }
+
+    .blaines-retail--product .retail-similar-card__price {
+        font-size: clamp(1.4rem, 7vw, 1.75rem);
+        white-space: normal;
+    }
+}
+
+@media (max-width: 379px) {
+    .blaines-retail--product .retail-product-gallery__open {
+        min-height: 16rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__image {
+        max-height: 15rem;
+    }
+
+    .blaines-retail--product .retail-product-gallery__nav {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__price {
+        font-size: 2rem;
+    }
+
+    .blaines-retail--product .retail-purchase-panel__saving {
+        font-size: 0.68rem;
+    }
+
+    .blaines-retail--product .retail-product-information__tab {
+        font-size: 0.63rem;
+        letter-spacing: 0.03em;
+    }
+
+    .blaines-retail--product .retail-similar-products__item {
+        width: 86vw;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Hover-capable devices only
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+    .blaines-retail--product .retail-product-gallery__open:hover
+    .retail-product-gallery__image {
+        transform: scale(1.012);
+    }
+
+    .blaines-retail--product .retail-similar-card__link:hover
+    .retail-similar-card__image-frame {
+        border-color: var(--retail-brand-light);
+        box-shadow: 4px 4px 0 rgba(20, 57, 129, 0.1);
+        transform: translateY(-2px);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--product
+    .transactional-add-to-cart
+    .single_add_to_cart_button.loading::after {
+        animation: none;
+    }
+
+    .blaines-retail--product .retail-product-gallery__image,
+    .blaines-retail--product .retail-product-gallery__nav,
+    .blaines-retail--product .retail-product-gallery__thumb,
+    .blaines-retail--product .retail-purchase-information__summary,
+    .blaines-retail--product .retail-purchase-information__chevron,
+    .blaines-retail--product .retail-product-information__tab,
+    .blaines-retail--product .retail-similar-products__control,
+    .blaines-retail--product .retail-similar-card__image-frame,
+    .blaines-retail--product .retail-similar-card__product-image,
+    .blaines-retail--product .retail-similar-card__title {
+        transition: none;
+    }
+
+    .blaines-retail--product .retail-similar-products__track {
+        scroll-behavior: auto;
+    }
+}
+
+/* Single transactional product title */
+.single-product .retail-product-identity {
+    width: 100%;
+    max-width: none;
+}
+
+.single-product .retail-product-identity__title {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 1rem 0 0;
+
+    color: var(--retail-brand-dark) !important;
+    font-family: var(--font-heading) !important;
+    font-size: 2.65rem !important;
+    font-weight: 700 !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0 !important;
+
+    text-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+    .single-product .retail-product-identity__title {
+        font-size: 2rem !important;
+        line-height: 1.12 !important;
+    }
+}

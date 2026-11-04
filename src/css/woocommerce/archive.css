@@ -1,0 +1,1617 @@
+/* Full-width retail archive canvas */
+.retail-archive-canvas {
+    background: #F8F9FA;
+}
+
+/* ==========================================================================
+   Blaines transactional product archive — R2A
+   Scoped to .blaines-retail--archive so Interiors and Clearance are unchanged.
+   ========================================================================== */
+
+.blaines-retail--archive {
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.blaines-retail--archive .retail-archive__layout {
+    align-items: start;
+}
+
+/* Archive promotion panels */
+.blaines-retail--archive .retail-archive-promotions {
+    margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.blaines-retail--archive .retail-archive-promotions__grid {
+    gap: 0.875rem;
+}
+
+/* Archive contextual title */
+.blaines-retail--archive .retail-archive__title {
+    position: relative;
+    width: fit-content;
+    margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+    padding-bottom: 0.65rem;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3vw, 2.75rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+}
+
+.blaines-retail--archive .retail-archive__title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 3rem;
+    height: 4px;
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--archive .retail-archive-promotions__panel {
+    overflow: hidden;
+    border: 1px solid rgba(14, 41, 94, 0.16);
+    background: #ffffff;
+}
+
+.blaines-retail--archive .retail-archive-promotions__image {
+    width: 100%;
+    height: auto;
+    transition:
+        filter 220ms ease,
+        transform 360ms ease;
+}
+
+.blaines-retail--archive .retail-archive-promotions__panel:hover
+.retail-archive-promotions__image {
+    filter: saturate(1.04) contrast(1.02);
+    transform: scale(1.018);
+}
+
+.blaines-retail--archive .retail-archive-promotions__placeholder {
+    border-color: var(--retail-border-soft);
+    background: var(--retail-surface);
+}
+
+/* Mobile filter trigger and overlay */
+.blaines-retail--archive .retail-filter-trigger {
+    min-height: 3.25rem;
+    border: 2px solid var(--retail-brand-dark);
+    border-radius: 0;
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.065em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--archive .retail-filter-trigger:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--archive .retail-filter-trigger__count {
+    min-width: 1.65rem;
+    height: 1.65rem;
+    background: #ffffff;
+    color: var(--retail-brand-dark);
+    font-size: 0.75rem;
+}
+
+.blaines-retail--archive .retail-filter-overlay {
+    background: rgba(7, 18, 42, 0.72);
+    backdrop-filter: blur(1px);
+}
+
+/* Filter panel */
+.blaines-retail--archive .retail-filter-panel {
+    font-family: var(--font-body);
+}
+
+.blaines-retail--archive .retail-filter-panel__inner {
+    border-color: var(--retail-border-soft);
+    background: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-panel__header {
+    border-bottom: 0;
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-panel__title {
+    margin: 0;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+}
+
+.blaines-retail--archive .retail-filter-panel__active-count {
+    min-height: 1.6rem;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    font-size: 0.6875rem;
+    letter-spacing: 0.03em;
+}
+
+.blaines-retail--archive .retail-filter-panel__clear {
+    color: #ffffff;
+    text-decoration-color: rgba(255, 255, 255, 0.55);
+}
+
+.blaines-retail--archive .retail-filter-panel__clear:hover {
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-panel__close {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: transparent;
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-panel__close:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-panel__body {
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--archive .retail-filter-group {
+    padding: 1.25rem 1rem;
+}
+
+.blaines-retail--archive .retail-filter-group__title {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.blaines-retail--archive .retail-filter-group__clear {
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--archive .retail-filter-group__clear:hover {
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--archive .retail-filter-group__options {
+    margin-top: 0.8rem;
+}
+
+.blaines-retail--archive .retail-filter-option {
+    position: relative;
+    min-height: 2.6rem;
+    padding: 0.6rem 0.65rem;
+    border: 0;
+    border-left: 3px solid transparent;
+    background: transparent;
+    color: var(--retail-muted);
+    font-size: 0.8125rem;
+    line-height: 1.35;
+}
+
+.blaines-retail--archive .retail-filter-option:hover {
+    border-left-color: var(--retail-border-mid);
+    background: var(--retail-surface);
+    color: var(--retail-ink);
+}
+
+.blaines-retail--archive .retail-filter-option--active {
+    border-color: var(--retail-brand-light);
+    background: #e9f0ff;
+    color: var(--retail-brand-dark);
+    font-weight: 700;
+}
+
+.blaines-retail--archive .retail-filter-option--active:hover {
+    border-left-color: var(--retail-brand-light);
+    background: #dfe9ff;
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--archive .retail-filter-option__control {
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 1px solid var(--retail-border-mid);
+    background: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-option__control--active {
+    border-color: var(--retail-brand-dark);
+    background: var(--retail-brand-dark);
+}
+
+.blaines-retail--archive .retail-filter-option__mark {
+    width: 0.35rem;
+    height: 0.35rem;
+    background: #ffffff;
+}
+
+.blaines-retail--archive .retail-filter-option__count {
+    color: #7b8493;
+    font-size: 0.6875rem;
+}
+
+.blaines-retail--archive .retail-filter-option__count--active {
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--archive .retail-filter-group__empty {
+    border-color: var(--retail-border-soft);
+    background: var(--retail-surface);
+}
+
+/* Active filters */
+.blaines-retail--archive .retail-active-filters {
+    margin-bottom: 1.25rem;
+    padding: 1rem 1.1rem;
+    border: 0;
+    border-left: 4px solid var(--retail-brand-light);
+    background: #eef3ff;
+}
+
+.blaines-retail--archive .retail-active-filters__title {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.blaines-retail--archive .retail-active-filters__clear {
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--archive .retail-active-filters__chip {
+    min-height: 2.2rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid rgba(14, 41, 94, 0.25);
+    background: #ffffff;
+    color: var(--retail-muted);
+}
+
+.blaines-retail--archive .retail-active-filters__chip:hover {
+    border-color: var(--retail-brand-dark);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-active-filters__chip-label {
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--archive .retail-active-filters__chip:hover
+.retail-active-filters__chip-label {
+    color: #ffffff;
+}
+
+/* Results toolbar */
+.blaines-retail--archive .retail-archive-toolbar {
+    margin-bottom: 1.25rem;
+    padding: 0 0 1rem;
+    border: 0;
+    border-bottom: 2px solid var(--retail-brand-dark);
+    background: transparent;
+}
+
+.blaines-retail--archive .retail-archive-toolbar__count {
+    color: var(--retail-brand-dark);
+    font-weight: 700;
+}
+
+.blaines-retail--archive .retail-archive-sort__label {
+    color: var(--retail-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--archive .retail-archive-sort__select {
+    min-height: 2.75rem;
+    border: 1px solid var(--retail-border-mid);
+    border-radius: 0;
+    background-color: #ffffff;
+    color: var(--retail-ink);
+    font-weight: 600;
+}
+
+.blaines-retail--archive .retail-archive-sort__select:focus {
+    border-color: var(--retail-brand-light);
+    box-shadow: 0 0 0 1px var(--retail-brand-light);
+}
+
+/* Results boundary, pagination and zero results */
+.blaines-retail--archive .retail-product-results {
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--archive .retail-pagination {
+    margin-top: 2.25rem;
+    padding-top: 2rem;
+    border-color: var(--retail-border-soft);
+}
+
+.blaines-retail--archive .retail-pagination__current,
+.blaines-retail--archive .retail-pagination__link {
+    min-width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0;
+    font-weight: 700;
+}
+
+.blaines-retail--archive .retail-pagination__current {
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-pagination__link {
+    border-color: var(--retail-border-mid);
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--archive .retail-pagination__link:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+    color: #ffffff;
+}
+
+.blaines-retail--archive .retail-empty-state {
+    padding: clamp(2rem, 5vw, 3.5rem);
+    border: 0;
+    border-top: 4px solid var(--retail-brand-dark);
+    background: var(--retail-surface);
+}
+
+.blaines-retail--archive .retail-empty-state__title {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2.1rem);
+    font-weight: 700;
+}
+
+.blaines-retail--archive .retail-empty-state__copy {
+    color: var(--retail-muted);
+    font-size: 0.95rem;
+}
+
+.blaines-retail--archive .retail-empty-state__action {
+    border: 2px solid var(--retail-brand-dark);
+    border-radius: 0;
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.065em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--archive .retail-empty-state__action:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+}
+
+@media (min-width: 1024px) {
+    .blaines-retail--archive .retail-filter-panel__inner {
+        border: 1px solid var(--retail-border-soft);
+    }
+
+    .blaines-retail--archive .retail-filter-panel__header {
+        position: static;
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media (max-width: 639px) {
+    .blaines-retail--archive .retail-archive-sort {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .blaines-retail--archive .retail-archive-sort__select {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--archive .retail-archive-promotions__image,
+    .blaines-retail--archive .retail-filter-trigger,
+    .blaines-retail--archive .retail-filter-option,
+    .blaines-retail--archive .retail-active-filters__chip,
+    .blaines-retail--archive .retail-pagination__link {
+        transition: none;
+    }
+}
+/* ==========================================================================
+   R2B — Transactional product result rows
+   ========================================================================== */
+
+.blaines-retail--archive .retail-product-results {
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.blaines-retail--archive .retail-product-row {
+    border: 1px solid var(--retail-border-soft);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.blaines-retail--archive .retail-product-row__inner {
+    padding: clamp(1.25rem, 2.4vw, 1.65rem);
+}
+
+/* Product imagery */
+.blaines-retail--archive .retail-product-row__image-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.blaines-retail--archive .retail-product-row__image-frame {
+    display: flex;
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: clamp(0.75rem, 2vw, 1.1rem);
+    border: 0;
+    background: transparent;
+}
+
+.blaines-retail--archive .retail-product-row__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 320ms ease;
+}
+
+.blaines-retail--archive
+.retail-product-row__image-link:hover
+.retail-product-row__image {
+    transform: scale(1.025);
+}
+
+.blaines-retail--archive .retail-product-row__image-placeholder {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: var(--retail-surface);
+    color: var(--retail-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* Product information */
+.blaines-retail--archive .retail-product-row__information {
+    min-width: 0;
+}
+
+.blaines-retail--archive .retail-product-row__code {
+    margin: 0 0 0.6rem;
+    color: var(--retail-muted);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--archive .retail-product-row__title {
+    margin: 0;
+    color: var(--retail-ink);
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.18;
+    letter-spacing: -0.03em;
+}
+
+.blaines-retail--archive .retail-product-row__title a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 180ms ease;
+}
+
+.blaines-retail--archive .retail-product-row__title a:hover {
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--archive .retail-product-row__features {
+    display: grid;
+    gap: 0.55rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    color: var(--retail-muted);
+    font-size: 0.875rem;
+    line-height: 1.55;
+    list-style: none;
+}
+
+.blaines-retail--archive .retail-product-row__features li {
+    display: grid;
+    grid-template-columns: 0.45rem minmax(0, 1fr);
+    gap: 0.7rem;
+    align-items: start;
+}
+
+.blaines-retail--archive .retail-product-row__feature-marker {
+    width: 0.4rem;
+    height: 0.4rem;
+    margin-top: 0.5rem;
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--archive .retail-product-row__description {
+    max-width: 44rem;
+    margin-top: 1.25rem;
+    color: var(--retail-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+}
+
+.blaines-retail--archive .retail-product-row__supporting {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.8rem 1rem;
+    margin-top: 1.35rem;
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--retail-border-soft);
+}
+
+.blaines-retail--archive .retail-product-row__energy {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+}
+
+.blaines-retail--archive .retail-product-row__energy-image {
+    width: auto;
+    max-width: 7rem;
+    height: 2.75rem;
+    object-fit: contain;
+}
+
+/* Promotion titles */
+.blaines-retail--archive .retail-product-promotions {
+    display: flex;
+    min-width: 0;
+    flex: 1 1 15rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blaines-retail--archive .retail-product-promotion {
+    display: -webkit-box;
+    min-height: auto;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0.5rem 0.65rem;
+    border-width: 0 0 0 3px;
+    border-style: solid;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.35;
+    text-decoration: none;
+    transition:
+        filter 180ms ease,
+        transform 180ms ease;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.blaines-retail--archive .retail-product-promotion:hover {
+    filter: brightness(0.97);
+    transform: translateY(-1px);
+}
+
+.blaines-retail--archive .retail-product-promotion--more {
+    border-left-color: var(--retail-brand-dark);
+    background: var(--retail-surface);
+    color: var(--retail-brand-dark);
+}
+
+/* Commercial panel */
+.blaines-retail--archive .retail-product-row__purchase {
+    min-width: 0;
+}
+
+.blaines-retail--archive .retail-product-row__commercial {
+    padding: 1.25rem;
+    border-top: 4px solid var(--retail-brand-dark);
+    background: var(--retail-surface);
+}
+
+.blaines-retail--archive .retail-product-row__pricing {
+    min-height: 5.5rem;
+}
+
+.blaines-retail--archive .retail-product-row__was-price {
+    margin: 0 0 0.45rem;
+    color: var(--retail-muted);
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.blaines-retail--archive .retail-product-row__was-price del {
+    font-weight: 700;
+}
+
+.blaines-retail--archive .retail-product-row__price {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 2.7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+}
+
+.blaines-retail--archive .retail-product-row__price--sale {
+    color: #b42318;
+}
+
+.blaines-retail--archive
+.retail-product-row__price
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+.blaines-retail--archive .retail-product-row__saving {
+    display: inline-flex;
+    margin: 0.8rem 0 0;
+    padding: 0.4rem 0.6rem;
+    background: #b42318;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.blaines-retail--archive
+.retail-product-row__saving
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+.blaines-retail--archive .retail-product-row__availability {
+    margin-top: 1.15rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--retail-border-soft);
+    color: var(--retail-muted);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+}
+
+.blaines-retail--archive .retail-product-row__availability:empty {
+    display: none;
+}
+
+.blaines-retail--archive .retail-product-row__action {
+    display: inline-flex;
+    width: 100%;
+    min-height: 2.9rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.2rem;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--retail-brand-dark);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.07em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+.blaines-retail--archive .retail-product-row__action:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .blaines-retail--archive .retail-product-row__commercial {
+        display: grid;
+        grid-template-columns: minmax(12rem, 0.8fr) minmax(0, 1.2fr);
+        gap: 1.5rem;
+        align-items: end;
+    }
+
+    .blaines-retail--archive .retail-product-row__availability {
+        margin-top: 0;
+        padding-top: 0;
+        padding-left: 1.5rem;
+        border-top: 0;
+        border-left: 1px solid var(--retail-border-soft);
+    }
+
+    .blaines-retail--archive .retail-product-row__action {
+        grid-column: 2;
+    }
+}
+
+@media (max-width: 767px) {
+    .blaines-retail--archive .retail-product-row__image-frame {
+        max-width: 20rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .blaines-retail--archive .retail-product-row__title {
+        font-size: clamp(1.15rem, 5vw, 1.35rem);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--archive .retail-product-row__image-frame,
+    .blaines-retail--archive .retail-product-row__image,
+    .blaines-retail--archive .retail-product-row__title a,
+    .blaines-retail--archive .retail-product-promotion,
+    .blaines-retail--archive .retail-product-row__action {
+        transition: none;
+    }
+}
+/* ==========================================================================
+   R2B.1 — Brand strip and compact commercial panel
+   ========================================================================== */
+
+.blaines-retail--archive .retail-product-row__purchase {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+}
+
+.blaines-retail--archive .retail-product-row__brand {
+    display: flex;
+    min-height: 3.75rem;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 0 0.8rem;
+    background: #ffffff;
+}
+
+.blaines-retail--archive .retail-product-row__brand-image {
+    width: auto;
+    max-width: 8rem;
+    max-height: 2.65rem;
+    object-fit: contain;
+    object-position: right center;
+}
+
+.blaines-retail--archive .retail-product-row__commercial {
+    width: 100%;
+    padding: 1rem;
+    border-top-width: 3px;
+}
+
+.blaines-retail--archive .retail-product-row__pricing {
+    min-height: 0;
+}
+
+.blaines-retail--archive .retail-product-row__price {
+    font-size: clamp(1.8rem, 3.2vw, 2.25rem);
+}
+
+.blaines-retail--archive .retail-product-row__saving {
+    margin-top: 0.65rem;
+    padding: 0.35rem 0.5rem;
+    font-size: 0.6875rem;
+}
+
+.blaines-retail--archive .retail-product-row__availability {
+    margin-top: 0.9rem;
+    padding-top: 0.85rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+}
+
+.blaines-retail--archive .retail-product-row__action {
+    min-height: 2.65rem;
+    margin-top: 0.95rem;
+    padding: 0.65rem 0.8rem;
+    font-size: 0.6875rem;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .blaines-retail--archive .retail-product-row__brand {
+        min-height: 3.25rem;
+        padding-bottom: 0.7rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand-image {
+        max-width: 7.5rem;
+        max-height: 2.4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .blaines-retail--archive .retail-product-row__brand {
+        min-height: 0;
+        justify-content: flex-start;
+        padding: 0 0 0.75rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand:empty {
+        display: none;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand-image {
+        max-width: 7rem;
+        max-height: 2.25rem;
+        object-position: left center;
+    }
+}
+/* ==========================================================================
+   R2B.2 — Commercial spacing and typography readability
+   ========================================================================== */
+
+/*
+ * The availability helper already provides its own internal structure.
+ * Remove the additional wrapper divider/padding that created the empty band.
+ */
+.blaines-retail--archive .retail-product-row__availability {
+    margin-top: 0.8rem;
+    padding-top: 0;
+    border-top: 0;
+}
+
+.blaines-retail--archive
+.retail-product-row__availability
+> :first-child {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+/* Loosen dense bold price numerals without weakening the hierarchy. */
+.blaines-retail--archive .retail-product-row__price {
+    letter-spacing: -0.012em;
+}
+
+/* Ensure SAVE and its value read as two distinct pieces of information. */
+.blaines-retail--archive .retail-product-row__saving {
+    gap: 0.3rem;
+    letter-spacing: 0.035em;
+    white-space: nowrap;
+}
+
+.blaines-retail--archive
+.retail-product-row__saving
+.woocommerce-Price-amount {
+    letter-spacing: 0.015em;
+}
+/* ==========================================================================
+   R2B.3 — Remove nested availability gap and improve readability
+   ========================================================================== */
+
+/*
+ * The loop availability helper outputs its own utility spacing and dividers.
+ * Flatten all nested top spacing/rules, then add one controlled separator.
+ */
+.blaines-retail--archive .retail-product-row__availability {
+    margin-top: 0.8rem !important;
+    padding-top: 0.75rem !important;
+    border-top: 1px solid var(--retail-border-soft) !important;
+}
+
+.blaines-retail--archive .retail-product-row__availability *,
+.blaines-retail--archive .retail-product-row__availability *::before,
+.blaines-retail--archive .retail-product-row__availability *::after {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    border-top: 0 !important;
+}
+
+.blaines-retail--archive
+.retail-product-row__availability
+> * + * {
+    margin-top: 0.3rem !important;
+}
+
+/* Give dense price numerals a little more air. */
+.blaines-retail--archive .retail-product-row__price {
+    letter-spacing: 0.012em;
+}
+
+/* Make SAVE and its monetary value visibly distinct. */
+.blaines-retail--archive .retail-product-row__saving {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.55rem;
+    letter-spacing: 0.045em;
+}
+
+.blaines-retail--archive .retail-product-row__saving-label,
+.blaines-retail--archive .retail-product-row__saving-value {
+    display: inline-block;
+}
+
+.blaines-retail--archive
+.retail-product-row__saving-value
+.woocommerce-Price-amount {
+    letter-spacing: 0.025em;
+}
+
+/* Slightly tighten the feature list without making it cramped. */
+.blaines-retail--archive .retail-product-row__features {
+    gap: 0.42rem;
+    line-height: 1.42;
+}
+
+.blaines-retail--archive .retail-product-row__feature-marker {
+    margin-top: 0.43rem;
+}
+/* ==========================================================================
+   R2B.4 — Compact row and energy-label placement
+   ========================================================================== */
+
+.blaines-retail--archive .retail-product-row__inner {
+    padding: clamp(1.25rem, 2.4vw, 1.65rem);
+}
+
+.blaines-retail--archive .retail-product-row__media-energy {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 0.9rem;
+}
+
+.blaines-retail--archive
+.retail-product-row__media-energy
+.retail-product-row__energy-image {
+    width: auto;
+    max-width: 7rem;
+    height: 3rem;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.blaines-retail--archive .retail-product-row__supporting {
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+}
+
+.blaines-retail--archive .retail-product-promotions {
+    flex-basis: 100%;
+}
+
+@media (max-width: 767px) {
+    .blaines-retail--archive .retail-product-row__media-energy {
+        max-width: 20rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+/* ==========================================================================
+   R2C — Responsive and regression refinement
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Content resilience
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--archive .retail-product-row__code,
+.blaines-retail--archive .retail-product-row__title,
+.blaines-retail--archive .retail-product-promotion {
+    overflow-wrap: anywhere;
+}
+
+.blaines-retail--archive .retail-product-row__title {
+    text-wrap: balance;
+}
+
+.blaines-retail--archive .retail-product-row__price,
+.blaines-retail--archive .retail-product-row__was-price,
+.blaines-retail--archive .retail-product-row__saving,
+.blaines-retail--archive .retail-filter-option__count,
+.blaines-retail--archive .retail-pagination__current,
+.blaines-retail--archive .retail-pagination__link {
+    font-variant-numeric: tabular-nums;
+}
+
+.blaines-retail--archive .retail-product-row__price {
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.blaines-retail--archive .retail-product-row__saving {
+    max-width: 100%;
+    white-space: normal;
+}
+
+.blaines-retail--archive .retail-product-row__brand-image {
+    max-width: min(100%, 8rem);
+}
+
+.blaines-retail--archive .retail-product-row__image-placeholder {
+    background:
+        linear-gradient(
+            135deg,
+            #f7f8fa 0%,
+            #ffffff 52%,
+            #eef1f5 100%
+        );
+}
+
+/* --------------------------------------------------------------------------
+   Keyboard focus
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--archive .retail-product-row__image-link:focus-visible,
+.blaines-retail--archive .retail-product-row__title a:focus-visible,
+.blaines-retail--archive .retail-product-row__action:focus-visible,
+.blaines-retail--archive .retail-product-promotion:focus-visible,
+.blaines-retail--archive .retail-filter-option:focus-within,
+.blaines-retail--archive .retail-active-filters__chip:focus-visible,
+.blaines-retail--archive .retail-pagination__link:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Touch targets and controls
+   -------------------------------------------------------------------------- */
+
+.blaines-retail--archive .retail-filter-option,
+.blaines-retail--archive .retail-active-filters__chip,
+.blaines-retail--archive .retail-pagination__current,
+.blaines-retail--archive .retail-pagination__link,
+.blaines-retail--archive .retail-filter-panel__close {
+    min-height: 2.75rem;
+}
+
+.blaines-retail--archive .retail-archive-sort__select {
+    min-height: 2.75rem;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet and narrow desktop
+   The archive sidebar materially reduces the result-column width below
+   1280px, so use a two-column product-information layout and place the
+   commercial area beneath it.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 768px) and (max-width: 1279px) {
+    .blaines-retail--archive .retail-product-row__media {
+        grid-column: span 4 / span 4;
+    }
+
+    .blaines-retail--archive .retail-product-row__information {
+        grid-column: span 8 / span 8;
+    }
+
+    .blaines-retail--archive .retail-product-row__purchase {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(8rem, 0.35fr) minmax(0, 1.65fr);
+        gap: 1.25rem;
+        align-items: start;
+        width: 100%;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand {
+        min-height: 0;
+        align-self: start;
+        justify-content: flex-start;
+        padding: 0.25rem 0;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand:empty {
+        display: none;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand-image {
+        max-width: 7.5rem;
+        max-height: 2.5rem;
+        object-position: left center;
+    }
+
+    .blaines-retail--archive .retail-product-row__commercial {
+        display: grid;
+        grid-template-columns: minmax(10rem, 0.8fr) minmax(0, 1.2fr);
+        gap: 0.75rem 1.25rem;
+        align-items: start;
+        padding: 1rem 1.15rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__pricing {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+    }
+
+    .blaines-retail--archive .retail-product-row__availability {
+        grid-column: 2;
+        grid-row: 1;
+        margin-top: 0 !important;
+        padding: 0 0 0 1.25rem !important;
+        border-top: 0 !important;
+        border-left: 1px solid var(--retail-border-soft) !important;
+    }
+
+    .blaines-retail--archive .retail-product-row__action {
+        grid-column: 2;
+        grid-row: 2;
+        margin-top: 0.65rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__price {
+        font-size: clamp(1.75rem, 4vw, 2.15rem);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile product rows and archive controls
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 767px) {
+    .blaines-retail--archive {
+        padding-top: 1.25rem;
+        padding-bottom: 3rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__inner {
+        gap: 1.25rem;
+        padding-top: 1.5rem;
+        padding-bottom: 1.4rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__image-frame {
+        width: min(100%, 17rem);
+        max-width: 17rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__media-energy {
+        width: min(100%, 17rem);
+        max-width: 17rem;
+        margin-top: 0.75rem;
+    }
+
+    .blaines-retail--archive
+    .retail-product-row__media-energy
+    .retail-product-row__energy-image {
+        max-width: 6.5rem;
+        height: 2.75rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__code {
+        margin-bottom: 0.5rem;
+        font-size: 0.65rem;
+        line-height: 1.4;
+    }
+
+    .blaines-retail--archive .retail-product-row__title {
+        font-size: clamp(1.3rem, 6vw, 1.55rem);
+        line-height: 1.2;
+    }
+
+    .blaines-retail--archive .retail-product-row__features {
+        gap: 0.38rem;
+        margin-top: 1rem;
+        font-size: 0.8125rem;
+        line-height: 1.42;
+    }
+
+    .blaines-retail--archive .retail-product-row__features li {
+        gap: 0.6rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__description {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+        line-height: 1.55;
+    }
+
+    .blaines-retail--archive .retail-product-row__supporting {
+        margin-top: 0.9rem;
+        padding-top: 0.8rem;
+    }
+
+    .blaines-retail--archive .retail-product-promotions {
+        width: 100%;
+    }
+
+    .blaines-retail--archive .retail-product-promotion {
+        width: 100%;
+        padding: 0.55rem 0.65rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__purchase {
+        width: 100%;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand {
+        min-height: 0;
+        justify-content: flex-end;
+        padding: 0 0 0.65rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__brand-image {
+        max-width: 7rem;
+        max-height: 2.25rem;
+        object-position: right center;
+    }
+
+    .blaines-retail--archive .retail-product-row__commercial {
+        padding: 1rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__price {
+        font-size: clamp(1.8rem, 10vw, 2.2rem);
+    }
+
+    .blaines-retail--archive .retail-product-row__saving {
+        column-gap: 0.45rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__availability {
+        font-size: 0.78rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__action {
+        min-height: 2.85rem;
+    }
+
+    .blaines-retail--archive .retail-active-filters {
+        padding: 0.9rem;
+    }
+
+    .blaines-retail--archive .retail-active-filters__header {
+        gap: 0.75rem;
+    }
+
+    .blaines-retail--archive .retail-active-filters__chips {
+        gap: 0.6rem;
+    }
+
+    .blaines-retail--archive .retail-active-filters__chip {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .blaines-retail--archive .retail-archive-toolbar {
+        gap: 0.85rem;
+    }
+
+    .blaines-retail--archive .retail-archive-sort {
+        width: 100%;
+    }
+
+    .blaines-retail--archive .retail-pagination {
+        gap: 0.5rem;
+        margin-top: 1.75rem;
+        padding-top: 1.5rem;
+    }
+
+    .blaines-retail--archive .retail-pagination__current,
+    .blaines-retail--archive .retail-pagination__link {
+        min-width: 2.75rem;
+        padding-right: 0.75rem;
+        padding-left: 0.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Narrow mobile filter drawer
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 479px) {
+    .blaines-retail--archive .retail-filter-panel {
+        width: min(94vw, 24rem);
+    }
+
+    .blaines-retail--archive .retail-filter-panel__header {
+        padding: 1rem;
+    }
+
+    .blaines-retail--archive .retail-filter-group {
+        padding: 1.1rem 0.9rem;
+    }
+
+    .blaines-retail--archive .retail-filter-option {
+        padding-right: 0.55rem;
+        padding-left: 0.55rem;
+    }
+
+    .blaines-retail--archive .retail-archive-promotions__grid {
+        gap: 0.75rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Large desktop
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 1280px) {
+    .blaines-retail--archive .retail-product-row__media {
+        grid-column: span 3 / span 3;
+    }
+
+    .blaines-retail--archive .retail-product-row__information {
+        grid-column: span 6 / span 6;
+    }
+
+    .blaines-retail--archive .retail-product-row__purchase {
+        grid-column: span 3 / span 3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--archive .retail-product-row__image-frame,
+    .blaines-retail--archive .retail-product-row__image,
+    .blaines-retail--archive .retail-product-row__title a,
+    .blaines-retail--archive .retail-product-promotion,
+    .blaines-retail--archive .retail-product-row__action {
+        transition: none;
+    }
+}
+/* ==========================================================================
+   R2C.1 — Mobile product definition and media scale
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    /*
+     * Remove the continuous archive divider treatment so each mobile product
+     * can read as one distinct commercial unit.
+     */
+    .blaines-retail--archive .retail-product-results {
+        border-top: 0;
+        border-bottom: 0;
+    }
+
+    .blaines-retail--archive .retail-product-row {
+        border: 1px solid var(--retail-border-soft);
+        background: #ffffff;
+        box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+    }
+
+    .blaines-retail--archive .retail-product-row__inner {
+        gap: 1.15rem;
+        padding: 1rem;
+    }
+
+    /*
+     * Use the full mobile content width instead of a narrow centred square.
+     * A 4:3 frame gives appliances more visual presence without creating an
+     * excessively tall product row.
+     */
+    .blaines-retail--archive .retail-product-row__image-frame {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 4 / 3;
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__image {
+        max-height: 14rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__image-placeholder {
+        min-height: 12rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__media-energy {
+        width: 100%;
+        max-width: none;
+        margin: 0.65rem 0 0;
+    }
+
+    /*
+     * The title already includes the brand. Retain the desktop brand-logo
+     * treatment, but remove the awkward duplicate logo above mobile pricing.
+     */
+    .blaines-retail--archive .retail-product-row__brand {
+        display: none;
+    }
+
+    .blaines-retail--archive .retail-product-row__commercial {
+        border-top-width: 3px;
+    }
+}
+
+@media (max-width: 479px) {
+    .blaines-retail--archive .retail-product-row__inner {
+        padding: 0.85rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__image-frame {
+        padding: 0.8rem;
+    }
+
+    .blaines-retail--archive .retail-product-row__image {
+        max-height: 12.5rem;
+    }
+}
+
+/* ==========================================================================
+   R2C.2 — Compact desktop filter options
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+
+    .blaines-retail--archive .retail-filter-group__options {
+        display: grid;
+        gap: 0.25rem;
+    }
+
+    /*
+     * Neutralise Tailwind space-y-* spacing used by the filter forms.
+     */
+    .blaines-retail--archive .retail-filter-group__options > * {
+        margin-block: 0 !important;
+    }
+
+    .blaines-retail--archive .retail-filter-option {
+        min-height: 2.25rem;
+        padding: 0.35rem 0.65rem;
+        line-height: 1.25;
+    }
+}
+
+/* ==========================================================================
+   R2D — Card treatment and pale archive canvas
+   ========================================================================== */
+
+.blaines-retail--archive .retail-product-results {
+    border: 0;
+}
+
+.blaines-retail--archive .retail-product-row {
+    border: 1px solid var(--retail-border-soft);
+    background: #ffffff;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.blaines-retail--archive .retail-product-row__image-frame {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.blaines-retail--archive
+.retail-product-row__image-link:hover
+.retail-product-row__image-frame {
+    border-color: transparent;
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* ==========================================================================
+   Promotions Manager — generic archive promotional roundel
+   ========================================================================== */
+
+.retail-product-row__media-badges {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem;
+    margin-top: 0.9rem;
+}
+
+.retail-product-row__media-badges .retail-product-row__media-energy {
+    margin-top: 0;
+}
+
+.retail-product-row__promotion-roundel {
+    display: inline-flex;
+    flex: 0 0 5.25rem;
+    width: 5.25rem;
+    height: 5.25rem;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--retail-promotion-roundel-border, #f2c94c);
+    border-radius: 999px;
+    background: var(--retail-promotion-roundel-bg, #111111);
+    color: var(--retail-promotion-roundel-text, #f2c94c);
+    padding: 0.55rem;
+    font-family: var(--font-heading, "Montserrat", sans-serif);
+    font-size: 0.70rem;
+    font-weight: 800;
+    line-height: 1.02;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 0 5px 14px rgb(15 23 42 / 18%);
+    transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.retail-product-row__promotion-roundel:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 7px 18px rgb(15 23 42 / 16%);
+}
+
+.retail-product-row__promotion-roundel:focus-visible {
+    outline: 2px solid #143981;
+    outline-offset: 3px;
+}
+
+.retail-product-row__promotion-roundel span {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+    font: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+}
+
+.retail-product-row__promotion-roundel--image {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.retail-product-row__promotion-roundel-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 767px) {
+    .retail-product-row__media-badges {
+        max-width: 20rem;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .retail-product-row__promotion-roundel {
+        flex-basis: 4.75rem;
+        width: 4.75rem;
+        height: 4.75rem;
+        padding: 0.45rem;
+        font-size: 0.64rem;
+    }
+
+    .retail-product-row__promotion-roundel--image {
+        padding: 0;
+    }
+}
+
+/* Keep the roundel on the outer edge when an energy label is also present. */
+.retail-product-row__promotion-roundel {
+    margin-left: auto;
+}
+
+@media (max-width: 767px) {
+    .retail-product-row__media-badges .retail-product-row__media-energy {
+        max-width: none;
+        margin-right: 0;
+        margin-left: 0;
+    }
+}

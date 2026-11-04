@@ -1,0 +1,32 @@
+@import "@fancyapps/ui/dist/fancybox/fancybox.css";
+
+@import "tailwindcss";
+@import "./css/tailwind-plugins.css";
+
+@import "./css/fonts.css";
+@import "./css/theme.css";
+@import "./css/layout.css";
+@import "./css/typography.css";
+
+@import "./css/header-effects.css";
+@import "./css/header.css";
+@import "./css/navigation.css";
+
+@import "./css/components.css";
+@import "./css/accessibility.css";
+@import "./css/forms.css";
+@import "./css/footer.css";
+@import "./css/utilities.css";
+@import "./css/project-gallery.css";
+
+@import "./css/pages/design-consultation.css";
+
+/* Scoped transactional retail design system */
+@import "./css/woocommerce/retail-foundation.css";
+@import "./css/pages/electrical.css";
+@import "./css/woocommerce/archive.css";
+
+@import "./css/woocommerce/product.css";
+@import "./css/woocommerce/cart.css";
+@import "./css/woocommerce/checkout.css";
+@import "./css/woocommerce/commerce-notices.css";

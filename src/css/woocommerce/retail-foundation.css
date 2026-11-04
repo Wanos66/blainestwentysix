@@ -1,0 +1,122 @@
+/* ==========================================================================
+   Blaines transactional retail foundation
+   Scoped to .blaines-retail so approved Interiors and Clearance styling
+   remains unchanged.
+   ========================================================================== */
+
+.blaines-retail {
+    --font-heading: "Montserrat", sans-serif;
+    --font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+
+    --retail-brand: #143981;
+    --retail-brand-light: #215ed9;
+    --retail-brand-dark: #0e295e;
+
+    --retail-ink: #111827;
+    --retail-muted: #4b5563;
+    --retail-surface: #f3f5f8;
+    --retail-warm: #f7f4ee;
+    --retail-border-soft: #d7dce5;
+    --retail-border-mid: #8b95a7;
+    --retail-border-strong: #0e295e;
+
+    font-family: var(--font-body);
+    color: var(--retail-ink);
+}
+
+.blaines-retail :where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+) {
+    font-family: var(--font-heading);
+    letter-spacing: -0.035em;
+}
+
+.blaines-retail :where(
+    p,
+    li,
+    a,
+    button,
+    input,
+    select,
+    textarea
+) {
+    font-family: var(--font-body);
+}
+
+.blaines-retail :where(a, button):focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 3px;
+}
+
+.blaines-retail .retail-button {
+    display: inline-flex;
+    min-height: 3rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 0;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.blaines-retail .retail-button--primary {
+    border-color: var(--retail-brand-dark);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail .retail-button--primary:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.blaines-retail .retail-button--secondary {
+    border-color: var(--retail-brand-dark);
+    background: #ffffff;
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail .retail-button--secondary:hover {
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail .retail-section-heading {
+    max-width: 52rem;
+}
+
+.blaines-retail .retail-section-heading h2 {
+    margin: 0;
+    color: var(--retail-ink);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.blaines-retail .retail-section-heading p {
+    max-width: 46rem;
+    margin: 1rem 0 0;
+    color: var(--retail-muted);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+}

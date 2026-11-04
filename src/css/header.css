@@ -1,0 +1,118 @@
+/* ----------------------------------------------------------
+   PREMIUM HEADER BEHAVIOUR
+   - Smooth shrinking animation
+   - Bar collapse (top-info + black-blurb)
+   - Logo soft scale on scroll
+   - Sticky shadow on condense
+   ---------------------------------------------------------- */
+
+#site-header {
+    position: relative;
+    background: white;
+    z-index: 50;
+    transition:
+            box-shadow 0.3s ease,
+            padding 0.3s ease;
+}
+
+/* Shadow when condensed */
+#site-header.header-condensed {
+    box-shadow:
+            0 2px 6px rgba(0,0,0,0.12),
+            0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* --------------------------------------------
+   COLLAPSING BARS (no transform, no jumping)
+   -------------------------------------------- */
+#top-info-bar,
+#black-blurb-bar {
+    overflow: hidden;
+    transition:
+            max-height 0.40s ease,
+            opacity 0.25s ease;
+}
+
+/* Default heights – adjust to your real pixel heights */
+#top-info-bar {
+    max-height: 32px;
+}
+#black-blurb-bar {
+    max-height: 42px;
+}
+
+#black-blurb-bar h5 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Condensed: collapse bars */
+#site-header.header-condensed #top-info-bar,
+#site-header.header-condensed #black-blurb-bar {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* --------------------------------------------
+   PREMIUM LOGO SHRINK + FADE
+   -------------------------------------------- */
+#main-logo {
+    transition:
+            transform 0.35s ease,
+            opacity 0.35s ease;
+}
+
+#site-header.header-condensed #main-logo {
+    transform: scale(0.85);
+    opacity: 0.9;
+}
+
+/* --------------------------------------------
+   PREMIUM HEADER PADDING REDUCTION
+   -------------------------------------------- */
+#nav-row {
+    transition: padding 0.35s ease;
+}
+
+#site-header.header-condensed #nav-row {
+    padding-top: 0.25rem;  /* tighter */
+    padding-bottom: 0.25rem;
+}
+
+/* Main custom logo */
+.header-main-logo {
+    flex: 0 0 auto;
+}
+
+.header-main-logo .custom-logo-link {
+    display: inline-flex;
+    align-items: center;
+    line-height: 0;
+    max-width: 100%;
+}
+
+.header-main-logo #main-logo,
+.header-main-logo .custom-logo {
+    display: block;
+    height: 72px !important;
+    width: auto !important;
+    max-width: 360px !important;
+    min-width: 140px;
+    object-fit: contain;
+}
+
+/* Partner logos */
+/*.header-partner-logos {*/
+/*    flex: 0 0 auto;*/
+/*}*/
+
+/*.header-partner-logos img {*/
+/*    display: block;*/
+/*    width: auto !important;*/
+/*    height: 2.5rem !important;*/
+/*    max-width: none !important;*/
+/*    max-height: none !important;*/
+/*    object-fit: contain;*/
+/*    flex: 0 0 auto;*/
+/*}*/

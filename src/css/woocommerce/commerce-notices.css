@@ -1,0 +1,159 @@
+/**
+ * Blaines WooCommerce customer notices.
+ *
+ * R4A retail migration.
+ */
+
+.woocommerce-notices-wrapper:empty {
+    display: none;
+}
+
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-info {
+    position: relative;
+    margin: 0 0 1.25rem !important;
+    padding: 1rem 1.15rem 1rem 3.1rem !important;
+    border: 1px solid #dfe3ea !important;
+    border-left-width: 4px !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    color: #374151 !important;
+    box-shadow: none !important;
+    outline: none !important;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    list-style: none !important;
+}
+
+.woocommerce-error {
+    border-left-color: #b42318 !important;
+}
+
+.woocommerce-message {
+    border-left-color: #15803d !important;
+}
+
+.woocommerce-info {
+    border-left-color: #215ed9 !important;
+}
+
+.woocommerce-error:focus,
+.woocommerce-message:focus,
+.woocommerce-info:focus,
+.woocommerce-error:focus-visible,
+.woocommerce-message:focus-visible,
+.woocommerce-info:focus-visible {
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(33, 94, 217, 0.14) !important;
+}
+
+.woocommerce-error::before,
+.woocommerce-message::before,
+.woocommerce-info::before {
+    top: 1rem !important;
+    left: 1rem !important;
+}
+
+.woocommerce-error::before {
+    color: #b42318 !important;
+}
+
+.woocommerce-message::before {
+    color: #15803d !important;
+}
+
+.woocommerce-info::before {
+    color: #215ed9 !important;
+}
+
+.woocommerce-error li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.woocommerce-error li + li {
+    margin-top: 0.35rem !important;
+}
+
+.woocommerce-error a,
+.woocommerce-message a,
+.woocommerce-info a {
+    color: #143981;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(20, 57, 129, 0.3);
+    text-underline-offset: 0.22rem;
+}
+
+.woocommerce-error a:hover,
+.woocommerce-message a:hover,
+.woocommerce-info a:hover {
+    color: #215ed9;
+}
+
+.woocommerce-error .button,
+.woocommerce-message .button,
+.woocommerce-info .button {
+    float: none !important;
+    display: inline-flex !important;
+    min-height: 2.75rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 0 0 1rem !important;
+    padding: 0.65rem 1rem !important;
+    border: 2px solid #0e295e !important;
+    border-radius: 0 !important;
+    background: #0e295e !important;
+    color: #ffffff !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.065em !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    vertical-align: middle !important;
+    transition:
+        border-color 160ms ease,
+        background-color 160ms ease !important;
+}
+
+.woocommerce-error .button:hover,
+.woocommerce-message .button:hover,
+.woocommerce-info .button:hover {
+    border-color: #215ed9 !important;
+    background: #215ed9 !important;
+    color: #ffffff !important;
+}
+
+.woocommerce-error .button:focus-visible,
+.woocommerce-message .button:focus-visible,
+.woocommerce-info .button:focus-visible {
+    outline: 3px solid #215ed9 !important;
+    outline-offset: 3px !important;
+}
+
+@media (max-width: 639px) {
+    .woocommerce-error,
+    .woocommerce-message,
+    .woocommerce-info {
+        padding: 0.9rem 0.9rem 0.9rem 2.75rem !important;
+        font-size: 0.82rem;
+    }
+
+    .woocommerce-error::before,
+    .woocommerce-message::before,
+    .woocommerce-info::before {
+        top: 0.9rem !important;
+        left: 0.85rem !important;
+    }
+
+    .woocommerce-error .button,
+    .woocommerce-message .button,
+    .woocommerce-info .button {
+        display: flex !important;
+        width: fit-content;
+        margin: 0.85rem 0 0 !important;
+    }
+}

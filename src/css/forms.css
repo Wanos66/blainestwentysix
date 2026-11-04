@@ -1,0 +1,116 @@
+/* ==========================================================
+   FORMS – WPForms styling (site forms)
+   ========================================================== */
+
+.blaines-wpforms .wpforms-container {
+    @apply m-0;
+}
+
+.blaines-wpforms .wpforms-form {
+    @apply space-y-4;
+}
+
+.blaines-wpforms .wpforms-field {
+    @apply p-0;
+}
+
+/* Hide labels visually (WPForms keeps them for accessibility) */
+.blaines-wpforms .wpforms-field-label {
+    @apply sr-only;
+}
+
+/* ----------------------------------------------------------
+   Inputs
+   ---------------------------------------------------------- */
+
+.blaines-wpforms input[type="text"],
+.blaines-wpforms input[type="email"],
+.blaines-wpforms input[type="tel"],
+.blaines-wpforms textarea,
+.blaines-wpforms select {
+    @apply w-full bg-white text-gray-900 border border-gray-300
+    px-4 py-3 text-base outline-none
+    focus:border-brand focus:ring-0;
+}
+
+/* Textarea sizing */
+.blaines-wpforms textarea {
+    @apply min-h-[140px] resize-y;
+}
+
+/* ----------------------------------------------------------
+   Validation / Errors
+   ---------------------------------------------------------- */
+
+.blaines-wpforms label.wpforms-error {
+    @apply text-red-600 text-sm mt-2;
+}
+
+.blaines-wpforms input.wpforms-error,
+.blaines-wpforms textarea.wpforms-error,
+.blaines-wpforms select.wpforms-error {
+    @apply border-red-400;
+}
+
+/* ----------------------------------------------------------
+   Submit button
+   ---------------------------------------------------------- */
+
+.blaines-wpforms .wpforms-submit {
+    @apply inline-flex items-center justify-center
+    bg-brand text-white font-semibold
+    px-6 py-3 border border-brand
+    hover:bg-brand-dark transition;
+}
+
+.blaines-wpforms .wpforms-submit-container {
+    @apply pt-2;
+}
+
+
+/* Notice container */
+.wpforms-container .blaines-cancellation-notice {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1.25rem !important;
+    background-color: #f8f9fa;
+    border: none;
+}
+
+/* WPForms medium-width Content field override */
+.wpforms-container .blaines-cancellation-notice .wpforms-field-row.wpforms-field-medium {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Notice headings */
+.wpforms-container .blaines-cancellation-notice h2,
+.wpforms-container .blaines-cancellation-notice h3,
+.wpforms-container .blaines-cancellation-notice h4 {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #0E295E;
+}
+
+/* Notice paragraphs */
+.wpforms-container .blaines-cancellation-notice p {
+    margin: 0 0 0.65rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #374151;
+}
+
+.wpforms-container .blaines-cancellation-notice p:last-child {
+    margin-bottom: 0;
+}
+
+/* Desktop: keep the notice comfortably compact */
+@media (min-width: 768px) {
+    .wpforms-container .blaines-cancellation-notice {
+        max-width: 42rem;
+    }
+}

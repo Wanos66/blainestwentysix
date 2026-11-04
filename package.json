@@ -1,0 +1,27 @@
+{
+  "name": "blainestwentysix",
+  "version": "1.0.0",
+  "description": "Blaine's 2026 WordPress theme",
+  "license": "GPL-2.0-or-later",
+  "author": "Wayne Yallop",
+  "scripts": {
+    "start": "concurrently \"npm:start:*\" --kill-others",
+    "start:js": "wp-scripts start",
+    "start:css": "tailwindcss -i ./src/style.css -o ./assets/css/style.css --watch",
+    "build": "concurrently \"npm:build:*\" --kill-others-on-fail",
+    "build:js": "wp-scripts build",
+    "build:css": "tailwindcss -i ./src/style.css -o ./assets/css/style.css --minify",
+    "lint:js": "wp-scripts lint-js",
+    "format": "wp-scripts format"
+  },
+  "devDependencies": {
+    "@alpinejs/collapse": "^3.15.2",
+    "@fancyapps/ui": "^6.1.7",
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/typography": "^0.5.19",
+    "@wordpress/scripts": "^30.27.0",
+    "alpinejs": "^3.15.2",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.17"
+  }
+}

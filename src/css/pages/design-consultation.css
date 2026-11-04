@@ -1,0 +1,245 @@
+/* ----------------------------------------------------------
+   DESIGN CONSULTATION PAGE
+   ---------------------------------------------------------- */
+
+.design-consultation-page .custom-logo-link img,
+.design-consultation-page .custom-logo {
+    max-height: 72px;
+    width: auto;
+}
+
+.design-consultation-page .wpforms-container {
+    margin: 0;
+}
+
+.design-consultation-page .wpforms-container .wpforms-head-container,
+.design-consultation-page .wpforms-container .wpforms-title,
+.design-consultation-page .wpforms-container .wpforms-description {
+    display: none;
+}
+
+.design-consultation-page .wpforms-form {
+    color: #171717;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field-container {
+    display: block;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field {
+    margin: 0 0 1rem 0;
+    padding: 0;
+}
+
+.design-consultation-page .wpforms-form label {
+    display: inline-block;
+    margin-bottom: 0.42rem;
+    color: #1f1f1f;
+    font-size: 0.72rem;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field-label-inline,
+.design-consultation-page .wpforms-form .wpforms-field-sublabel {
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: none;
+}
+
+.design-consultation-page .wpforms-form input[type="text"],
+.design-consultation-page .wpforms-form input[type="email"],
+.design-consultation-page .wpforms-form input[type="tel"],
+.design-consultation-page .wpforms-form input[type="number"],
+.design-consultation-page .wpforms-form input[type="url"],
+.design-consultation-page .wpforms-form select,
+.design-consultation-page .wpforms-form textarea {
+    width: 100%;
+    min-height: 50px;
+    border: 1px solid #8d8d8d;
+    border-radius: 0;
+    background: #fff;
+    color: #171717;
+    padding: 0.85rem 1rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    box-shadow: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.design-consultation-page .wpforms-form textarea {
+    min-height: 150px;
+    resize: vertical;
+    padding-top: 0.95rem;
+}
+
+.design-consultation-page .wpforms-form input::placeholder,
+.design-consultation-page .wpforms-form textarea::placeholder {
+    color: #8a8a8a;
+    opacity: 1;
+}
+
+.design-consultation-page .wpforms-form input:focus,
+.design-consultation-page .wpforms-form select:focus,
+.design-consultation-page .wpforms-form textarea:focus {
+    border-color: #171717;
+    outline: none;
+    box-shadow: none;
+    background: #fff;
+}
+
+.design-consultation-page .wpforms-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 3rem;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%23171717' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 14px 14px;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field-row {
+    margin: 0;
+    gap: 1rem;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field-description,
+.design-consultation-page .wpforms-form .wpforms-description,
+.design-consultation-page .wpforms-form .wpforms-field-limit-text {
+    margin-top: 0.4rem;
+    color: #666;
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-indicator {
+    max-width: 48rem;
+    margin: 0 0 1.25rem 0;
+    color: #2f2f2f;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-indicator-progress {
+    height: 1px;
+    margin-top: 0.55rem;
+    border-radius: 0;
+    background: #e5e5e5;
+    overflow: hidden;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-indicator-page-progress-wrap {
+    background: #747b8a;
+    border-radius: 0;
+}
+
+.design-consultation-page .wpforms-form .wpforms-pagebreak-left,
+.design-consultation-page .wpforms-form .wpforms-pagebreak-center,
+.design-consultation-page .wpforms-form .wpforms-pagebreak-right {
+    margin-top: 2rem;
+    padding-top: 0.25rem;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-button,
+.design-consultation-page .wpforms-form button[type="submit"],
+.design-consultation-page .wpforms-form input[type="submit"],
+.design-consultation-page .wpforms-form .wpforms-submit {
+    min-height: 52px;
+    padding: 0 1.6rem;
+    border: 1px solid #171717;
+    border-radius: 0;
+    background: #171717;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    box-shadow: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-button:hover,
+.design-consultation-page .wpforms-form button[type="submit"]:hover,
+.design-consultation-page .wpforms-form input[type="submit"]:hover,
+.design-consultation-page .wpforms-form .wpforms-submit:hover {
+    background: #2c2c2c;
+    border-color: #2c2c2c;
+    color: #fff;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-prev {
+    background: transparent;
+    color: #171717;
+}
+
+.design-consultation-page .wpforms-form .wpforms-page-prev:hover {
+    background: #171717;
+    color: #fff;
+}
+
+.design-consultation-page .wpforms-form .wpforms-submit-container {
+    padding-top: 0.5rem;
+}
+
+.design-consultation-page .wpforms-form .wpforms-required-label,
+.design-consultation-page .wpforms-form .wpforms-error {
+    color: #8a2c2c !important;
+    font-size: 0.8125rem;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field.wpforms-has-error input,
+.design-consultation-page .wpforms-form .wpforms-field.wpforms-has-error select,
+.design-consultation-page .wpforms-form .wpforms-field.wpforms-has-error textarea {
+    border-color: #8a2c2c;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field-checkbox ul,
+.design-consultation-page .wpforms-form .wpforms-field-radio ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.design-consultation-page .wpforms-form .wpforms-field-checkbox li,
+.design-consultation-page .wpforms-form .wpforms-field-radio li {
+    margin-bottom: 0.75rem;
+}
+
+.design-consultation-page .wpforms-form input[type="checkbox"],
+.design-consultation-page .wpforms-form input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 767px) {
+    .design-consultation-page .custom-logo-link img,
+    .design-consultation-page .custom-logo {
+        max-height: 60px;
+    }
+
+    .design-consultation-page .wpforms-form input[type="text"],
+    .design-consultation-page .wpforms-form input[type="email"],
+    .design-consultation-page .wpforms-form input[type="tel"],
+    .design-consultation-page .wpforms-form input[type="number"],
+    .design-consultation-page .wpforms-form input[type="url"],
+    .design-consultation-page .wpforms-form select,
+    .design-consultation-page .wpforms-form textarea,
+    .design-consultation-page .wpforms-form .wpforms-page-button,
+    .design-consultation-page .wpforms-form button[type="submit"],
+    .design-consultation-page .wpforms-form input[type="submit"],
+    .design-consultation-page .wpforms-form .wpforms-submit {
+        min-height: 50px;
+    }
+
+    .design-consultation-page .wpforms-form .wpforms-page-button,
+    .design-consultation-page .wpforms-form button[type="submit"],
+    .design-consultation-page .wpforms-form input[type="submit"],
+    .design-consultation-page .wpforms-form .wpforms-submit {
+        width: 100%;
+    }
+}

@@ -1,0 +1,22 @@
+/* Loading State */
+.loading {
+    @apply animate-pulse bg-gray-200;
+}
+
+/* Force Trustpilot widget to align left */
+.tp-left-wrapper {
+    text-align: left !important;
+}
+
+.tp-left-wrapper .trustpilot-widget iframe {
+    max-width: 180px !important; /* you can adjust this */
+    width: auto !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

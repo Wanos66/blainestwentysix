@@ -1,0 +1,54 @@
+/* ==========================================
+   COMPONENT STYLES
+   ========================================== */
+
+/* Buttons */
+.btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+    background-color: var(--brand);
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
+}
+
+.btn-primary:focus {
+    @apply ring-blue-500;
+}
+
+.btn-secondary {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300;
+}
+
+.btn-outline {
+    @apply border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50;
+}
+
+/* Cards */
+.card {
+    @apply bg-white shadow-md overflow-hidden transition-shadow duration-200;
+}
+
+.card:hover {
+    @apply shadow-xl;
+}
+
+.card-body {
+    @apply p-6;
+}
+
+.card-title {
+    @apply text-xl font-bold mb-2 text-gray-900;
+}
+
+.card-text {
+    @apply text-gray-600;
+}

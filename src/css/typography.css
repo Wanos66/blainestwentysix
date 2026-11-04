@@ -1,0 +1,452 @@
+/* ==========================================
+   TYPOGRAPHY / PROSE WRAPPERS
+   Shared editorial typography + WordPress content styles
+   ========================================== */
+
+@layer components {
+    /* ----------------------------------------------------------
+       Shared editorial prose foundation
+       Use alongside context wrappers:
+       .prose-site.prose-news
+       .prose-site.prose-project
+       ---------------------------------------------------------- */
+    .prose-site {
+        color: rgba(17, 24, 39, 0.8);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .prose-site :where(p, ul, ol, blockquote, table, pre) {
+        font-family: var(--font-body);
+        font-weight: 300;
+    }
+
+    .prose-site :where(h1, h2, h3, h4, h5, h6) {
+        font-family: var(--font-heading);
+        font-weight: 500;
+        color: #111827;
+        letter-spacing: -0.02em;
+    }
+
+    .prose-site :where(strong, b) {
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .prose-site :where(em, i) {
+        font-style: italic;
+    }
+
+    .prose-site a {
+        color: #111827;
+        font-weight: 500;
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.25);
+        text-underline-offset: 3px;
+    }
+
+    .prose-site a:hover {
+        text-decoration-color: rgba(0, 0, 0, 0.45);
+    }
+
+    .prose-site :where(img, video, iframe, embed, object) {
+        max-width: 100%;
+    }
+
+    .prose-site :where(h2, h3, h4) {
+        scroll-margin-top: 6rem;
+    }
+
+    /* ----------------------------------------------------------
+       Section title block
+       Remove later if unused
+       ---------------------------------------------------------- */
+    .prose-section {
+        @apply my-8 text-center text-3xl font-bold;
+        color: #111827;
+    }
+
+    .prose-section h1 {
+        @apply mb-6 text-4xl font-bold;
+        color: #111827;
+    }
+
+    .prose-section h2 {
+        @apply mb-4 text-2xl font-bold;
+        color: var(--brand);
+    }
+
+    .prose-section p {
+        @apply mb-4 text-lg font-light;
+        color: #4b5563;
+    }
+
+    /* ----------------------------------------------------------
+       Project prose
+       Kept plugin-based for now, but aligned via .prose-site
+       ---------------------------------------------------------- */
+    .prose-project {
+        @apply prose prose-lg max-w-none text-gray-800 prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl prose-img:rounded-lg dark:text-gray-100;
+    }
+
+    /* ----------------------------------------------------------
+       Intro / header editorial copy
+       For shorter intro text blocks using prose utilities
+       ---------------------------------------------------------- */
+    .prose-intro {
+        --tw-prose-body: #111827;
+        --tw-prose-headings: #111827;
+        --tw-prose-links: #111827;
+        --tw-prose-bold: #111827;
+        --tw-prose-counters: #6b7280;
+        --tw-prose-bullets: #6b7280;
+    }
+
+    .prose-intro a {
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.25);
+        text-underline-offset: 3px;
+    }
+
+    .prose-intro a:hover {
+        text-decoration-color: rgba(0, 0, 0, 0.45);
+    }
+
+    /* ----------------------------------------------------------
+   News / editorial body prose
+   Stable live wrapper
+   ---------------------------------------------------------- */
+    .prose-news {
+        @apply prose max-w-[70ch];
+        color: rgba(17, 24, 39, 0.8);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .prose-news :where(p, ul, ol, li, blockquote, table, pre) {
+        font-family: var(--font-body);
+    }
+
+    .prose-news :where(h1, h2, h3, h4, h5, h6) {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        color: #111827;
+        letter-spacing: -0.02em;
+    }
+
+    .prose-news :where(strong, b) {
+        font-weight: 600;
+        color: #111827;
+    }
+
+    .prose-news :where(em, i) {
+        font-style: italic;
+    }
+
+    .prose-news a {
+        color: #111827;
+        font-weight: 500;
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.25);
+        text-underline-offset: 3px;
+    }
+
+    .prose-news a:hover {
+        text-decoration-color: rgba(0, 0, 0, 0.45);
+    }
+
+    .prose-news :where(h2, h3, h4) {
+        scroll-margin-top: 6rem;
+    }
+
+    .prose-news p {
+        line-height: 1.6;
+    }
+
+    .prose-news > :first-child {
+        margin-top: 0 !important;
+    }
+
+    /* ----------------------------------------------------------
+       Classic Editor image alignment (no caption)
+       ---------------------------------------------------------- */
+    .prose-news img.alignleft {
+        float: left;
+        max-width: 45%;
+        margin: 0.5rem 1.5rem 1.5rem 0;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .prose-news img.alignright {
+        float: right;
+        max-width: 45%;
+        margin: 0.5rem 0 1.5rem 1.5rem;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .prose-news img.aligncenter {
+        display: block;
+        margin: 2rem auto;
+    }
+
+    /* ----------------------------------------------------------
+       Classic Editor captions
+       ---------------------------------------------------------- */
+    .prose-news figure.wp-caption {
+        margin: 0.5rem 0 1.5rem 0 !important;
+    }
+
+    .prose-news figure.wp-caption.alignleft {
+        float: left;
+        display: block;
+        width: 45% !important;
+        max-width: 45%;
+        margin: 0.5rem 1.5rem 1.5rem 0 !important;
+    }
+
+    .prose-news figure.wp-caption.alignright {
+        float: right;
+        display: block;
+        width: 45% !important;
+        max-width: 45%;
+        margin: 0.5rem 0 1.5rem 1.5rem !important;
+    }
+
+    .prose-news figure.wp-caption > img {
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+        margin: 0 !important;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .prose-news figure.wp-caption > figcaption.wp-caption-text {
+        display: block;
+        margin-top: 0.5rem !important;
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        line-height: 1.5;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .prose-news::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+
+/* ==========================================================
+   Legal Information — shared document typography
+   ========================================================== */
+
+.prose-site.prose-legal {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: #374151;
+}
+
+/* Paragraphs */
+
+.prose-site.prose-legal p {
+    margin: 0 0 10px;
+    font-size: inherit;
+    line-height: 1.55;
+}
+
+/* Headings */
+
+.prose-site.prose-legal h1,
+.prose-site.prose-legal h2,
+.prose-site.prose-legal h3 {
+    font-family: var(--font-heading);
+    color: #0E295E;
+}
+
+.prose-site.prose-legal h1 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+}
+
+.prose-site.prose-legal h2 {
+    margin: 24px 0 10px;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.prose-site.prose-legal h3 {
+    margin: 18px 0 8px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Lists */
+
+.prose-site.prose-legal ul,
+.prose-site.prose-legal ol {
+    margin: 8px 0 12px;
+    padding-left: 1.5rem;
+}
+
+.prose-site.prose-legal ul {
+    list-style-type: disc;
+}
+
+.prose-site.prose-legal ol {
+    list-style-type: decimal;
+}
+
+.prose-site.prose-legal li {
+    margin-bottom: 4px;
+}
+
+.prose-site.prose-legal li::marker {
+    color: #374151;
+}
+
+/* Tables */
+
+.prose-site.prose-legal table {
+    width: 100%;
+    margin: 16px 0 24px;
+    border-collapse: collapse;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.prose-site.prose-legal th {
+    padding: 12px 14px;
+    text-align: left;
+    vertical-align: top;
+    font-weight: 700;
+    color: #0E295E;
+    background-color: #f3f4f6;
+    border-bottom: 1px solid #d1d5db;
+}
+
+.prose-site.prose-legal td {
+    padding: 12px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Preserve normal WPForms typography */
+
+.prose-site.prose-legal .wpforms-container p {
+    margin-top: revert;
+    margin-bottom: revert;
+    line-height: normal;
+}
+
+/* ==========================================================
+   Complianz Cookie Policy — shared typography
+   ========================================================== */
+
+.prose-site.prose-legal #cmplz-document {
+    max-width: none;
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.55;
+    color: #374151;
+}
+
+.prose-site.prose-legal #cmplz-document p,
+.prose-site.prose-legal #cmplz-document li {
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.prose-site.prose-legal #cmplz-document h2 {
+    font-size: 22px;
+    line-height: 1.35;
+}
+
+.prose-site.prose-legal #cmplz-document h3 {
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+
+/* ==========================================================
+   Legal Information — sidebar navigation
+   ========================================================== */
+
+.blaines-legal-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.blaines-legal-menu li {
+    margin: 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.blaines-legal-menu li:last-child {
+    border-bottom: 0;
+}
+
+.blaines-legal-menu a {
+    display: block;
+    padding: 0.75rem 0;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #374151;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+
+.blaines-legal-menu a:hover {
+    color: #143981;
+}
+
+.blaines-legal-menu .current-menu-item > a,
+.blaines-legal-menu .current_page_item > a {
+    color: #143981;
+    font-weight: 600;
+}
+
+
+/* ----------------------------------------------------------
+   Mobile fallback
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    .prose-news img.alignleft,
+    .prose-news img.alignright {
+        float: none;
+        display: block;
+        max-width: 100%;
+        margin: 1.5rem auto;
+    }
+
+    .prose-news figure.wp-caption.alignleft,
+    .prose-news figure.wp-caption.alignright {
+        float: none;
+        width: 100% !important;
+        max-width: 100%;
+        margin: 1.5rem 0;
+    }
+}
+
+.entry-title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #111827;
+}

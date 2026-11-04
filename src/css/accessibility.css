@@ -1,0 +1,19 @@
+/* Skip to Content Link (Accessibility) */
+.skip-link {
+    @apply sr-only focus:not-sr-only;
+    @apply fixed top-4 left-4 z-50;
+    @apply bg-white text-blue-600 px-4 py-2 rounded shadow-lg;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Focus Visible Styles (Accessibility) */
+*:focus-visible {
+    @apply outline-2 outline-offset-2 outline-blue-600;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}

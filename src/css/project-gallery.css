@@ -1,0 +1,29 @@
+.project-thumb {
+    @apply cursor-pointer transition-opacity duration-200 opacity-60;
+}
+
+.project-thumb:hover {
+    @apply opacity-100;
+}
+
+.project-thumb.active {
+    @apply opacity-100;
+}
+
+/* Add transition to the wrapper so fade works */
+.project-main-wrapper {
+    @apply transition-opacity duration-300;
+}
+
+/* Active thumbnail subtle white border */
+.project-thumb.active {
+    @apply opacity-100 border-2 border-white shadow-sm;
+}
+
+[data-project-main-image] {
+    @apply opacity-100 transition-opacity duration-300 ease-in-out;
+}
+
+[data-project-main-image].is-fading-out {
+    @apply opacity-0;
+}

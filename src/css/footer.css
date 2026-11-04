@@ -1,0 +1,97 @@
+@layer components {
+    /* FOOTER: WPForms newsletter styling */
+    footer .wpforms-container,
+    footer .wpforms-container * {
+        box-sizing: border-box;
+    }
+
+    footer .wpforms-container,
+    footer .wpforms-container .wpforms-form {
+        margin: 0 !important;
+    }
+
+    footer .wpforms-container .wpforms-field {
+        margin: 0 0 12px 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Hide standard field labels; footer form relies on placeholders / inline consent text */
+    footer .wpforms-container .wpforms-field-label {
+        display: none !important;
+    }
+
+    footer .wpforms-container input[type="text"],
+    footer .wpforms-container input[type="email"],
+    footer .wpforms-container input[type="tel"],
+    footer .wpforms-container input[type="url"],
+    footer .wpforms-container textarea,
+    footer .wpforms-container select {
+        width: 100% !important;
+        padding: 12px 16px !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        border-radius: 5px !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+        font-family: var(--font-body) !important;
+        font-size: 14px !important;
+        line-height: 1.4 !important;
+        outline: none !important;
+    }
+
+    footer .wpforms-container input::placeholder,
+    footer .wpforms-container textarea::placeholder {
+        color: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    footer .wpforms-container input:focus,
+    footer .wpforms-container textarea:focus,
+    footer .wpforms-container select:focus {
+        border-color: rgba(255, 255, 255, 0.3) !important;
+        box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25) !important;
+    }
+
+    /* SG email marketing consent field */
+    footer .wpforms-container input.wpforms-field-sg_email_marketing {
+        width: auto !important;
+        margin-right: 0.5rem !important;
+        accent-color: #ffffff;
+    }
+
+    footer .wpforms-container label.sg_email_marketing_field_preview_label {
+        display: inline !important;
+        color: rgba(255, 255, 255, 0.88) !important;
+        font-family: var(--font-body) !important;
+        font-size: 13px !important;
+        line-height: 1.5 !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+        text-transform: none !important;
+    }
+
+    footer .wpforms-container label.sg_email_marketing_field_preview_label a {
+        color: #ffffff !important;
+        text-decoration: underline !important;
+        text-underline-offset: 3px;
+    }
+
+    footer .wpforms-container .wpforms-submit-container {
+        margin: 0 !important;
+        padding-top: 4px !important;
+    }
+
+    footer .wpforms-container button.wpforms-submit {
+        width: 100% !important;
+        padding: 12px 16px !important;
+        border: none !important;
+        border-radius: 5px !important;
+        background: #fff !important;
+        color: #000 !important;
+        font-family: var(--font-body) !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+    }
+
+    footer .wpforms-container button.wpforms-submit:hover {
+        opacity: 0.9 !important;
+    }
+}

@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.container-narrow {
+    @apply mx-auto max-w-3xl px-4 sm:px-6 lg:px-8;
+}
+
+.container-medium {
+    @apply mx-auto max-w-5xl px-4 sm:px-6 lg:px-8;
+}
+
+.container-wide {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.container-narrow-nopad {
+    @apply mx-auto max-w-3xl;
+}
+
+.container-medium-nopad {
+    @apply mx-auto max-w-5xl;
+}
+
+.container-wide-nopad {
+    @apply mx-auto max-w-7xl;
+}
+
+.container-nav {
+    @apply mx-auto max-w-7xl px-3 sm:px-4 lg:px-6;
+}
+
+.section {
+    @apply py-10 lg:py-12;
+}

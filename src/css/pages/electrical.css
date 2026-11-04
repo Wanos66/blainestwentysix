@@ -1,0 +1,1395 @@
+/* ==========================================================================
+   Electrical landing page — R1A visual foundation
+   ========================================================================== */
+
+.blaines-retail--landing {
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-landing__breadcrumb {
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    font-size: 0.875rem;
+}
+
+.blaines-retail--landing .retail-hero {
+    padding-bottom: 2rem;
+}
+
+.blaines-retail--landing .retail-hero__frame {
+    position: relative;
+    background: transparent;
+}
+
+/* Supplier campaign artwork remains image-led: no overlays or HTML copy. */
+.blaines-retail--landing .retail-slider {
+    position: relative;
+    width: 100%;
+    height: 17.5rem;
+    overflow: hidden;
+    background: #111827;
+}
+
+.blaines-retail--landing .retail-slider__track,
+.blaines-retail--landing .retail-slider__slide,
+.blaines-retail--landing .retail-slider__link {
+    width: 100%;
+    height: 100%;
+}
+
+.blaines-retail--landing .retail-slider__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blaines-retail--landing .retail-slider__control {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 0;
+    background: rgba(14, 41, 94, 0.94);
+    color: #ffffff;
+    transform: translateY(-50%);
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+.blaines-retail--landing .retail-slider__control:hover {
+    border-color: #ffffff;
+    background: var(--retail-brand-light);
+    transform: translateY(-50%) scale(1.04);
+}
+
+.blaines-retail--landing .retail-slider__control--previous {
+    left: 1rem;
+}
+
+.blaines-retail--landing .retail-slider__control--next {
+    right: 1rem;
+}
+
+.blaines-retail--landing .retail-slider__control svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.blaines-retail--landing .retail-slider__dots {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 0.75rem;
+    background: rgba(14, 41, 94, 0.78);
+    transform: translateX(-50%);
+}
+
+.blaines-retail--landing .retail-slider__dot {
+    width: 1.75rem;
+    height: 0.25rem;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.48);
+    transition:
+        width 180ms ease,
+        background-color 180ms ease;
+}
+
+.blaines-retail--landing
+.retail-slider__dot[aria-selected="true"] {
+    width: 2.75rem;
+    background: #ffffff;
+}
+
+.blaines-retail--landing
+.retail-slider__dot:hover {
+    background: rgba(255, 255, 255, 0.82);
+}
+
+/* Primary Blaines retail proposition */
+.blaines-retail--landing .retail-intro {
+    padding: 1rem 0 1.5rem;
+}
+
+.blaines-retail--landing .retail-intro__grid {
+    display: grid;
+    overflow: hidden;
+    border: 3px solid var(--retail-border-strong);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-intro__content {
+    padding: clamp(2rem, 5vw, 4.25rem);
+}
+
+.blaines-retail--landing .retail-intro__title {
+    max-width: 13ch;
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-size: clamp(2.5rem, 6vw, 4.75rem);
+    font-weight: 800;
+    line-height: 0.98;
+}
+
+.blaines-retail--landing .retail-intro__copy {
+    max-width: 46rem;
+    margin: 1.5rem 0 0;
+    color: var(--retail-muted);
+    font-size: clamp(1.0625rem, 2vw, 1.25rem);
+    line-height: 1.7;
+}
+
+.blaines-retail--landing .retail-intro__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+    margin-top: 2rem;
+}
+
+.blaines-retail--landing .retail-intro__support {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(2rem, 4vw, 3.25rem);
+    border-top: 3px solid var(--retail-border-strong);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--landing .retail-intro__support h2 {
+    max-width: 14ch;
+    margin: 0;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.blaines-retail--landing .retail-intro__support p {
+    max-width: 28rem;
+    margin: 1rem 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.blaines-retail--landing .retail-intro__phone {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 1.5rem;
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 4vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1;
+    text-decoration: none;
+}
+
+.blaines-retail--landing .retail-intro__phone:hover {
+    color: #bcd0ff;
+}
+
+.blaines-retail--landing .retail-intro__phone-note {
+    margin-top: 0.625rem !important;
+    color: rgba(255, 255, 255, 0.72) !important;
+    font-size: 0.875rem !important;
+}
+
+/* Contained reassurance band: stronger than pale cards, less dominant
+   than a full-width black strip. */
+.blaines-retail--landing .retail-assurance-section {
+    margin-bottom: 3.5rem;
+}
+
+.blaines-retail--landing .retail-assurance {
+    border: 3px solid var(--retail-border-strong);
+    background: var(--retail-brand);
+    color: #ffffff;
+}
+
+.blaines-retail--landing .retail-assurance__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.blaines-retail--landing .retail-assurance__item {
+    display: grid;
+    grid-template-columns: 2.75rem 1fr;
+    gap: 1rem;
+    align-items: start;
+    padding: 1.25rem;
+}
+
+.blaines-retail--landing
+.retail-assurance__item
++ .retail-assurance__item {
+    border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.blaines-retail--landing .retail-assurance__icon {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.78);
+    color: #ffffff;
+}
+
+.blaines-retail--landing .retail-assurance__icon svg {
+    width: 1.45rem;
+    height: 1.45rem;
+}
+
+.blaines-retail--landing .retail-assurance__item h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+}
+
+.blaines-retail--landing .retail-assurance__item p {
+    margin: 0.4rem 0 0;
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.blaines-retail--landing .retail-departments-heading {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+    .blaines-retail--landing .retail-assurance__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .blaines-retail--landing
+    .retail-assurance__item:nth-child(2) {
+        border-top: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .blaines-retail--landing
+    .retail-assurance__item:nth-child(4) {
+        border-left: 1px solid rgba(255, 255, 255, 0.22);
+    }
+}
+
+@media (min-width: 768px) {
+    .blaines-retail--landing .retail-slider {
+        height: clamp(20rem, 27vw, 25rem);
+    }
+}
+
+@media (min-width: 1024px) {
+    .blaines-retail--landing .retail-intro__grid {
+        grid-template-columns: minmax(0, 2fr) minmax(20rem, 0.85fr);
+    }
+
+    .blaines-retail--landing .retail-intro__support {
+        border-top: 0;
+        border-left: 3px solid var(--retail-border-strong);
+    }
+
+    .blaines-retail--landing .retail-assurance__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .blaines-retail--landing
+    .retail-assurance__item
+    + .retail-assurance__item {
+        border-top: 0;
+        border-left: 1px solid rgba(255, 255, 255, 0.22);
+    }
+}
+
+@media (max-width: 639px) {
+
+    .blaines-retail--landing .retail-slider__control {
+        width: 2.625rem;
+        height: 2.625rem;
+    }
+
+    .blaines-retail--landing .retail-slider__control--previous {
+        left: 0.625rem;
+    }
+
+    .blaines-retail--landing .retail-slider__control--next {
+        right: 0.625rem;
+    }
+
+    .blaines-retail--landing .retail-intro__actions {
+        flex-direction: column;
+    }
+
+    .blaines-retail--landing .retail-intro__actions .retail-button {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--landing .retail-slider__control,
+    .blaines-retail--landing .retail-slider__dot,
+    .blaines-retail--landing .retail-button {
+        transition: none;
+    }
+}
+/* ==========================================================================
+   R1B — Department navigation
+   ========================================================================== */
+
+.blaines-retail--landing .retail-departments-section {
+    padding: 0 0 clamp(3.75rem, 7vw, 5.5rem);
+}
+
+.blaines-retail--landing .retail-departments-heading {
+    margin-bottom: 2rem;
+}
+
+.blaines-retail--landing .retail-department-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.blaines-retail--landing .retail-department-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 3px solid var(--retail-brand-dark);
+    background: var(--retail-brand-dark);
+}
+
+.blaines-retail--landing .retail-department-card__link {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.blaines-retail--landing .retail-department-card__link:focus-visible {
+    outline: 3px solid var(--retail-brand-light);
+    outline-offset: 4px;
+}
+
+.blaines-retail--landing .retail-department-card__media {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #e8ebf0;
+}
+
+.blaines-retail--landing .retail-department-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 420ms ease;
+}
+
+.blaines-retail--landing
+.retail-department-card:hover
+.retail-department-card__image {
+    transform: scale(1.045);
+}
+
+.blaines-retail--landing .retail-department-card__fallback {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    background:
+        linear-gradient(
+            135deg,
+            #eef1f5 0%,
+            #ffffff 52%,
+            #dce2eb 100%
+        );
+}
+
+.blaines-retail--landing .retail-department-card__fallback span {
+    color: rgba(14, 41, 94, 0.16);
+    font-family: var(--font-heading);
+    font-size: 6rem;
+    font-weight: 800;
+    line-height: 0.8;
+}
+
+.blaines-retail--landing .retail-department-card__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 3.5rem;
+    min-height: 7.5rem;
+    align-items: stretch;
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--landing
+.retail-department-card__content
+> div:first-child {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.25rem 1.35rem;
+}
+
+.blaines-retail--landing .retail-department-card__content h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.blaines-retail--landing .retail-department-card__content p {
+    margin: 0.55rem 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.blaines-retail--landing .retail-department-card__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.22);
+    background: var(--retail-brand);
+    color: #ffffff;
+    transition:
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.blaines-retail--landing .retail-department-card__arrow svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 180ms ease;
+}
+
+.blaines-retail--landing
+.retail-department-card:hover
+.retail-department-card__arrow {
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--landing
+.retail-department-card:hover
+.retail-department-card__arrow svg {
+    transform: translateX(0.2rem);
+}
+
+/* ==========================================================================
+   R1B.1 — Simplified featured electrical products
+   ========================================================================== */
+
+.blaines-retail--landing .retail-featured-products {
+    padding: 0 0 clamp(4rem, 8vw, 6rem);
+}
+
+.blaines-retail--landing .retail-featured-products__shell {
+    overflow: hidden;
+    border: 3px solid var(--retail-brand-dark);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-featured-products__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--landing .retail-featured-products__header h2 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.02;
+}
+
+.blaines-retail--landing .retail-featured-products__header p {
+    max-width: 44rem;
+    margin: 0.8rem 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.blaines-retail--landing .retail-featured-products__controls {
+    display: flex;
+    flex: none;
+    gap: 0.65rem;
+}
+
+.blaines-retail--landing .retail-featured-products__control {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid rgba(255, 255, 255, 0.76);
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease;
+}
+
+.blaines-retail--landing .retail-featured-products__control:hover {
+    border-color: #ffffff;
+    background: var(--retail-brand-light);
+}
+
+.blaines-retail--landing .retail-featured-products__control svg {
+    width: 1.45rem;
+    height: 1.45rem;
+}
+
+.blaines-retail--landing .retail-featured-products__body {
+    padding: clamp(1.25rem, 3.5vw, 2rem);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-featured-products__track {
+    display: flex;
+    align-items: stretch;
+    gap: 1.25rem;
+    transition: transform 700ms ease-in-out;
+    will-change: transform;
+}
+
+.blaines-retail--landing .retail-featured-card {
+    display: flex;
+    width: 82vw;
+    max-width: 20rem;
+    flex: none;
+    min-width: 0;
+}
+
+.blaines-retail--landing .retail-featured-card__link {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    color: inherit;
+    text-decoration: none;
+}
+
+.blaines-retail--landing .retail-featured-card__image-frame {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--retail-border-soft);
+    background: #ffffff;
+    transition: border-color 180ms ease;
+}
+
+.blaines-retail--landing
+.retail-featured-card__link:hover
+.retail-featured-card__image-frame {
+    border-color: #d4d4d4;
+}
+
+.blaines-retail--landing .retail-featured-card__image {
+    display: flex;
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.blaines-retail--landing .retail-featured-card__product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.blaines-retail--landing .retail-featured-card__saving {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: inline-flex;
+    min-height: 2.15rem;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.65rem;
+    background: #b42318;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--landing
+.retail-featured-card__saving
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+
+/* Latest Deals — compact campaign roundel, aligned with Similar Products */
+.blaines-retail--landing .blp-electrical-feature-roundel {
+    position: absolute;
+    right: 0.7rem;
+    bottom: 0.7rem;
+    z-index: 2;
+    display: inline-flex;
+    width: 4.5rem;
+    height: 4.5rem;
+    flex: 0 0 4.5rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem;
+    border: 3px solid var(--blp-roundel-border, #f2c94c);
+    border-radius: 999px;
+    background: var(--blp-roundel-bg, #111111);
+    color: var(--blp-roundel-text, #f2c94c);
+    box-shadow: 0 5px 14px rgb(15 23 42 / 14%);
+    font-family: var(--font-heading);
+    font-size: 0.625rem;
+    font-weight: 800;
+    line-height: 1.05;
+    text-align: center;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+.blaines-retail--landing .blp-electrical-feature-roundel > span {
+    display: block;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: pre-line;
+    letter-spacing: 0.025em;
+}
+
+.blaines-retail--landing .blp-electrical-feature-roundel--image {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.blaines-retail--landing .blp-electrical-feature-roundel--image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+@media (max-width: 479px) {
+    .blaines-retail--landing .blp-electrical-feature-roundel {
+        right: 0.55rem;
+        bottom: 0.55rem;
+        width: 4.25rem;
+        height: 4.25rem;
+        flex-basis: 4.25rem;
+        font-size: 0.59rem;
+    }
+}
+
+.blaines-retail--landing .retail-featured-card__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding-top: 0.75rem;
+}
+
+.blaines-retail--landing .retail-featured-card__brand {
+    display: flex;
+    height: 1.75rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.blaines-retail--landing .retail-featured-card__brand-image {
+    width: auto;
+    max-width: 7rem;
+    max-height: 1.75rem;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.blaines-retail--landing .retail-featured-card__brand-name {
+    color: #737373;
+    font-size: 0.7rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.blaines-retail--landing .retail-featured-card__title {
+    display: -webkit-box;
+    min-height: 4rem;
+    overflow: hidden;
+    margin: 0;
+    color: var(--retail-ink);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.42;
+    letter-spacing: -0.01em;
+    transition: color 180ms ease;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.blaines-retail--landing
+.retail-featured-card__link:hover
+.retail-featured-card__title {
+    color: var(--retail-brand-light);
+}
+
+.blaines-retail--landing .retail-featured-card__price-block {
+    display: flex;
+    min-height: 3.55rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 0.75rem;
+}
+
+.blaines-retail--landing .retail-featured-card__was-price {
+    margin: 0 0 0.35rem;
+    color: var(--retail-muted);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    line-height: 1.3;
+}
+
+.blaines-retail--landing .retail-featured-card__was-price del {
+    font-weight: 700;
+}
+
+.blaines-retail--landing .retail-featured-card__price {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-family: var(--font-heading);
+    font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.015em;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.blaines-retail--landing .retail-featured-card__price--sale {
+    color: #b42318;
+}
+
+.blaines-retail--landing
+.retail-featured-card__price
+.woocommerce-Price-amount {
+    color: inherit;
+    font: inherit;
+}
+
+@media (min-width: 640px) {
+    .blaines-retail--landing .retail-department-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .blaines-retail--landing .retail-featured-card {
+        width: calc((100% - 1.25rem) / 2);
+        max-width: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .blaines-retail--landing .retail-featured-card {
+        width: calc((100% - 2.5rem) / 3);
+    }
+}
+
+@media (min-width: 1024px) {
+    .blaines-retail--landing .retail-featured-card {
+        width: calc((100% - 3.75rem) / 4);
+    }
+}
+
+@media (min-width: 1280px) {
+
+    .blaines-retail--landing .retail-department-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.25rem;
+    }
+
+    .blaines-retail--landing .retail-department-card {
+        flex: 0 0 calc((100% - 3.75rem) / 4);
+    }
+
+    .blaines-retail--landing .retail-featured-card {
+        width: calc((100% - 5rem) / 5);
+    }
+}
+
+@media (max-width: 767px) {
+    .blaines-retail--landing .retail-featured-card__content {
+        padding-top: 0.7rem;
+    }
+
+    .blaines-retail--landing .retail-featured-card__brand {
+        margin-bottom: 0.45rem;
+    }
+
+    .blaines-retail--landing .retail-featured-card__title {
+        min-height: 3.85rem;
+        font-size: 0.88rem;
+    }
+
+    .blaines-retail--landing .retail-featured-card__price {
+        font-size: clamp(1.4rem, 7vw, 1.75rem);
+        white-space: normal;
+    }
+}
+
+@media (max-width: 639px) {
+    .blaines-retail--landing .retail-featured-products__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .blaines-retail--landing .retail-featured-products__controls {
+        align-self: flex-end;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--landing .retail-department-card__image,
+    .blaines-retail--landing .retail-department-card__arrow,
+    .blaines-retail--landing .retail-department-card__arrow svg,
+    .blaines-retail--landing .retail-featured-products__control,
+    .blaines-retail--landing .retail-featured-card__image-frame,
+    .blaines-retail--landing .retail-featured-card__title {
+        transition: none;
+    }
+}
+
+/* ==========================================================================
+   R1C — Retail promotion campaigns
+   ========================================================================== */
+
+.blaines-retail--landing .retail-promotions {
+    padding: 0 0 clamp(4rem, 8vw, 6rem);
+}
+
+.blaines-retail--landing .retail-promotions__header {
+    max-width: 52rem;
+    margin-bottom: 2rem;
+}
+
+.blaines-retail--landing .retail-promotions__header h2 {
+    margin: 0;
+    color: var(--retail-ink);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.blaines-retail--landing .retail-promotions__header p {
+    max-width: 46rem;
+    margin: 1rem 0 0;
+    color: var(--retail-muted);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+}
+
+.blaines-retail--landing .retail-promotions__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+.blaines-retail--landing .retail-promotion-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 2px solid var(--retail-brand-dark);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-promotion-card__link {
+    display: block;
+}
+
+.blaines-retail--landing .retail-promotion-card__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition:
+        filter 220ms ease,
+        transform 360ms ease;
+}
+
+.blaines-retail--landing
+.retail-promotion-card__link:hover
+.retail-promotion-card__image {
+    filter: saturate(1.05) contrast(1.025);
+    transform: scale(1.025);
+}
+
+/* ==========================================================================
+   R1C — Klarna finance
+   ========================================================================== */
+
+.blaines-retail--landing .retail-finance {
+    padding: 0 0 clamp(4rem, 8vw, 6rem);
+}
+
+.blaines-retail--landing .retail-finance__shell {
+    overflow: hidden;
+    border: 3px solid var(--retail-brand-dark);
+    background: #f6f1f4;
+}
+
+.blaines-retail--landing .retail-finance__header {
+    display: grid;
+    gap: 1rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.blaines-retail--landing .retail-finance__header h2 {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.blaines-retail--landing .retail-finance__header p {
+    max-width: 45rem;
+    margin: 0;
+    color: var(--retail-muted);
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+.blaines-retail--landing .retail-finance__artwork {
+    border-top: 2px solid var(--retail-brand-dark);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-finance__artwork img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   R1C — Local service proposition
+   ========================================================================== */
+
+.blaines-retail--landing .retail-service {
+    padding: 0 0 clamp(4rem, 8vw, 6rem);
+}
+
+.blaines-retail--landing .retail-service__shell {
+    display: grid;
+    overflow: hidden;
+    border: 3px solid var(--retail-brand-dark);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-service__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(2rem, 5vw, 4rem);
+    background: var(--retail-brand-dark);
+    color: #ffffff;
+}
+
+.blaines-retail--landing .retail-service__content h2 {
+    max-width: 12ch;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 0.98;
+}
+
+.blaines-retail--landing .retail-service__content p {
+    max-width: 40rem;
+    margin: 1.5rem 0 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.7;
+}
+
+.blaines-retail--landing .retail-service__content .retail-button {
+    margin-top: 2rem;
+}
+
+.blaines-retail .retail-button--light {
+    border-color: #ffffff;
+    background: #ffffff;
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail .retail-button--light:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.blaines-retail--landing .retail-service__features {
+    display: grid;
+    align-content: center;
+    background: var(--retail-warm);
+}
+
+.blaines-retail--landing .retail-service__feature {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: 1.1rem;
+    align-items: start;
+    padding: 1.5rem;
+}
+
+.blaines-retail--landing
+.retail-service__feature
++ .retail-service__feature {
+    border-top: 2px solid var(--retail-brand-dark);
+}
+
+.blaines-retail--landing .retail-service__icon {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--retail-brand-dark);
+    background: #ffffff;
+    color: var(--retail-brand-dark);
+}
+
+.blaines-retail--landing .retail-service__icon svg {
+    width: 1.55rem;
+    height: 1.55rem;
+}
+
+.blaines-retail--landing .retail-service__feature h3 {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.blaines-retail--landing .retail-service__feature p {
+    margin: 0.55rem 0 0;
+    color: var(--retail-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   R1C — Retail customer reviews
+   ========================================================================== */
+
+.blaines-retail--landing .retail-reviews {
+    padding: clamp(4rem, 8vw, 6rem) 0;
+    background: var(--retail-warm);
+}
+
+.blaines-retail--landing .retail-reviews__shell {
+    overflow: hidden;
+    border: 3px solid var(--retail-brand-dark);
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-reviews__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    border-bottom: 3px solid var(--retail-brand-dark);
+}
+
+.blaines-retail--landing .retail-reviews__header h2 {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+.blaines-retail--landing .retail-reviews__header p {
+    max-width: 42rem;
+    margin: 0.85rem 0 0;
+    color: var(--retail-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.blaines-retail--landing .retail-reviews__controls {
+    display: flex;
+    flex: none;
+    gap: 0.65rem;
+}
+
+.blaines-retail--landing .retail-reviews__control {
+    display: inline-flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 2px solid var(--retail-brand-dark);
+    border-radius: 0;
+    background: #ffffff;
+    color: var(--retail-brand-dark);
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.blaines-retail--landing .retail-reviews__control:hover {
+    border-color: var(--retail-brand-light);
+    background: var(--retail-brand-light);
+    color: #ffffff;
+}
+
+.blaines-retail--landing .retail-reviews__control svg {
+    width: 1.45rem;
+    height: 1.45rem;
+}
+
+.blaines-retail--landing .retail-reviews__viewport {
+    overflow: hidden;
+    padding: clamp(1.25rem, 3.5vw, 2rem);
+}
+
+.blaines-retail--landing .retail-reviews__track {
+    display: flex;
+    align-items: stretch;
+    gap: 1.5rem;
+    transition: transform 700ms ease-in-out;
+    will-change: transform;
+}
+
+.blaines-retail--landing .retail-review-card {
+    position: relative;
+    display: flex;
+    width: 84vw;
+    max-width: 24rem;
+    flex: none;
+    flex-direction: column;
+    min-height: 20rem;
+    padding: 1.75rem;
+    border: 2px solid var(--retail-brand-dark);
+    border-top-width: 6px;
+    background: #ffffff;
+}
+
+.blaines-retail--landing .retail-review-card__quote {
+    position: absolute;
+    top: 0.35rem;
+    right: 1rem;
+    color: rgba(20, 57, 129, 0.11);
+    font-family: Georgia, serif;
+    font-size: 5.5rem;
+    line-height: 1;
+}
+
+.blaines-retail--landing .retail-review-card__rating {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: #d99a00;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+}
+
+.blaines-retail--landing .retail-review-card__text {
+    position: relative;
+    z-index: 1;
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 1.4rem 0 0;
+    color: var(--retail-ink);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+}
+
+.blaines-retail--landing .retail-review-card__footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--retail-border-soft);
+}
+
+.blaines-retail--landing .retail-review-card__footer h3 {
+    margin: 0;
+    color: var(--retail-brand-dark);
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.blaines-retail--landing .retail-review-card__footer p {
+    margin: 0.35rem 0 0;
+    color: var(--retail-muted);
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+    .blaines-retail--landing .retail-promotions__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .blaines-retail--landing .retail-review-card {
+        width: calc((100% - 1.5rem) / 2);
+        max-width: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .blaines-retail--landing .retail-finance__header {
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        align-items: end;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blaines-retail--landing .retail-service__shell {
+        grid-template-columns: minmax(0, 1.25fr) minmax(22rem, 0.75fr);
+    }
+
+    .blaines-retail--landing .retail-review-card {
+        width: calc((100% - 3rem) / 3);
+    }
+}
+
+@media (min-width: 1280px) {
+    .blaines-retail--landing .retail-promotions__grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 639px) {
+    .blaines-retail--landing .retail-reviews__header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .blaines-retail--landing .retail-reviews__controls {
+        align-self: flex-end;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blaines-retail--landing .retail-promotion-card__image,
+    .blaines-retail--landing .retail-service__content .retail-button,
+    .blaines-retail--landing .retail-reviews__control {
+        transition: none;
+    }
+}
+
+
+/* ==========================================================================
+   R1C.1 — De-framing refinement
+   ========================================================================== */
+
+/* Featured products: retain the navy heading band and image frames. */
+.blaines-retail--landing .retail-featured-products__shell {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+}
+
+.blaines-retail--landing .retail-featured-products__header {
+    border-bottom: 1px solid rgba(14, 41, 94, 0.16);
+}
+
+.blaines-retail--landing .retail-featured-products__body {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+/* Supplier artwork provides most of its own visual definition. */
+.blaines-retail--landing .retail-promotion-card {
+    border: 1px solid rgba(14, 41, 94, 0.14);
+}
+
+/* Klarna becomes a soft finance band rather than a boxed module. */
+.blaines-retail--landing .retail-finance__shell {
+    overflow: visible;
+    border: 0;
+    background: #f8f1f5;
+}
+
+.blaines-retail--landing .retail-finance__header {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.blaines-retail--landing .retail-finance__artwork {
+    border-top: 0;
+    background: transparent;
+}
+
+/* The navy and cream split already defines the service proposition. */
+.blaines-retail--landing .retail-service__shell {
+    border: 0;
+}
+
+.blaines-retail--landing
+.retail-service__feature
++ .retail-service__feature {
+    border-top: 1px solid rgba(14, 41, 94, 0.16);
+}
+
+/* Reviews become an open section with lightly defined cards. */
+.blaines-retail--landing .retail-reviews__shell {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+}
+
+.blaines-retail--landing .retail-reviews__header {
+    padding: 0 0 2rem;
+    border-bottom: 0;
+}
+
+.blaines-retail--landing .retail-reviews__viewport {
+    padding: 0;
+}
+
+.blaines-retail--landing .retail-review-card {
+    border: 1px solid rgba(14, 41, 94, 0.18);
+    border-top: 3px solid var(--retail-brand-dark);
+}

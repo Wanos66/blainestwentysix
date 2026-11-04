@@ -1,0 +1,90 @@
+/* Aurora Borealis Effect */
+
+.aurora {
+    background: radial-gradient(circle at 20% 20%, #ff00cc, transparent 40%),
+    radial-gradient(circle at 80% 30%, #00f0ff, transparent 40%),
+    radial-gradient(circle at 50% 80%, #ffea00, transparent 40%);
+    background-color: #05010f;
+    animation: aurora 12s linear infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes aurora {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Animated Gradient Background */
+
+.gradient-bg {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    /*min-height: 100vh;*/
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/*  Shimmering Gradient Text */
+
+.shimmer-text {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(
+            90deg,
+            #ff8a00,
+            #e52e71,
+            #9c1aff,
+            #00c3ff,
+            #ff8a00
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: shimmer 6s linear infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Gradient Wave */
+
+.wave {
+    background: linear-gradient(270deg, #ff6ec4, #7873f5);
+    background-size: 200% 200%;
+    animation: wave 8s ease infinite;
+}
+
+@keyframes wave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.pulse {
+    position: relative;
+    z-index: 1;
+}
+
+/* Gradient Pulse Animation */
+
+.pulse::before {
+    content: "";
+    position: absolute;
+    inset: -10px;
+    background: radial-gradient(circle, #23a6d5, transparent 70%);
+    border-radius: 50%;
+    animation: pulse 2.5s infinite;
+    z-index: -1;
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.6); opacity: 0; }
+}

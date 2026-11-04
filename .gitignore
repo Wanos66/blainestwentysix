@@ -1,0 +1,25 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Node.js dependencies
+node_modules/
+
+# Temporary caches
+.cache/
+.parcel-cache/
+
+# npm logs
+npm-debug.log*
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+
+# Test / coverage output
+coverage/

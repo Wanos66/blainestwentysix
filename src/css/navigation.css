@@ -1,0 +1,427 @@
+/* ==========================================================
+   PRIMARY NAVIGATION
+   ========================================================== */
+
+
+/* ==========================================================
+   CLEARANCE NAVIGATION ITEM
+   ========================================================== */
+
+.menu-item-clearance > a {
+    background-color: rgb(185 28 28); /* Tailwind red-700 */
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    display: inline-block;
+}
+
+.menu-item-clearance > a:hover,
+.menu-item-clearance > a:focus {
+    background-color: rgb(153 27 27); /* close to red-800 */
+    color: #fff;
+}
+
+/* Clearance menu dropdown arrow — keep white */
+.menu-item-clearance > a *,
+.menu-item-clearance > a:hover *,
+.menu-item-clearance > a:focus * {
+    color: #fff !important;
+    stroke: #fff !important;
+}
+
+.menu-item-clearance > a::after,
+.menu-item-clearance > a:hover::after,
+.menu-item-clearance > a:focus::after {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+/* ==========================================================
+   BLACK FRIDAY NAVIGATION ITEM
+   ========================================================== */
+
+.menu-item-black-friday > a {
+    background-color: rgb(17, 17, 17); /* Tailwind red-700 */
+    color: #F2C94C;
+    padding: 0.5rem 0.75rem;
+    display: inline-block;
+}
+
+.menu-item-black-friday > a:hover,
+.menu-item-black-friday > a:focus {
+    background-color: rgb(242 201 76); /* close to red-800 */
+    color: #111;
+}
+
+/* Clearance menu dropdown arrow — keep white */
+.menu-item-black-friday > a *,
+.menu-item-black-friday > a:hover *,
+.menu-item-black-friday > a:focus * {
+    color: #fff !important;
+    stroke: #fff !important;
+}
+
+.menu-item-black-friday > a::after,
+.menu-item-black-friday > a:hover::after,
+.menu-item-black-friday > a:focus::after {
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+
+
+
+/* ==========================================================
+   DESKTOP NAVIGATION
+   Electrical mega-menu + standard dropdowns
+   ========================================================== */
+
+@media (min-width: 1024px) {
+
+    /* ------------------------------------------------------
+       TOP-LEVEL MENU ITEMS
+       ------------------------------------------------------ */
+
+    .menu-item-depth-0 {
+        position: relative;
+    }
+
+    /*
+     * Important:
+     * Nested WordPress menus must not take up normal page space.
+     */
+    .menu-item-depth-0 > .sub-menu {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /* ------------------------------------------------------
+       STANDARD DROPDOWNS
+       Interiors / Showrooms / Clearance
+       ------------------------------------------------------ */
+
+    .menu-item-depth-0 > .dropdown-panel {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 40;
+
+        display: none;
+
+        min-width: 16rem;
+        padding: 0.75rem 0;
+
+        background-color: #ffffff;
+
+        border: 1px solid #e5e7eb;
+        border-top: 1px solid #e5e7eb;
+        border-radius: 0;
+
+        box-shadow: 0 10px 22px rgb(15 23 42 / 0.08);
+    }
+
+    .menu-item-depth-0:hover > .dropdown-panel,
+    .menu-item-depth-0:focus-within > .dropdown-panel,
+    .menu-item-depth-0.mega-open > .dropdown-panel {
+        display: block;
+    }
+
+    .dropdown-panel > .menu-item-depth-1 > a {
+        display: block;
+
+        padding: 0.55rem 1.25rem;
+
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        font-weight: 500;
+        line-height: 1.35;
+
+        letter-spacing: -0.01em;
+
+        color: #1f2937;
+        white-space: nowrap;
+
+        transition:
+                color 0.15s ease,
+                background-color 0.15s ease;
+    }
+
+    .dropdown-panel > .menu-item-depth-1 > a:hover,
+    .dropdown-panel > .menu-item-depth-1 > a:focus-visible {
+        color: #143981;
+        background: #f5f7fb;
+        outline: none;
+    }
+
+
+    /* ------------------------------------------------------
+       ELECTRICAL MEGA-MENU PARENT
+       ------------------------------------------------------ */
+
+    .menu-item-depth-0.has-mega {
+        position: static;
+    }
+
+    .menu-item-depth-0.has-mega > .mega-menu-panel {
+        position: absolute;
+
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        z-index: 40;
+
+        width: 100vw;
+        max-width: none;
+
+        /*
+         * 3-column fallback between 1024px and 1439px.
+         */
+        display: none;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        justify-content: center;
+
+        column-gap: 2.5rem;
+        row-gap: 1.5rem;
+
+        /*
+         * Responsive horizontal padding keeps the content
+         * aligned within a sensible maximum visual width.
+         */
+        padding:
+                1.75rem
+                max(2rem, calc((100vw - 1400px) / 2));
+
+        background-color: #ffffff;
+
+        /*
+         * Stronger retail separation from page content.
+         */
+        border-top: 3px solid #143981;
+        border-bottom: 1px solid #e5e7eb;
+
+        box-shadow: 0 14px 26px rgb(15 23 42 / 0.08);
+    }
+
+
+    /* ------------------------------------------------------
+       ELECTRICAL MEGA-MENU OPEN STATES
+       ------------------------------------------------------ */
+
+    .menu-item-depth-0.has-mega:hover > .mega-menu-panel,
+    .menu-item-depth-0.has-mega:focus-within > .mega-menu-panel,
+    .menu-item-depth-0.has-mega.mega-open > .mega-menu-panel {
+        display: grid;
+
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+    /* ------------------------------------------------------
+       MEGA-MENU DEPARTMENT GROUPS
+       ------------------------------------------------------ */
+
+    .mega-menu-panel > .menu-item-depth-1 {
+        min-width: 0;
+
+        list-style: none;
+
+        box-shadow: none !important;
+    }
+
+    .mega-menu-panel > .menu-item-depth-1 > a {
+        position: relative;
+
+        display: block;
+        width: fit-content;
+
+        margin: 0 0 0.7rem;
+        padding: 0 0 0.6rem;
+
+        font-family: var(--font-heading);
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 1.25;
+
+        color: #143981 !important;
+
+        cursor: pointer;
+    }
+
+    /*
+     * Short retail-blue marker beneath each department heading.
+     */
+    .mega-menu-panel > .menu-item-depth-1 > a::after {
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+        bottom: 0;
+
+        width: 2rem;
+        height: 3px;
+
+        background-color: #215ed9;
+    }
+
+    .mega-menu-panel > .menu-item-depth-1 > a:hover,
+    .mega-menu-panel > .menu-item-depth-1 > a:focus-visible {
+        color: #0e295e !important;
+
+        background: none !important;
+
+        outline: none;
+    }
+
+
+    /* ------------------------------------------------------
+       THIRD-LEVEL PRODUCT / CATEGORY LINKS
+       ------------------------------------------------------ */
+
+    .mega-menu-panel .mega-sub {
+        margin: 0;
+        padding: 0;
+
+        list-style: none;
+
+        box-shadow: none !important;
+    }
+
+    .mega-menu-panel .mega-sub > .menu-item-depth-2 > a {
+        display: block;
+
+        margin-left: -0.5rem;
+
+        padding: 0.3rem 0.5rem;
+
+        border-left: 3px solid transparent;
+
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        font-weight: 500;
+        line-height: 1.35;
+
+        color: #2d333d;
+
+        /*
+         * Allow longer category names to wrap naturally
+         * rather than forcing excessively narrow columns.
+         */
+        white-space: normal;
+
+        transition:
+                color 0.14s ease,
+                background-color 0.14s ease,
+                border-color 0.14s ease;
+    }
+
+    .mega-menu-panel .mega-sub > .menu-item-depth-2 > a:hover,
+    .mega-menu-panel .mega-sub > .menu-item-depth-2 > a:focus-visible {
+        color: #143981;
+
+        background-color: #f5f7fb;
+
+        border-left-color: #215ed9;
+
+        outline: none;
+    }
+
+
+    /* ------------------------------------------------------
+       TOP-LEVEL DROPDOWN ARROWS
+       ------------------------------------------------------ */
+
+    .menu-item-has-children.menu-item-depth-0 > a {
+        position: relative;
+
+        padding-right: 1.1rem;
+    }
+
+    .menu-item-has-children.menu-item-depth-0 > a::after {
+        content: "";
+
+        position: absolute;
+
+        right: 0.25rem;
+        top: 50%;
+
+        width: 0.42rem;
+        height: 0.42rem;
+
+        border-right: 1.5px solid #6b7280;
+        border-bottom: 1.5px solid #6b7280;
+
+        transform: translateY(-65%) rotate(45deg);
+
+        transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+
+        pointer-events: none;
+    }
+
+    .menu-item-has-children.menu-item-depth-0:hover > a::after,
+    .menu-item-has-children.menu-item-depth-0:focus-within > a::after,
+    .menu-item-has-children.menu-item-depth-0.mega-open > a::after {
+        border-color: #143981;
+
+        transform: translateY(-45%) rotate(225deg);
+    }
+
+
+    /* ------------------------------------------------------
+       KEYBOARD FOCUS
+       ------------------------------------------------------ */
+
+    .menu-item-depth-0 > a:focus-visible {
+        outline: 2px solid #215ed9;
+        outline-offset: 2px;
+    }
+}
+
+
+/* ==========================================================
+   LARGE DESKTOP
+   Six-column Electrical mega-menu
+   ========================================================== */
+
+@media (min-width: 1440px) {
+
+    .menu-item-depth-0.has-mega > .mega-menu-panel {
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        column-gap: 1.75rem;
+    }
+}
+
+
+/* ==========================================================
+   KEYBOARD-OPEN SAFETY STATE
+   Used by desktop-mega.js / desktop-nav-keys.js
+   ========================================================== */
+
+@media (min-width: 1024px) {
+
+    .menu-item-depth-0.has-mega.mega-open > .mega-menu-panel {
+        display: grid;
+
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        pointer-events: auto !important;
+    }
+}
+
+
+/* ==========================================================
+   HEADER LOGO
+   ========================================================== */
+
+.custom-logo {
+    @apply h-12 lg:h-18 w-auto;
+}
