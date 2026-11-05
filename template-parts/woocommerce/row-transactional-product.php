@@ -33,6 +33,7 @@ $image_id      = $product->get_image_id();
 $sku           = $product->get_sku();
 $regular_price = (float) $product->get_regular_price();
 $sale_price    = (float) $product->get_sale_price();
+$current_price = (float) $product->get_price();
 $is_on_sale    = (
     $product->is_on_sale()
     && $regular_price > $sale_price
@@ -40,6 +41,7 @@ $is_on_sale    = (
 $saving        = $is_on_sale
     ? max( 0, $regular_price - $sale_price )
     : 0;
+
 
 $saving_decimals = (
     $saving > 0
@@ -363,7 +365,10 @@ foreach ( is_array( $active_promotions ) ? $active_promotions : [] as $promotion
                             </del>
                         </p>
 
-                        <p class="retail-product-row__price retail-product-row__price--sale">
+                        <p
+                            class="retail-product-row__price retail-product-row__price--sale"
+                            style="font-size: clamp(1.65rem, 2vw, 1.9rem); letter-spacing: -0.02em;"
+                        >
                             <?php
                             echo wp_kses_post(
                                 wc_price( $sale_price )
@@ -398,12 +403,13 @@ foreach ( is_array( $active_promotions ) ? $active_promotions : [] as $promotion
 
                     <?php else : ?>
 
-                        <p class="retail-product-row__price">
+                        <p
+                            class="retail-product-row__price"
+                            style="font-size: clamp(1.65rem, 2vw, 1.9rem); letter-spacing: -0.02em;"
+                        >
                             <?php
                             echo wp_kses_post(
-                                wc_price(
-                                    (float) $product->get_price()
-                                )
+                                wc_price( $current_price )
                             );
                             ?>
                         </p>

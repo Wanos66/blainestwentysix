@@ -43,8 +43,14 @@ $current_price = (float) $product->get_price();
 $is_on_sale    = $product->is_on_sale()
     && $sale_price > 0
     && $regular_price > $sale_price;
-$saving        = $is_on_sale ? $regular_price - $sale_price : 0;
+$saving          = $is_on_sale ? $regular_price - $sale_price : 0;
 $saving_decimals = ( $saving > 0 && floor( $saving ) === $saving ) ? 0 : wc_get_price_decimals();
+
+$display_price          = $is_on_sale ? $sale_price : $current_price;
+$is_large_display_price = $display_price >= 1000;
+$price_style            = $is_large_display_price
+    ? 'font-size: clamp(2.05rem, 2.6vw, 2.35rem);'
+    : '';
 
 $energy_rating_image_id = function_exists( 'blaines_get_product_energy_rating_image_id' )
     ? (int) blaines_get_product_energy_rating_image_id( $product_id )
@@ -114,7 +120,12 @@ $short_description = trim( (string) $product->get_short_description() );
                     <p class="mt-2 text-sm font-semibold text-neutral-700">Our price</p>
 
                     <div class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-3">
-                        <p class="retail-purchase-panel__price retail-purchase-panel__price--sale text-[2.7rem] font-semibold leading-none tracking-[-0.04em] text-red-700 sm:text-5xl">
+                        <p
+                            class="retail-purchase-panel__price retail-purchase-panel__price--sale whitespace-nowrap text-[2.7rem] font-semibold leading-none tracking-[-0.04em] text-red-700 sm:text-5xl"
+                            <?php if ( '' !== $price_style ) : ?>
+                                style="<?php echo esc_attr( $price_style ); ?>"
+                            <?php endif; ?>
+                        >
                             <?php echo wp_kses_post( wc_price( $sale_price ) ); ?>
                         </p>
 
@@ -126,7 +137,12 @@ $short_description = trim( (string) $product->get_short_description() );
                 <?php else : ?>
                     <p class="text-sm font-semibold text-neutral-700">Our price</p>
 
-                    <p class="retail-purchase-panel__price mt-2 text-[2.7rem] font-semibold leading-none tracking-[-0.04em] text-neutral-950 sm:text-5xl">
+                    <p
+                        class="retail-purchase-panel__price mt-2 whitespace-nowrap text-[2.7rem] font-semibold leading-none tracking-[-0.04em] text-neutral-950 sm:text-5xl"
+                        <?php if ( '' !== $price_style ) : ?>
+                            style="<?php echo esc_attr( $price_style ); ?>"
+                        <?php endif; ?>
+                    >
                         <?php echo wp_kses_post( wc_price( $current_price ) ); ?>
                     </p>
                 <?php endif; ?>
