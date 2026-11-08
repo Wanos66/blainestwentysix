@@ -448,41 +448,41 @@ get_template_part(
  * not enabled as a payment method.
  */
 ?>
-    <section
-            class="retail-finance"
-            aria-labelledby="retail-finance-heading"
-    >
-        <div class="container-wide">
-
-            <div class="retail-finance__shell">
-
-                <header class="retail-finance__header">
-
-                    <h2 id="retail-finance-heading">
-                        Flexible ways to pay
-                    </h2>
-
-                    <p>
-                        Klarna payment options are shown at checkout where available, helping you choose the payment route that suits your purchase.
-                    </p>
-
-                </header>
-
-                <div class="retail-finance__artwork">
-
-                    <img
-                            src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/KLARNA-HOMEPAGE-BANNER-2220X300.webp' ); ?>"
-                            alt="Klarna available at checkout: pay in 3, pay in 30 days or pay now"
-                            loading="lazy"
-                            decoding="async"
-                    >
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
+<!--    <section-->
+<!--            class="retail-finance"-->
+<!--            aria-labelledby="retail-finance-heading"-->
+<!--    >-->
+<!--        <div class="container-wide">-->
+<!---->
+<!--            <div class="retail-finance__shell">-->
+<!---->
+<!--                <header class="retail-finance__header">-->
+<!---->
+<!--                    <h2 id="retail-finance-heading">-->
+<!--                        Flexible ways to pay-->
+<!--                    </h2>-->
+<!---->
+<!--                    <p>-->
+<!--                        Klarna payment options are shown at checkout where available, helping you choose the payment route that suits your purchase.-->
+<!--                    </p>-->
+<!---->
+<!--                </header>-->
+<!---->
+<!--                <div class="retail-finance__artwork">-->
+<!---->
+<!--                    <img-->
+<!--                            src="--><?php //echo esc_url( get_template_directory_uri() . '/assets/images/KLARNA-HOMEPAGE-BANNER-2220X300.webp' ); ?><!--"-->
+<!--                            alt="Klarna available at checkout: pay in 3, pay in 30 days or pay now"-->
+<!--                            loading="lazy"-->
+<!--                            decoding="async"-->
+<!--                    >-->
+<!---->
+<!--                </div>-->
+<!---->
+<!--            </div>-->
+<!---->
+<!--        </div>-->
+<!--    </section>-->
 
 <?php
 /*

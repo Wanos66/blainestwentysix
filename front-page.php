@@ -65,12 +65,12 @@
 
 
 <!-- Klarna Finance Promotion -->
-<section class="py-10">
-    <div class="container-wide">
-        <img src="<?php echo get_template_directory_uri() ?>/assets/images/KLARNA-HOMEPAGE-BANNER-2220X300.webp" alt="">
-    </div>
-
-</section>
+<!--<section class="py-10">-->
+<!--    <div class="container-wide">-->
+<!--        <img src="--><?php //echo get_template_directory_uri() ?><!--/assets/images/KLARNA-HOMEPAGE-BANNER-2220X300.webp" alt="">-->
+<!--    </div>-->
+<!---->
+<!--</section>-->
 
 <?php get_template_part('template-parts/components/promotions-grid'); ?>
 
