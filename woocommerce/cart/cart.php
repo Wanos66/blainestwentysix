@@ -833,6 +833,14 @@ do_action( 'woocommerce_before_cart' );
 
                 </div>
 
+                <a
+                    class="retail-basket-summary__continue-shopping"
+                    href="<?php echo esc_url( home_url( '/electrical/' ) ); ?>"
+                >
+                    <span aria-hidden="true">&larr;</span>
+                    <?php esc_html_e( 'Continue shopping', 'blainestwentysix' ); ?>
+                </a>
+
             </div>
 
             <div class="retail-basket-assurance">
