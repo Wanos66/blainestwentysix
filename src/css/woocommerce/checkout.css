@@ -2441,3 +2441,175 @@ label {
         padding-right: 1.25rem !important;
     }
 }
+
+/* ==========================================================================
+   CP1A — Unified Stripe / PayPal / Klarna payment method presentation
+   Classic WooCommerce checkout; visual treatment only.
+   ========================================================================== */
+
+/* Maintain compact, equal-width payment options, regardless of gateway. */
+body.woocommerce-checkout #payment ul.payment_methods {
+    gap: .65rem;
+}
+
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method {
+    min-width: 0;
+    margin: 0;
+    padding: .9rem 1rem;
+    border: 1px solid #cbd1db;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+    color: #111827;
+}
+
+/* :scope to direct payment radio, not checkboxes within hosted widgets. */
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method:has(> input.input-radio:checked) {
+    border-color: #215ed9;
+    background: #f7faff;
+    box-shadow: inset 3px 0 0 #215ed9;
+}
+
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > input.input-radio {
+    float: none;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin: .14rem .65rem 0 0;
+    vertical-align: top;
+    accent-color: #215ed9;
+}
+
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > label {
+    display: inline-block;
+    max-width: calc(100% - 2rem);
+    margin: 0;
+    color: #0e295e;
+    font-size: .85rem;
+    font-weight: 700;
+    line-height: 1.4;
+    vertical-align: top;
+    overflow-wrap: normal;
+}
+
+/* Keep provider logos beside the method title, never oversized. */
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > label img {
+    display: inline-block;
+    width: auto;
+    max-width: 5.75rem;
+    max-height: 1.4rem;
+    margin: 0 0 0 .4rem;
+    vertical-align: middle;
+    object-fit: contain;
+}
+
+/* Embedded Stripe fields and Klarna's payment description remain provider-owned. */
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > .payment_box {
+    clear: both;
+    width: 100%;
+    min-width: 0;
+    margin: .9rem 0 0;
+    padding: .8rem 0 0;
+    border-top: 1px solid #e1e5eb;
+    border-radius: 0;
+    background: transparent;
+    color: #4b5563;
+    font-size: .78rem;
+    line-height: 1.55;
+    box-shadow: none;
+}
+
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > .payment_box::before {
+    display: none;
+}
+
+/* Do not reposition the PayPal SDK button or restyle secure iframes. */
+body.woocommerce-checkout #payment .payment_box a {
+    color: #143981;
+    text-underline-offset: .18em;
+}
+
+body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method:focus-within {
+    outline-offset: 2px;
+}
+
+@media (max-width: 479px) {
+    body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method {
+        padding: .8rem .75rem;
+    }
+
+    body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > label {
+        font-size: .8rem;
+    }
+
+    body.woocommerce-checkout #payment ul.payment_methods > li.wc_payment_method > label img {
+        max-width: 4.5rem;
+    }
+}
+
+
+
+/* ==========================================================================
+   CP1A.2 — Klarna badge and information link spacing
+   ========================================================================== */
+
+.woocommerce-checkout #payment
+.payment_method_klarna_payments > label img {
+    margin-right: 0.75rem !important;
+}
+
+.woocommerce-checkout #payment
+.payment_method_klarna_payments > label a {
+    float: none !important;
+    display: inline-block;
+    margin: 0 0 0 0.35rem !important;
+    vertical-align: middle;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+/* CP1B.1 — Visible, accessible inline terms error */
+body.woocommerce-checkout #payment .woocommerce-terms-and-conditions-wrapper .blaines-checkout-terms-error {
+    display: block !important;
+    margin: .5rem 0 .8rem !important;
+    padding: .65rem .8rem !important;
+    border: 0 !important;
+    border-left: 3px solid #b42318 !important;
+    background: #fff4f2 !important;
+    color: #991b1b !important;
+    font-size: .76rem !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    text-transform: none !important;
+}
+
+body.woocommerce-checkout #payment #terms[aria-invalid="true"] {
+    outline: 2px solid #b42318 !important;
+    outline-offset: 3px;
+}
+
+/* The guard intercepts the PayPal iframe only while terms are unchecked. */
+body.woocommerce-checkout #payment .blaines-paypal-guarded {
+    position: relative !important;
+}
+body.woocommerce-checkout #payment .blaines-paypal-terms-guard {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    z-index: 20 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    cursor: pointer !important;
+}
+body.woocommerce-checkout #payment .blaines-paypal-terms-guard:focus-visible {
+    outline: 3px solid #215ed9 !important;
+    outline-offset: 2px;
+}
+
+
+

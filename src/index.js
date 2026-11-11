@@ -27,6 +27,7 @@ import "./js/nav/desktop-nav-keys.js";
 import './js/woocommerce/product-postcode-checker';
 import './js/woocommerce/cart-postcode-checker';
 import './js/woocommerce/preferred-delivery-date';
+import './js/woocommerce/checkout-validation';
 import './js/woocommerce/transactional-promotions';
 import './js/woocommerce/transactional-product-gallery.js';
 import './js/woocommerce/transactional-similar-products.js';

@@ -742,56 +742,11 @@ function blaines_checkout_collection_styles(): void {
             color: inherit !important;
         }
 
-        /* Payment should read as the next step in the same flow, not a nested panel. */
-        .woocommerce-checkout #payment,
-        .woocommerce-checkout #payment ul.payment_methods,
-        .woocommerce-checkout #payment li.wc_payment_method,
-        .woocommerce-checkout #payment .payment_box {
-            background: transparent !important;
-            border-left: 0 !important;
-            border-right: 0 !important;
-            box-shadow: none !important;
-        }
-
-        .woocommerce-checkout #payment {
-            border-top: 1px solid #d8dee8 !important;
-            border-bottom: 0 !important;
-            padding-top: 17px !important;
-        }
-
-        .woocommerce-checkout #payment ul.payment_methods {
-            margin: 0 !important;
-            padding: 0 !important;
-            border-top: 0 !important;
-            border-bottom: 0 !important;
-        }
-
-        .woocommerce-checkout #payment li.wc_payment_method {
-            margin: 0 !important;
-            padding: 0 !important;
-            border-top: 0 !important;
-            border-bottom: 0 !important;
-        }
-
-        .woocommerce-checkout #payment li.wc_payment_method > label {
-            display: inline-block;
-            margin: 0 !important;
-            padding: 3px 0 3px 6px !important;
-            font-weight: 600;
-            color: #303744;
-        }
-
-        .woocommerce-checkout #payment .payment_box {
-            margin: 4px 0 0 24px !important;
-            padding: 0 !important;
-            border-top: 0 !important;
-            border-bottom: 0 !important;
-            color: #69717d !important;
-        }
-
-        .woocommerce-checkout #payment .payment_box::before {
-            display: none !important;
-        }
+        /* Payment method presentation now belongs to
+         * src/css/woocommerce/checkout.css (CP1A).
+         * Do not reintroduce inline !important resets for payment rows or
+         * gateway payment boxes here; those suppress the checkout card styles.
+         */
 
         .woocommerce-checkout #payment .place-order {
             margin-top: 18px !important;
