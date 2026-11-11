@@ -34,6 +34,14 @@ if ( empty( $first_name ) ) {
     ?>
 </p>
 
+<?php if ( $order instanceof WC_Order ) : ?>
+    <p>
+        Your Blaines order
+        <strong>#<?php echo esc_html( $order->get_order_number() ); ?></strong>
+        is now complete.
+    </p>
+<?php endif; ?>
+
 <p>
     We hope you're delighted with your new purchase,
     and we'd like to thank you for choosing Blaines Electrical.
