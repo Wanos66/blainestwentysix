@@ -44,7 +44,6 @@ $showroom_phone = is_string( $showroom_phone ) ? trim( $showroom_phone ) : '';
         $product_obj  = wc_get_product( $product_id );
         $product_name = get_the_title( $product_id );
         $product_code = $product_obj ? $product_obj->get_sku() : '';
-        $showroom_email = get_field( 'email', $showroom->ID );
 
         $prefill_message = $product_code
             ? sprintf(
@@ -57,14 +56,35 @@ $showroom_phone = is_string( $showroom_phone ) ? trim( $showroom_phone ) : '';
                 $product_name
             );
 
-        $message_url = add_query_arg(
-                           [
-                               'wpf284870_5' => $product_name,
-                               'wpf284870_3' => $prefill_message,
-                               'wpf284870_4' => $showroom_email,
-                           ],
-                           get_permalink( $showroom->ID )
-                       ) . '#contact';
+        // Match the form lookup in templates/page-showroom.php, so the form
+        // targeted by the Clearance URL is the one displayed on the showroom page.
+        $showroom_forms = get_posts( [
+            'post_type'      => 'wpforms',
+            'post_status'    => 'publish',
+            'title'          => 'Showroom Contact',
+            'posts_per_page' => 1,
+            'fields'         => 'ids',
+        ] );
+        $form_id = ! empty( $showroom_forms ) ? (int) $showroom_forms[0] : 0;
+
+        // WPForms field IDs differ between Local and Staging/Live.
+        $prefill_fields = [
+            1076   => [ 'message' => 3, 'product' => 6 ], // Local
+            284870 => [ 'message' => 3, 'product' => 5 ], // Staging / Live
+        ];
+
+        $message_url = get_permalink( $showroom->ID ) . '#contact';
+
+        if ( isset( $prefill_fields[ $form_id ] ) ) {
+            $field_ids = $prefill_fields[ $form_id ];
+            $message_url = add_query_arg(
+                [
+                    'wpf' . $form_id . '_' . $field_ids['product'] => $product_name,
+                    'wpf' . $form_id . '_' . $field_ids['message'] => $prefill_message,
+                ],
+                get_permalink( $showroom->ID )
+            ) . '#contact';
+        }
         ?>
 
         <a

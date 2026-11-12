@@ -1,64 +1,73 @@
 <?php
-declare(strict_types=1);
-
 /**
- * Route WPForms showroom enquiries to the showroom email stored on the page (ACF: enquiry_email).
- * Form ID: 1076
- * Requires a Hidden Field named: showroom_page_id (default value: {page_id})
+ * Route enquiries from the shared WPForms "Showroom Contact" form.
+ *
+ * Form IDs / showroom_page_id hidden-field IDs:
+ *   Local:   form 1076,   field 4
+ *   Staging: form 284870, field 7
+ *   Live:    form 284870, field 7
+ *
+ * The hidden field's default value must be {page_id}.
+ * The trusted destination comes from the showroom PAGE's ACF `email` field.
+ * Never use the submitted "Showroom email" field as a mail recipient: it can
+ * be modified by a visitor (including through Clearance enquiry URLs).
+ *
+ * Keep form fields (e.g. Product Name, enquiry message) untouched so that
+ * Clearance enquiries continue to populate their existing notification text.
  */
 
-add_filter('wpforms_email_send_to_email_address', function ($emails, $notification, $form_data) {
+declare(strict_types=1);
 
-    // Only for your showroom enquiry form
-    if ((int) ($form_data['id'] ?? 0) !== 1076) {
-        return $emails;
+add_filter('wpforms_entry_email_atts', static function (
+    $email,
+    $fields,
+    $entry,
+    $form_data,
+    $notification_id
+) {
+    $form_id = (int) ($form_data['id'] ?? 0);
+
+    // These are the same form logically, but have different IDs per database.
+    $page_field_ids = [
+        1076   => 4, // Local
+        284870 => 7, // Staging and Live
+    ];
+
+    if (!isset($page_field_ids[$form_id])) {
+        return $email;
     }
 
-    // Only override the main notification (optional but usually desirable)
-    // If you have multiple notifications and only want to override one,
-    // set its Notification Name in WPForms and match it here.
-    // Example:
-    // if (($notification['notification_name'] ?? '') !== 'Showroom Notification') return $emails;
+    // Always retain the site administrator as a recipient.
+    $recipients  = [];
+    $admin_email = sanitize_email((string) get_option('admin_email'));
 
-    // Pull the page ID from the submitted hidden field.
-    $page_id = 0;
+    if (is_email($admin_email)) {
+        $recipients[] = $admin_email;
+    }
 
-    // WPForms stores submitted field values in $form_data['fields'].
-    // But field structure differs depending on versions/addons, so we also check $_POST as fallback.
-    if (!empty($_POST['wpforms']['complete'])) {
-        $complete = json_decode((string) wp_unslash($_POST['wpforms']['complete']), true);
-        if (is_array($complete)) {
-            foreach ($complete as $field) {
-                if (($field['name'] ?? '') === 'showroom_page_id' && !empty($field['value'])) {
-                    $page_id = (int) $field['value'];
-                    break;
-                }
-            }
+    // Read the processed submitted field value (not a raw URL email address).
+    $field_id = $page_field_ids[$form_id];
+    $page_id  = absint($fields[$field_id]['value'] ?? 0);
+
+    // A visitor can alter hidden fields; only accept actual published showroom pages.
+    if (
+        $page_id > 0
+        && get_post_type($page_id) === 'page'
+        && get_post_status($page_id) === 'publish'
+        && get_page_template_slug($page_id) === 'templates/page-showroom.php'
+        && function_exists('get_field')
+    ) {
+        $showroom_email = sanitize_email((string) get_field('email', $page_id));
+
+        if (is_email($showroom_email)) {
+            $recipients[] = $showroom_email;
         }
     }
 
-    // Fallbacks (in case WPForms format differs)
-    if (!$page_id && !empty($_POST['wpforms']['fields'])) {
-        foreach ((array) $_POST['wpforms']['fields'] as $value) {
-            // If your hidden field is a known field ID you can target it directly,
-            // but this generic fallback avoids hardcoding field IDs.
-            if (is_numeric($value) && (int) $value > 0) {
-                // not reliable – leave it
-            }
-        }
-    }
+    // WPForms expects an array of email addresses here.  Override *only*
+    // recipients, leaving the subject, message and other settings unchanged.
+    // If the page cannot be verified, only the administrator receives a copy.
+    $email['address'] = array_values(array_unique($recipients));
 
-    if (!$page_id || !function_exists('get_field')) {
-        return $emails;
-    }
-
-    $to = (string) get_field('enquiry_email', $page_id);
-    $to = sanitize_email($to);
-
-    if (!$to) {
-        return $emails;
-    }
-
-    return [$to];
-
-}, 10, 3);
+    return $email;
+}, 10, 5);
