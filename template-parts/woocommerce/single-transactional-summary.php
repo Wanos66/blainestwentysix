@@ -99,7 +99,10 @@ $product_promotions = function_exists( 'blaines_get_product_promotions' )
     : [];
 
 $primary_promotion = $product_promotions[0] ?? null;
-$short_description = trim( (string) $product->get_short_description() );
+
+$product_dimensions = function_exists( 'get_field' )
+    ? trim( (string) get_field( 'product_dimensions', $product_id ) )
+    : trim( (string) get_post_meta( $product_id, 'product_dimensions', true ) );
 ?>
 
 <section
@@ -198,6 +201,38 @@ $short_description = trim( (string) $product->get_short_description() );
                     </li>
                 <?php endforeach; ?>
             </ul>
+        </section>
+    <?php endif; ?>
+
+    <?php if ( '' !== $product_dimensions ) : ?>
+        <section
+            class="retail-purchase-panel__section retail-purchase-panel__dimensions border-t border-neutral-200 px-5 py-5 sm:px-6 lg:px-7"
+            aria-labelledby="transactional-product-dimensions-title"
+        >
+            <h2
+                id="transactional-product-dimensions-title"
+                class="retail-purchase-panel__section-title text-xl font-semibold leading-tight text-[#143981]"
+            >
+                Product Dimensions (H x W x D)
+            </h2>
+
+            <div class="mt-4 flex items-center gap-3 text-base font-light leading-relaxed text-neutral-800">
+                <svg
+                    class="h-5 w-5 shrink-0 text-[#143981]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                    focusable="false"
+                >
+                    <path d="M4 4h16v16H4z" />
+                    <path d="M8 4v4M12 4v2M16 4v4M4 8h4M4 12h2M4 16h4" />
+                </svg>
+                <span><?php echo esc_html( $product_dimensions ); ?></span>
+            </div>
         </section>
     <?php endif; ?>
 
@@ -306,12 +341,6 @@ $short_description = trim( (string) $product->get_short_description() );
             Local delivery and collection options are shown during checkout.
         </p>
     </div>
-
-    <?php if ( '' !== $short_description ) : ?>
-        <div class="retail-purchase-panel__section retail-purchase-panel__short-description border-t border-neutral-200 px-5 py-5 text-sm font-light leading-relaxed text-neutral-700 sm:px-6 lg:px-7">
-            <?php echo wp_kses_post( apply_filters( 'woocommerce_short_description', $short_description ) ); ?>
-        </div>
-    <?php endif; ?>
 
     <?php
     get_template_part(

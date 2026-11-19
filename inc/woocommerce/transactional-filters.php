@@ -74,7 +74,7 @@ if ( ! function_exists( 'blaines_get_transactional_filter_registry' ) ) {
 				],
 			],
 			'washing_capacity' => [
-				'label'              => 'Washing Capacity (kg)',
+				'label'              => 'Washing Capacity',
 				'query_var'          => 'washing_capacity',
 				'taxonomy'           => $attribute_taxonomy( 'washing-capacity' ),
 				'sanitize_callback'  => 'sanitize_title',
@@ -86,7 +86,7 @@ if ( ! function_exists( 'blaines_get_transactional_filter_registry' ) ) {
 				],
 			],
 			'drying_capacity' => [
-				'label'              => 'Drying Capacity (kg)',
+				'label'              => 'Drying Capacity',
 				'query_var'          => 'drying_capacity',
 				'taxonomy'           => $attribute_taxonomy( 'drying-capacity' ),
 				'sanitize_callback'  => 'sanitize_title',
@@ -152,6 +152,15 @@ if ( ! function_exists( 'blaines_get_transactional_filter_registry' ) ) {
 				'exclude_terms'      => [ 'not-applicable' ],
 				'departments'        => [ 'refrigeration' ],
 			],
+			'oven_type' => [
+				'label'              => 'Oven Type',
+				'query_var'          => 'oven_type',
+				'taxonomy'           => $attribute_taxonomy( 'oven-type' ),
+				'sanitize_callback'  => 'sanitize_title',
+				'exclude_terms'      => [ 'not-applicable' ],
+				'departments'        => [ 'cooking' ],
+				'product_types'      => [ 'cooking-cookers', 'cooking-built-in-ovens' ],
+			],
 			'microwave_type' => [
 				'label'              => 'Microwave Type',
 				'query_var'          => 'microwave_type',
@@ -162,7 +171,7 @@ if ( ! function_exists( 'blaines_get_transactional_filter_registry' ) ) {
 				'product_types'      => [ 'cooking-microwaves' ],
 			],
 			'microwave_capacity' => [
-				'label'              => 'Microwave Capacity (L)',
+				'label'              => 'Microwave Capacity',
 				'query_var'          => 'microwave_capacity',
 				'taxonomy'           => $attribute_taxonomy( 'microwave-capacity' ),
 				'sanitize_callback'  => 'sanitize_title',
@@ -171,7 +180,7 @@ if ( ! function_exists( 'blaines_get_transactional_filter_registry' ) ) {
 				'product_types'      => [ 'cooking-microwaves' ],
 			],
 			'screen_size' => [
-				'label'              => 'Screen Size (")',
+				'label'              => 'Screen Size',
 				'query_var'          => 'screen_size',
 				'taxonomy'           => $attribute_taxonomy( 'screen-size' ),
 				'sanitize_callback'  => 'sanitize_title',
