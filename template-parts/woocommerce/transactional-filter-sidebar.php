@@ -128,6 +128,20 @@ $get_preserved_query = static function ( string $excluded_query_var ) use ( $act
 
 	return $preserved;
 };
+
+/**
+ * Render a native disclosure heading shared by all filter groups.
+ */
+$render_filter_summary = static function ( string $label ): void {
+	?>
+	<summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-4 px-4 py-3 font-semibold text-neutral-950 focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-700 [&::-webkit-details-marker]:hidden">
+		<?php echo esc_html( $label ); ?>
+		<svg class="h-4 w-4 shrink-0 group-open:rotate-180" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+			<path d="m3 6 5 5 5-5"></path>
+		</svg>
+	</summary>
+	<?php
+};
 ?>
 
 <aside
@@ -190,12 +204,9 @@ $get_preserved_query = static function ( string $excluded_query_var ) use ( $act
 		<div class="retail-filter-panel__body divide-y divide-neutral-200 pb-6 text-sm lg:pb-0">
 
 			<?php if ( ! empty( $product_type_terms ) ) : ?>
-				<section class="retail-filter-group px-4 py-4">
-					<div class="flex items-center justify-between gap-4">
-						<h3 class="retail-filter-group__title font-semibold text-neutral-950">
-							Product type
-						</h3>
-
+				<details class="group" open>
+					<?php $render_filter_summary( 'Product type' ); ?>
+					<div class="retail-filter-group px-4 pt-0! pb-4">
 						<?php if ( $type_filter ) : ?>
 							<a
 								href="<?php echo esc_url( remove_query_arg( [ 'type', 'pg' ] ) ); ?>"
@@ -204,54 +215,54 @@ $get_preserved_query = static function ( string $excluded_query_var ) use ( $act
 								Clear
 							</a>
 						<?php endif; ?>
-					</div>
 
-					<form method="get" class="retail-filter-group__options mt-3 space-y-2 text-neutral-700">
+						<form method="get" class="retail-filter-group__options mt-1! space-y-2 text-neutral-700">
 
-						<?php foreach ( $get_preserved_query( 'type' ) as $name => $value ) : ?>
-							<input
-								type="hidden"
-								name="<?php echo esc_attr( $name ); ?>"
-								value="<?php echo esc_attr( $value ); ?>"
-							>
-						<?php endforeach; ?>
-
-						<?php foreach ( $product_type_terms as $product_type_term ) : ?>
-							<?php
-							if ( ! $product_type_term instanceof WP_Term ) {
-								continue;
-							}
-
-							$is_checked = $type_filter === $product_type_term->slug;
-							?>
-
-							<label class="<?php echo esc_attr( $is_checked ? 'retail-filter-option retail-filter-option--active border-neutral-950 bg-neutral-950 font-medium text-white' : 'retail-filter-option border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400 hover:bg-neutral-50' ); ?> flex cursor-pointer items-center gap-3 border px-3 py-2.5 transition focus-within:ring-2 focus-within:ring-blue-700 focus-within:ring-offset-1">
+							<?php foreach ( $get_preserved_query( 'type' ) as $name => $value ) : ?>
 								<input
-									type="radio"
-									name="type"
-									value="<?php echo esc_attr( $product_type_term->slug ); ?>"
-									<?php checked( $is_checked ); ?>
-									onchange="this.form.submit()"
-									class="sr-only"
+									type="hidden"
+									name="<?php echo esc_attr( $name ); ?>"
+									value="<?php echo esc_attr( $value ); ?>"
 								>
+							<?php endforeach; ?>
 
-								<span class="<?php echo esc_attr( $is_checked ? 'retail-filter-option__control retail-filter-option__control--active border-white bg-white' : 'retail-filter-option__control border-neutral-300 bg-white' ); ?> flex h-3.5 w-3.5 shrink-0 items-center justify-center border">
-									<?php if ( $is_checked ) : ?>
-										<span class="retail-filter-option__mark h-1.5 w-1.5 bg-neutral-950"></span>
-									<?php endif; ?>
-								</span>
+							<?php foreach ( $product_type_terms as $product_type_term ) : ?>
+								<?php
+								if ( ! $product_type_term instanceof WP_Term ) {
+									continue;
+								}
 
-								<span class="retail-filter-option__label min-w-0 flex-1">
-									<?php echo esc_html( $format_type_label( $product_type_term ) ); ?>
-								</span>
+								$is_checked = $type_filter === $product_type_term->slug;
+								?>
 
-								<span class="<?php echo esc_attr( $is_checked ? 'retail-filter-option__count retail-filter-option__count--active text-neutral-300' : 'retail-filter-option__count text-neutral-400' ); ?> text-xs tabular-nums">
-									<?php echo esc_html( $product_type_term->count ); ?>
-								</span>
-							</label>
-						<?php endforeach; ?>
-					</form>
-				</section>
+								<label class="<?php echo esc_attr( $is_checked ? 'retail-filter-option retail-filter-option--active border-neutral-950 bg-neutral-950 font-medium text-white' : 'retail-filter-option border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400 hover:bg-neutral-50' ); ?> flex cursor-pointer items-center gap-3 border px-3 py-2.5 transition focus-within:ring-2 focus-within:ring-blue-700 focus-within:ring-offset-1">
+									<input
+										type="radio"
+										name="type"
+										value="<?php echo esc_attr( $product_type_term->slug ); ?>"
+										<?php checked( $is_checked ); ?>
+										onchange="this.form.submit()"
+										class="sr-only"
+									>
+
+									<span class="<?php echo esc_attr( $is_checked ? 'retail-filter-option__control retail-filter-option__control--active border-white bg-white' : 'retail-filter-option__control border-neutral-300 bg-white' ); ?> flex h-3.5 w-3.5 shrink-0 items-center justify-center border">
+										<?php if ( $is_checked ) : ?>
+											<span class="retail-filter-option__mark h-1.5 w-1.5 bg-neutral-950"></span>
+										<?php endif; ?>
+									</span>
+
+									<span class="retail-filter-option__label min-w-0 flex-1">
+										<?php echo esc_html( $format_type_label( $product_type_term ) ); ?>
+									</span>
+
+									<span class="<?php echo esc_attr( $is_checked ? 'retail-filter-option__count retail-filter-option__count--active text-neutral-300' : 'retail-filter-option__count text-neutral-400' ); ?> text-xs tabular-nums">
+										<?php echo esc_html( $product_type_term->count ); ?>
+									</span>
+								</label>
+							<?php endforeach; ?>
+						</form>
+					</div>
+				</details>
 			<?php endif; ?>
 
 			<?php foreach ( $filter_registry as $filter_key => $definition ) : ?>
@@ -282,27 +293,31 @@ $get_preserved_query = static function ( string $excluded_query_var ) use ( $act
 					continue;
 				}
 
-				get_template_part(
-					'template-parts/woocommerce/transactional-filter-group',
-					null,
-					[
-						'label'           => $label,
-						'query_var'       => $query_var,
-						'terms'           => $terms,
-						'counts'          => $counts,
-						'selected'        => $selected,
-						'preserved_query' => $get_preserved_query( $query_var ),
-					]
-				);
 				?>
+				<details class="group"<?php if ( '' !== $selected ) : ?> open<?php endif; ?>>
+					<?php $render_filter_summary( $label ); ?>
+					<div class="[&_section]:pt-0! [&_.retail-filter-group]:pt-0! [&_h3]:hidden [&_form]:mt-1!">
+						<?php
+						get_template_part(
+							'template-parts/woocommerce/transactional-filter-group',
+							null,
+							[
+								'label'           => $label,
+								'query_var'       => $query_var,
+								'terms'           => $terms,
+								'counts'          => $counts,
+								'selected'        => $selected,
+								'preserved_query' => $get_preserved_query( $query_var ),
+							]
+						);
+						?>
+					</div>
+				</details>
 			<?php endforeach; ?>
 
-			<section class="retail-filter-group px-4 py-4">
-				<div class="flex items-center justify-between gap-4">
-					<h3 class="retail-filter-group__title font-semibold text-neutral-950">
-						Stock status
-					</h3>
-
+			<details class="group"<?php if ( $stock_filter ) : ?> open<?php endif; ?>>
+				<?php $render_filter_summary( 'Stock status' ); ?>
+				<div class="retail-filter-group px-4 pt-0! pb-4">
 					<?php if ( $stock_filter ) : ?>
 						<a
 							href="<?php echo esc_url( remove_query_arg( [ 'stock', 'pg' ] ) ); ?>"
@@ -311,42 +326,42 @@ $get_preserved_query = static function ( string $excluded_query_var ) use ( $act
 							Clear
 						</a>
 					<?php endif; ?>
+
+					<form method="get" class="retail-filter-group__options mt-1! space-y-2 text-neutral-700">
+
+						<?php foreach ( $get_preserved_query( 'stock' ) as $name => $value ) : ?>
+							<input
+								type="hidden"
+								name="<?php echo esc_attr( $name ); ?>"
+								value="<?php echo esc_attr( $value ); ?>"
+							>
+						<?php endforeach; ?>
+
+						<?php $stock_is_checked = 'in-stock' === $stock_filter; ?>
+
+						<label class="<?php echo esc_attr( $stock_is_checked ? 'retail-filter-option retail-filter-option--active border-neutral-950 bg-neutral-950 font-medium text-white' : 'retail-filter-option border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400 hover:bg-neutral-50' ); ?> flex cursor-pointer items-center gap-3 border px-3 py-2.5 transition focus-within:ring-2 focus-within:ring-blue-700 focus-within:ring-offset-1">
+							<input
+								type="checkbox"
+								name="stock"
+								value="in-stock"
+								<?php checked( $stock_is_checked ); ?>
+								onchange="this.form.submit()"
+								class="sr-only"
+							>
+
+							<span class="<?php echo esc_attr( $stock_is_checked ? 'retail-filter-option__control retail-filter-option__control--active border-white bg-white' : 'retail-filter-option__control border-neutral-300 bg-white' ); ?> flex h-3.5 w-3.5 shrink-0 items-center justify-center border">
+								<?php if ( $stock_is_checked ) : ?>
+									<span class="retail-filter-option__mark h-1.5 w-1.5 bg-neutral-950"></span>
+								<?php endif; ?>
+							</span>
+
+							<span class="retail-filter-option__label min-w-0 flex-1">
+								In stock
+							</span>
+						</label>
+					</form>
 				</div>
-
-				<form method="get" class="retail-filter-group__options mt-3 space-y-2 text-neutral-700">
-
-					<?php foreach ( $get_preserved_query( 'stock' ) as $name => $value ) : ?>
-						<input
-							type="hidden"
-							name="<?php echo esc_attr( $name ); ?>"
-							value="<?php echo esc_attr( $value ); ?>"
-						>
-					<?php endforeach; ?>
-
-					<?php $stock_is_checked = 'in-stock' === $stock_filter; ?>
-
-					<label class="<?php echo esc_attr( $stock_is_checked ? 'retail-filter-option retail-filter-option--active border-neutral-950 bg-neutral-950 font-medium text-white' : 'retail-filter-option border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400 hover:bg-neutral-50' ); ?> flex cursor-pointer items-center gap-3 border px-3 py-2.5 transition focus-within:ring-2 focus-within:ring-blue-700 focus-within:ring-offset-1">
-						<input
-							type="checkbox"
-							name="stock"
-							value="in-stock"
-							<?php checked( $stock_is_checked ); ?>
-							onchange="this.form.submit()"
-							class="sr-only"
-						>
-
-						<span class="<?php echo esc_attr( $stock_is_checked ? 'retail-filter-option__control retail-filter-option__control--active border-white bg-white' : 'retail-filter-option__control border-neutral-300 bg-white' ); ?> flex h-3.5 w-3.5 shrink-0 items-center justify-center border">
-							<?php if ( $stock_is_checked ) : ?>
-								<span class="retail-filter-option__mark h-1.5 w-1.5 bg-neutral-950"></span>
-							<?php endif; ?>
-						</span>
-
-						<span class="retail-filter-option__label min-w-0 flex-1">
-							In stock
-						</span>
-					</label>
-				</form>
-			</section>
+			</details>
 
 			<?php
 			$visible_price_bands = isset( $price_facet['bands'] )
@@ -354,18 +369,25 @@ $get_preserved_query = static function ( string $excluded_query_var ) use ( $act
 				? $price_facet['bands']
 				: [];
 
-			if ( ! empty( $visible_price_bands ) ) {
-				get_template_part(
-					'template-parts/woocommerce/transactional-price-filter-group',
-					null,
-					[
-						'bands'           => $visible_price_bands,
-						'selected'        => $price_filter,
-						'preserved_query' => $get_preserved_query( 'price' ),
-					]
-				);
-			}
-			?>
+			if ( ! empty( $visible_price_bands ) ) :
+				?>
+				<details class="group"<?php if ( '' !== $price_filter ) : ?> open<?php endif; ?>>
+					<?php $render_filter_summary( 'Price' ); ?>
+					<div class="[&_section]:pt-0! [&_.retail-filter-group]:pt-0! [&_h3]:hidden [&_form]:mt-1!">
+						<?php
+						get_template_part(
+							'template-parts/woocommerce/transactional-price-filter-group',
+							null,
+							[
+								'bands'           => $visible_price_bands,
+								'selected'        => $price_filter,
+								'preserved_query' => $get_preserved_query( 'price' ),
+							]
+						);
+						?>
+					</div>
+				</details>
+			<?php endif; ?>
 
 		</div>
 	</div>
