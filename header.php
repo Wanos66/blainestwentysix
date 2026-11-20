@@ -75,11 +75,10 @@ $blaines_cart_count    = function_exists( 'blaines_get_cart_count' )
                             type="search"
                             name="s"
                             value="<?php echo esc_attr( get_search_query() ); ?>"
-                            placeholder="Search appliances, TVs, audio & more"
+                            placeholder="Search products, rooms, services and more…"
                             class="min-h-11 flex-1 border border-neutral-300 border-r-0 bg-white px-4 text-sm font-light text-neutral-900 placeholder:text-neutral-400 focus:border-blue-700 focus:outline-none"
                     >
 
-                    <input type="hidden" name="post_type" value="product">
 
                     <button
                             type="submit"

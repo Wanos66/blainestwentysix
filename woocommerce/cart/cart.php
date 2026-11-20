@@ -12,6 +12,180 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_before_cart' );
 ?>
 
+<style>
+    .blaines-retail--basket {
+        --basket-navy: #0e295e;
+        --basket-cobalt: #215ed9;
+        --basket-stone: #f3f0e9;
+        --basket-rule: #aeb9cc;
+    }
+
+    .blaines-retail--basket :is(.retail-basket-items, .retail-basket-summary) {
+        border: 1px solid var(--basket-rule);
+    }
+
+    .blaines-retail--basket :is(.retail-basket-items__header, .retail-basket-summary__header) {
+        border: 0;
+        background: var(--basket-navy);
+        color: #fff;
+    }
+
+    .blaines-retail--basket :is(.retail-basket-items__header, .retail-basket-summary__header) :is(h2, p) {
+        color: #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-items__count {
+        border: 1px solid currentColor;
+    }
+
+    .blaines-retail--basket .retail-basket-items__list {
+        background: var(--basket-stone);
+    }
+
+    .blaines-retail--basket .retail-basket-item {
+        border: 1px solid var(--basket-rule);
+    }
+
+    .blaines-retail--basket .retail-basket-item__commercial {
+        border-top-color: var(--basket-navy);
+        background: var(--basket-stone);
+    }
+
+    .blaines-retail--basket .retail-basket-services {
+        border-top-color: var(--basket-rule);
+    }
+
+    .blaines-retail--basket .retail-basket-services__header {
+        background: var(--basket-navy);
+    }
+
+    .blaines-retail--basket .retail-basket-services__header :is(h4, p),
+    .blaines-retail--basket .retail-basket-services__header > div > p:last-child {
+        color: #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-services__selected-count {
+        border: 1px solid currentColor;
+        background: transparent;
+    }
+
+    .blaines-retail--basket .retail-basket-service:not(:has(input:checked)):hover {
+        background: var(--basket-stone);
+    }
+
+    .blaines-retail--basket .retail-basket-service.is-selected:not(:has(input:checked)) {
+        background: #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-service:has(input:checked),
+    .blaines-retail--basket .retail-basket-summary .woocommerce-shipping-methods li:has(> input:checked) {
+        background: var(--basket-cobalt);
+        color: #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-service:has(input:checked) :is(
+        .retail-basket-service__group, .retail-basket-service__name,
+        .retail-basket-service__selected, .retail-basket-service__price
+    ),
+    .blaines-retail--basket .retail-basket-summary .woocommerce-shipping-methods li:has(> input:checked) label {
+        color: #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-service:has(input:checked) input,
+    .blaines-retail--basket .woocommerce-shipping-methods input:checked {
+        accent-color: var(--basket-navy);
+        color-scheme: dark;
+    }
+
+    .blaines-retail--basket .retail-basket-service:focus-within,
+    .blaines-retail--basket .woocommerce-shipping-methods li:focus-within {
+        outline: 2px solid var(--basket-navy);
+        outline-offset: -2px;
+    }
+
+    .blaines-retail--basket .retail-basket-service:has(input:checked) input:focus-visible {
+        outline: 2px solid #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-summary .woocommerce-shipping-methods li:has(> input[type="radio"]) {
+        position: relative;
+        align-items: center;
+        min-height: 2.75rem;
+        padding: .5rem .65rem;
+        border: 1px solid #7c8ba5;
+    }
+
+    .blaines-retail--basket .retail-basket-summary .woocommerce-shipping-methods li:has(> input[type="radio"]) label {
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        cursor: pointer;
+    }
+
+    .blaines-retail--basket .retail-basket-summary .woocommerce-shipping-methods li:has(> input[type="radio"]) label::before {
+        position: absolute;
+        inset: 0;
+        content: "";
+    }
+
+    .blaines-retail--basket .retail-basket-summary__address-note,
+    .blaines-retail--basket .retail-basket-assurance,
+    .blaines-retail--basket .retail-basket-postcode-block {
+        border: 0;
+        background: var(--basket-stone);
+        color: var(--basket-navy);
+    }
+
+    .blaines-retail--basket .retail-basket-summary__address-note {
+        margin: 0 0 1rem;
+        padding: .75rem .85rem;
+        font-size: .875rem;
+        line-height: 1.5;
+    }
+
+    .blaines-retail--basket .retail-basket-postcode-block__status {
+        display: inline-block;
+        padding: .5rem .65rem;
+        background: var(--basket-navy);
+        color: #fff;
+    }
+
+    .blaines-retail--basket .retail-basket-postcode-block h4 {
+        margin-top: .65rem;
+        font-size: 1.15rem;
+    }
+
+    .blaines-retail--basket [data-blaines-cart-update-status]:not([hidden]),
+    .blaines-retail--basket [data-blaines-cart-postcode-result]:not(.hidden) {
+        padding: .75rem 1rem;
+        border: 0;
+        background: var(--basket-navy);
+        color: #fff;
+        font-size: .875rem;
+        font-weight: 600;
+        line-height: 1.5;
+        overflow-wrap: anywhere;
+    }
+
+    .blaines-retail--basket [data-blaines-cart-postcode-result].bg-green-50 {
+        background: #195845;
+    }
+
+    .blaines-retail--basket [data-blaines-cart-postcode-result].bg-red-50 {
+        background: #8c2737;
+    }
+
+    .blaines-retail--basket .retail-basket-summary .checkout-button {
+        border-color: var(--basket-cobalt) !important;
+        background: var(--basket-cobalt) !important;
+    }
+
+    .blaines-retail--basket .retail-basket-summary .checkout-button:hover {
+        border-color: var(--basket-navy) !important;
+        background: var(--basket-navy) !important;
+    }
+</style>
+
 <div class="blaines-retail blaines-retail--basket">
 
     <div class="retail-basket-layout">
@@ -64,6 +238,9 @@ do_action( 'woocommerce_before_cart' );
                     <div class="retail-basket-items__list">
 
                         <?php
+                        $collection_blocked_by_services = function_exists( 'blaines_cart_has_selected_fulfilment_services' )
+                            && blaines_cart_has_selected_fulfilment_services( WC()->cart );
+
                         foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
                             $_product   = apply_filters(
                                 'woocommerce_cart_item_product',
@@ -141,26 +318,11 @@ do_action( 'woocommerce_before_cart' );
 
                             $sku = $_product->get_sku();
 
-                            $availability_message = '';
-                            $availability_state   = 'unknown';
-
-                            if ( function_exists(
-                                'blaines_get_transactional_availability_message'
-                            ) ) {
-                                $availability_message =
-                                    blaines_get_transactional_availability_message(
-                                        $_product
-                                    );
-                            }
-
-                            if ( function_exists(
-                                'blaines_get_transactional_availability_state'
-                            ) ) {
-                                $availability_state =
-                                    blaines_get_transactional_availability_state(
-                                        $_product
-                                    );
-                            }
+                            $availability = function_exists( 'blaines_get_transactional_availability_presentation' )
+                                ? blaines_get_transactional_availability_presentation( $_product, 'cart' )
+                                : [];
+                            $availability_message = $availability['message'] ?? '';
+                            $availability_state   = $availability['state'] ?? 'unknown';
 
                             $availability_title = 'Availability';
                             $availability_text  = $availability_message;
@@ -187,6 +349,10 @@ do_action( 'woocommerce_before_cart' );
 
                             if ( '' === trim( (string) $availability_text ) ) {
                                 $availability_text = $availability_message;
+                            }
+
+                            if ( $collection_blocked_by_services && ! empty( $availability['delivery_detail'] ) ) {
+                                $availability_text = $availability['delivery_detail'];
                             }
 
                             if ( '' !== trim( (string) $availability_text ) ) {
@@ -780,7 +946,10 @@ do_action( 'woocommerce_before_cart' );
                     <div class="retail-basket-update">
 
                         <p>
-                            Changed a quantity or selected a service?
+                            <?php esc_html_e(
+                                'Quantities and services update automatically. Use this button if an update doesn’t go through.',
+                                'blainestwentysix'
+                            ); ?>
                         </p>
 
                         <button
@@ -832,7 +1001,7 @@ do_action( 'woocommerce_before_cart' );
 
                 <div class="retail-basket-summary__content">
 
-                    <p class="mb-3 border-l-2 border-blue-700 bg-blue-50 px-3 py-2 text-sm text-neutral-700">
+                    <p class="retail-basket-summary__address-note">
                         <?php esc_html_e( 'Buying for someone else? At checkout, you can enter their delivery address and keep your own billing address.', 'blainestwentysix' ); ?>
                     </p>
 
