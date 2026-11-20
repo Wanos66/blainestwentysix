@@ -26,6 +26,9 @@ require_once __DIR__ . '/navigation.php';
 // Template routing (if used)
 require_once __DIR__ . '/template-routing.php';
 
+// Unified site-wide search.
+require_once __DIR__ . '/search.php';
+
 // REST (Filtering engine lives in MU-plugin. Theme should not load REST endpoints.)
 if (defined('BLAINES_FILTERS_ENABLED') && BLAINES_FILTERS_ENABLED === false) {
     // Filters intentionally disabled — do nothing.
