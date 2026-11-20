@@ -2406,16 +2406,26 @@ label {
     margin-bottom: 1.15rem !important;
 }
 
-/* Shipping checkbox should feel like a compact continuation of the form. */
+/* Align the delivery address with the billing form and keep the checkbox easy to tap. */
+.woocommerce-checkout .woocommerce-shipping-fields {
+    padding-block: 0.5rem 0.75rem !important;
+}
+
 .woocommerce-checkout .woocommerce-shipping-fields h3 {
     margin: 0 !important;
 }
 
-.woocommerce-checkout
-.woocommerce-shipping-fields
-#ship-to-different-address label {
+.woocommerce-checkout .woocommerce-shipping-fields #ship-to-different-address label {
+    min-height: 2.75rem;
+    padding: 0.5rem 0;
     font-size: 1.15rem !important;
     line-height: 1.35;
+}
+
+.woocommerce-checkout .woocommerce-shipping-fields .shipping_address {
+    padding: 0.75rem 0 0;
+    border-top: 0;
+    background: transparent;
 }
 
 /* Slightly reduce the vertical rhythm between individual fields. */

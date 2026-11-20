@@ -18,6 +18,13 @@ do_action( 'woocommerce_before_cart' );
 
         <div class="retail-basket-main">
 
+            <p
+                class="sticky top-0 z-10 bg-white px-4 py-2 text-sm font-semibold text-neutral-900"
+                data-blaines-cart-update-status
+                role="status"
+                hidden
+            ></p>
+
             <form
                 class="woocommerce-cart-form retail-basket-form"
                 action="<?php echo esc_url( wc_get_cart_url() ); ?>"
@@ -25,7 +32,7 @@ do_action( 'woocommerce_before_cart' );
             >
                 <?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-                <div class="retail-basket-items">
+                <div class="retail-basket-items woocommerce-cart-form__contents">
 
                     <header class="retail-basket-items__header">
                         <div>
@@ -582,7 +589,7 @@ do_action( 'woocommerce_before_cart' );
                                                     </h4>
 
                                                     <p>
-                                                        Select what you need, then update your basket.
+                                                        Select any services you need for local delivery.
                                                     </p>
                                                 </div>
 
@@ -825,6 +832,10 @@ do_action( 'woocommerce_before_cart' );
 
                 <div class="retail-basket-summary__content">
 
+                    <p class="mb-3 border-l-2 border-blue-700 bg-blue-50 px-3 py-2 text-sm text-neutral-700">
+                        <?php esc_html_e( 'Buying for someone else? At checkout, you can enter their delivery address and keep your own billing address.', 'blainestwentysix' ); ?>
+                    </p>
+
                     <?php
                     if ( function_exists( 'woocommerce_cart_totals' ) ) {
                         woocommerce_cart_totals();
@@ -848,7 +859,7 @@ do_action( 'woocommerce_before_cart' );
                 <h3>Delivery, collection and services</h3>
 
                 <p>
-                    Available fulfilment choices are confirmed from your checked postcode and the services selected above.
+                    Local delivery and optional services depend on the delivery postcode.
                 </p>
 
                 <a href="tel:01760302111">

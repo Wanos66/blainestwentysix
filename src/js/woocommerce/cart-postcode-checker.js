@@ -1,6 +1,11 @@
-const cartPostcodeCheckers = document.querySelectorAll('[data-blaines-cart-postcode-checker]');
+const boundCartPostcodeCheckers = new WeakSet();
 
-cartPostcodeCheckers.forEach((checker) => {
+function bindCartPostcodeCheckers() {
+  document.querySelectorAll('[data-blaines-cart-postcode-checker]').forEach(bindCartPostcodeChecker);
+}
+
+function bindCartPostcodeChecker(checker) {
+  if (boundCartPostcodeCheckers.has(checker)) return;
   const input = checker.querySelector('[data-blaines-cart-postcode-input]');
   const button = checker.querySelector('[data-blaines-cart-postcode-submit]');
   const result = checker.querySelector('[data-blaines-cart-postcode-result]');
@@ -8,6 +13,8 @@ cartPostcodeCheckers.forEach((checker) => {
   if (!input || !button || !result) {
     return;
   }
+
+  boundCartPostcodeCheckers.add(checker);
 
   function setLoading(isLoading) {
     button.disabled = isLoading;
@@ -51,7 +58,10 @@ cartPostcodeCheckers.forEach((checker) => {
     formData.append('nonce', checker.dataset.nonce || '');
     formData.append('postcode', postcode);
 
+    if (button.disabled) return;
+
     setLoading(true);
+    let reloadScheduled = false;
 
     try {
       const response = await fetch(checker.dataset.ajaxUrl || '', {
@@ -72,14 +82,20 @@ cartPostcodeCheckers.forEach((checker) => {
       if (data.status === 'delivery' || data.status === 'collection') {
         storePostcodeResult(data);
 
+        reloadScheduled = true;
         window.setTimeout(() => {
-          window.location.reload();
+          setLoading(false);
+          const shouldReload = checker.dispatchEvent(new CustomEvent('blaines:cart-postcode-reload', {
+            bubbles: true,
+            cancelable: true,
+          }));
+          if (shouldReload) window.location.reload();
         }, 900);
       }
     } catch (error) {
       showMessage('We could not check delivery availability at this time. Please contact Web Sales if you need help.');
     } finally {
-      setLoading(false);
+      if (!reloadScheduled) setLoading(false);
     }
   }
 
@@ -91,4 +107,7 @@ cartPostcodeCheckers.forEach((checker) => {
       checkPostcode();
     }
   });
-});
+}
+
+bindCartPostcodeCheckers();
+window.jQuery?.(document.body).on('updated_wc_div', bindCartPostcodeCheckers);

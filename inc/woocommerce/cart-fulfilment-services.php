@@ -97,6 +97,7 @@ if ( ! function_exists( 'blaines_update_cart_fulfilment_services' ) ) {
             && blaines_fulfilment_services_blocked_by_checked_postcode()
         ) {
             foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+                $cart_updated = $cart_updated || ! empty( $cart_item['blaines_fulfilment_services'] );
                 unset( WC()->cart->cart_contents[ $cart_item_key ]['blaines_fulfilment_services'] );
             }
 
@@ -119,6 +120,7 @@ if ( ! function_exists( 'blaines_update_cart_fulfilment_services' ) ) {
                 empty( $cart_item['data'] )
                 || ! $cart_item['data'] instanceof WC_Product
             ) {
+                $cart_updated = $cart_updated || ! empty( $cart_item['blaines_fulfilment_services'] );
                 unset( WC()->cart->cart_contents[ $cart_item_key ]['blaines_fulfilment_services'] );
                 continue;
             }
@@ -127,6 +129,7 @@ if ( ! function_exists( 'blaines_update_cart_fulfilment_services' ) ) {
             $valid_services = blaines_get_valid_cart_fulfilment_services( $product );
 
             if ( empty( $valid_services ) ) {
+                $cart_updated = $cart_updated || ! empty( $cart_item['blaines_fulfilment_services'] );
                 unset( WC()->cart->cart_contents[ $cart_item_key ]['blaines_fulfilment_services'] );
                 continue;
             }
@@ -149,10 +152,12 @@ if ( ! function_exists( 'blaines_update_cart_fulfilment_services' ) ) {
             $selected_services = array_values( array_unique( $selected_services ) );
 
             if ( empty( $selected_services ) ) {
+                $cart_updated = $cart_updated || ! empty( $cart_item['blaines_fulfilment_services'] );
                 unset( WC()->cart->cart_contents[ $cart_item_key ]['blaines_fulfilment_services'] );
                 continue;
             }
 
+            $cart_updated = $cart_updated || ( $cart_item['blaines_fulfilment_services'] ?? [] ) !== $selected_services;
             WC()->cart->cart_contents[ $cart_item_key ]['blaines_fulfilment_services'] = $selected_services;
         }
 
