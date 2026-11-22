@@ -158,14 +158,24 @@ function blaines_search_editorial_score( int $post_id, string $search_term, stri
             return 10;
         }
 
-        // Related projects precede secondary information pages.
-        if ( 'project' === $post->post_type ) {
-            return 20;
-        }
-
-        // Clearance is useful but must not displace the main department.
+        // Clearance belongs below ranges and projects, even when its slug
+        // includes the department name.
         if ( 'page' === $post->post_type && false !== strpos( $slug, 'clearance' ) ) {
             return 30;
+        }
+
+        // Department-specific pages (e.g. Classic Kitchens and Modern
+        // Kitchens) follow ranges but precede completed projects and general
+        // website information such as About Us.
+        if (
+            'page' === $post->post_type
+            && false !== strpos( $slug, $department )
+        ) {
+            return 15;
+        }
+
+        if ( 'project' === $post->post_type ) {
+            return 20;
         }
 
         return 40;

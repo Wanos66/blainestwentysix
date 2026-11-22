@@ -76,7 +76,7 @@ $blaines_cart_count    = function_exists( 'blaines_get_cart_count' )
                             name="s"
                             value="<?php echo esc_attr( get_search_query() ); ?>"
                             placeholder="Search products, rooms, services and more…"
-                            class="min-h-11 flex-1 border border-neutral-300 border-r-0 bg-white px-4 text-sm font-light text-neutral-900 placeholder:text-neutral-400 focus:border-blue-700 focus:outline-none"
+                            class="min-h-12 min-w-0 flex-1 border border-neutral-400 border-r-0 bg-white px-4 font-body text-base font-medium text-neutral-950 placeholder:font-normal placeholder:text-neutral-500 focus:border-[#143981] focus:outline-none focus:ring-2 focus:ring-[#143981]/20"
                     >
 
 
@@ -173,6 +173,27 @@ $blaines_cart_count    = function_exists( 'blaines_get_cart_count' )
                 </button>
 
                 <div class="flex items-center gap-4">
+                    <button
+                            type="button"
+                            id="mobile-search-toggle"
+                            class="inline-flex min-h-11 min-w-11 items-center justify-center text-neutral-950 transition hover:text-blue-700"
+                            aria-label="Open search"
+                            aria-expanded="false"
+                            aria-controls="mobile-search-panel"
+                    >
+                        <svg
+                                class="h-6 w-6"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                aria-hidden="true"
+                        >
+                            <circle cx="10.75" cy="10.75" r="7.25"
+                                    stroke="currentColor" stroke-width="1.8"/>
+                            <path d="m16 16 5 5"
+                                    stroke="currentColor" stroke-width="1.8"
+                                    stroke-linecap="round"/>
+                        </svg>
+                    </button>
                     <a
                             href="<?php echo esc_url( $blaines_account_url ); ?>"
                             class="inline-flex min-h-11 items-center justify-center text-neutral-950 transition hover:text-blue-700"
@@ -208,6 +229,99 @@ $blaines_cart_count    = function_exists( 'blaines_get_cart_count' )
             </div>
         </div>
     </div>
+
+
+    <!-- Mobile site-wide search panel -->
+    <div
+            id="mobile-search-panel"
+            class="hidden border-b border-neutral-200 bg-white lg:hidden"
+            aria-hidden="true"
+    >
+        <div class="container-wide py-4">
+            <form
+                    role="search"
+                    method="get"
+                    action="<?php echo esc_url( home_url( '/' ) ); ?>"
+                    class="flex w-full items-stretch"
+            >
+                <label class="sr-only" for="mobile-site-search">
+                    Search Blaines
+                </label>
+
+                <input
+                        id="mobile-site-search"
+                        type="search"
+                        name="s"
+                        value="<?php echo esc_attr( get_search_query() ); ?>"
+                        placeholder="Search products, rooms, services and more…"
+                        class="min-h-12 min-w-0 flex-1 border border-neutral-400 border-r-0 bg-white px-3 font-body text-base font-medium text-neutral-950 placeholder:font-normal placeholder:text-neutral-500 focus:border-[#143981] focus:outline-none"
+                >
+
+                <button
+                        type="submit"
+                        class="inline-flex min-h-12 min-w-12 items-center justify-center bg-[#143981] px-3 text-white transition hover:bg-[#215ED9]"
+                        aria-label="Submit search"
+                >
+                    <svg
+                            class="h-5 w-5"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            aria-hidden="true"
+                    >
+                        <circle cx="10.75" cy="10.75" r="7.25"
+                                stroke="currentColor" stroke-width="1.8"/>
+                        <path d="m16 16 5 5"
+                                stroke="currentColor" stroke-width="1.8"
+                                stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('mobile-search-toggle');
+        const panel = document.getElementById('mobile-search-panel');
+        const input = document.getElementById('mobile-site-search');
+
+        if (!toggle || !panel || !input) {
+          return;
+        }
+
+        function closeSearch() {
+          panel.classList.add('hidden');
+          panel.setAttribute('aria-hidden', 'true');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open search');
+        }
+
+        toggle.addEventListener('click', function () {
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+
+          if (isOpen) {
+            closeSearch();
+          } else {
+            panel.classList.remove('hidden');
+            panel.setAttribute('aria-hidden', 'false');
+            toggle.setAttribute('aria-expanded', 'true');
+            toggle.setAttribute('aria-label', 'Close search');
+            input.focus();
+          }
+        });
+
+        document.addEventListener('keydown', function (event) {
+          if (
+              event.key === 'Escape' &&
+              toggle.getAttribute('aria-expanded') === 'true'
+          ) {
+            closeSearch();
+            toggle.focus();
+          }
+        });
+      });
+    </script>
+
 
     <!-- 4) BLACK RIBBON BLURB -->
     <div class="bg-black text-white text-xs hidden md:block" id="black-blurb-bar">

@@ -1615,3 +1615,131 @@
         margin-left: 0;
     }
 }
+
+/* Unified search: ensure the product CTA retains Blaines branding. */
+.blaines-search-products .retail-product-row__action {
+    background-color: #143981;
+    border-color: #143981;
+    color: #ffffff;
+}
+
+.blaines-search-products .retail-product-row__action:hover {
+    background-color: #215ED9;
+    border-color: #215ED9;
+    color: #ffffff;
+}
+
+/* Unified search — distinguish individual electrical product cards. */
+.blaines-search-products {
+    padding: 1.5rem;
+    background: #f3f6fa;
+}
+
+@media (max-width: 767px) {
+    .blaines-search-products {
+        padding: 0.75rem;
+    }
+}
+
+
+/* Unified search — accessible, touch-friendly pagination. */
+.blaines-search-pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.blaines-search-pagination .page-numbers {
+    display: inline-flex;
+    min-width: 48px;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 0.875rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.375rem;
+    background: #ffffff;
+    color: #143981;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: none;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.blaines-search-pagination a.page-numbers:hover {
+    border-color: #143981;
+    background: #f3f6fa;
+}
+
+.blaines-search-pagination .page-numbers.current {
+    border-color: #143981;
+    background: #143981;
+    color: #ffffff;
+}
+
+.blaines-search-pagination a.page-numbers:focus-visible {
+    outline: 3px solid #215ed9;
+    outline-offset: 3px;
+}
+
+.blaines-search-pagination .page-numbers.dots {
+    min-width: auto;
+    padding-inline: 0.25rem;
+    border: 0;
+    background: transparent;
+}
+
+.blaines-search-pagination__status {
+    flex-basis: 100%;
+    margin: 0.25rem 0 0;
+    color: #64748b;
+    font-size: 0.8125rem;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .blaines-search-pagination {
+        gap: 0.375rem;
+    }
+
+    .blaines-search-pagination .page-numbers {
+        min-width: 44px;
+        min-height: 48px;
+        padding-inline: 0.75rem;
+    }
+}
+
+
+/* Unified search — balanced mobile pagination. */
+@media (max-width: 767px) {
+    .blaines-search-pagination {
+        justify-content: center;
+    }
+
+    .blaines-search-pagination .page-numbers:not(.prev):not(.next) {
+        order: 1;
+    }
+
+    /* Force a new row after the page numbers. */
+    .blaines-search-pagination::before {
+        content: "";
+        order: 2;
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    .blaines-search-pagination .page-numbers.prev,
+    .blaines-search-pagination .page-numbers.next {
+        order: 3;
+        flex: 1 1 0;
+        max-width: 160px;
+    }
+
+    .blaines-search-pagination__status {
+        order: 4;
+    }
+}
+

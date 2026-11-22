@@ -32,7 +32,13 @@ $content_page = isset( $_GET['content_page'] )
     ? max( 1, absint( wp_unslash( $_GET['content_page'] ) ) )
     : 1;
 
-$products_per_page = 8;
+$products_per_page = (
+    ! $product_only
+    && function_exists( 'blaines_search_department_post_type' )
+    && blaines_search_department_post_type( $search_term )
+)
+    ? 3
+    : 8;
 $content_per_page  = 12;
 $product_count     = count( $product_ids );
 $content_count     = count( $content_ids );
@@ -131,7 +137,7 @@ if ( $product_only ) {
                         <?php printf( esc_html( _n( '%d product', '%d products', $product_count, 'blainestwentysix' ) ), absint( $product_count ) ); ?>
                     </p>
                 </div>
-                <div class="blaines-retail--archive divide-y divide-neutral-200 border-y border-neutral-200">
+                <div class="blaines-retail--archive blaines-search-products flex flex-col gap-6">
                     <?php while ( $product_query->have_posts() ) : $product_query->the_post(); ?>
                         <?php
                         $product = wc_get_product( get_the_ID() );
@@ -142,7 +148,10 @@ if ( $product_only ) {
                     <?php endwhile; wp_reset_postdata(); ?>
                 </div>
                 <?php if ( $product_pages > 1 ) : ?>
-                    <nav class="mt-5 flex flex-wrap items-center gap-2 text-sm" aria-label="<?php esc_attr_e( 'Electrical product results pages', 'blainestwentysix' ); ?>">
+                    <nav
+                            class="blaines-search-pagination mt-6"
+                            aria-label="<?php esc_attr_e( 'Electrical products pages', 'blainestwentysix' ); ?>"
+                    >
                         <?php
                         echo wp_kses_post(
                             paginate_links(
@@ -158,6 +167,19 @@ if ( $product_only ) {
                             )
                         );
                         ?>
+
+                        <p class="blaines-search-pagination__status">
+                            <?php
+                            echo esc_html(
+                                sprintf(
+                                    __( 'Page %1$d of %2$d', 'blainestwentysix' ),
+                                    $product_page,
+                                    $product_pages
+                                )
+                            );
+                            ?>
+                        </p>
+
                     </nav>
                 <?php endif; ?>
             </div>
@@ -190,37 +212,113 @@ if ( $product_only ) {
                             'page'     => __( 'Website information', 'blainestwentysix' ),
                         ];
                         $label = $labels[ $type ] ?? __( 'Explore', 'blainestwentysix' );
+
+                        if ( 'page' === $type ) {
+                            $department_labels = [
+                                'kitchens'         => 'Kitchens · Design & Installation',
+                                'bathrooms'        => 'Bathrooms · Design & Installation',
+                                'bedrooms'         => 'Bedrooms · Design & Installation',
+                                'classic-kitchens' => 'Kitchen Styles · Classic',
+                                'modern-kitchens'  => 'Kitchen Styles · Modern',
+                            ];
+
+                            $page_slug = get_post_field( 'post_name', get_the_ID() );
+
+                            if ( isset( $department_labels[ $page_slug ] ) ) {
+                                $label = __( $department_labels[ $page_slug ], 'blainestwentysix' );
+                            }
+                        }
                         $summary = get_the_excerpt();
                         ?>
-                        <article <?php post_class( 'overflow-hidden border border-neutral-200 bg-white' ); ?>>
+
+                        <article <?php post_class( 'flex h-full flex-col overflow-hidden border border-neutral-200 bg-white' ); ?>>
                             <a class="block aspect-[4/3] overflow-hidden bg-neutral-100" href="<?php the_permalink(); ?>" tabindex="-1" aria-hidden="true">
-                                <?php if ( has_post_thumbnail() ) : ?>
-                                    <?php the_post_thumbnail( 'medium_large', [ 'class' => 'h-full w-full object-cover', 'loading' => 'lazy', 'alt' => '' ] ); ?>
-                                <?php else : ?>
-                                    <span class="flex h-full items-center justify-center text-sm text-neutral-400"><?php esc_html_e( 'Explore Blaines', 'blainestwentysix' ); ?></span>
-                                <?php endif; ?>
+
+                                <?php
+
+                                $search_image_id = get_post_thumbnail_id();
+
+                                if (
+                                    ! $search_image_id
+                                    && 'page' === get_post_type()
+                                    && function_exists( 'get_field' )
+                                ) {
+                                    $department_hero_fields = [
+                                        'kitchens'  => 'kitchen_archive_hero_image',
+                                        'bathrooms' => 'bathroom_archive_hero_image',
+                                        'bedrooms'  => 'bedroom_archive_hero_image',
+                                    ];
+
+                                    $page_slug = get_post_field( 'post_name', get_the_ID() );
+
+                                    if ( isset( $department_hero_fields[ $page_slug ] ) ) {
+                                        $archive_hero = get_field(
+                                            $department_hero_fields[ $page_slug ],
+                                            'option'
+                                        );
+
+                                        if ( is_array( $archive_hero ) ) {
+                                            $search_image_id = absint( $archive_hero['ID'] ?? 0 );
+                                        }
+                                    }
+                                }
+
+
+                                if ( $search_image_id ) {
+                                    echo wp_get_attachment_image(
+                                        $search_image_id,
+                                        'medium_large',
+                                        false,
+                                        [
+                                            'class'   => 'h-full w-full object-cover',
+                                            'loading' => 'lazy',
+                                            'alt'     => '',
+                                        ]
+                                    );
+                                } else {
+                                    echo '<span class="flex h-full items-center justify-center text-sm text-neutral-400">';
+                                    esc_html_e( 'Explore Blaines', 'blainestwentysix' );
+                                    echo '</span>';
+                                }
+                                ?>
+
                             </a>
-                            <div class="p-5">
+                            <div class="flex flex-1 flex-col p-5">
                                 <p class="text-xs font-semibold uppercase tracking-[0.12em] text-blue-700"><?php echo esc_html( $label ); ?></p>
                                 <h3 class="mt-2 font-title text-xl font-semibold text-neutral-950"><a class="hover:text-blue-700" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
                                 <?php if ( '' !== trim( $summary ) ) : ?>
                                     <p class="mt-2 text-sm leading-relaxed text-neutral-600"><?php echo esc_html( wp_trim_words( wp_strip_all_tags( $summary ), 22 ) ); ?></p>
                                 <?php endif; ?>
-                                <a class="mt-4 inline-flex text-sm font-semibold text-[#143981] hover:underline" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Explore', 'blainestwentysix' ); ?> <span aria-hidden="true">&rarr;</span></a>
+                                <a class="mt-auto pt-4 inline-flex text-sm font-semibold text-[#143981] hover:underline" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Explore', 'blainestwentysix' ); ?> <span aria-hidden="true">&rarr;</span></a>
                             </div>
                         </article>
                     <?php endwhile; wp_reset_postdata(); ?>
                 </div>
+
                 <?php if ( $content_pages > 1 ) : ?>
-                    <nav class="mt-6 flex flex-wrap items-center gap-2 text-sm" aria-label="<?php esc_attr_e( 'Website results pages', 'blainestwentysix' ); ?>">
+                    <nav
+                            class="blaines-search-pagination mt-6"
+                            aria-label="<?php esc_attr_e( 'Website results pages', 'blainestwentysix' ); ?>"
+                    >
                         <?php
                         echo wp_kses_post(
                             paginate_links(
                                 [
-                                    'base'      => add_query_arg( array_merge( $base_args, [ 'products_page' => $product_page, 'content_page' => '%#%' ] ), $search_url ) . '#website-search-results',
+                                    'base'      => add_query_arg(
+                                                       array_merge(
+                                                           $base_args,
+                                                           [
+                                                               'products_page' => $product_page,
+                                                               'content_page'  => '%#%',
+                                                           ]
+                                                       ),
+                                                       $search_url
+                                                   ) . '#website-search-results',
                                     'format'    => '',
                                     'current'   => $content_page,
                                     'total'     => $content_pages,
+                                    'mid_size'  => 1,
+                                    'end_size'  => 1,
                                     'prev_text' => '&larr; ' . __( 'Previous', 'blainestwentysix' ),
                                     'next_text' => __( 'Next', 'blainestwentysix' ) . ' &rarr;',
                                     'type'      => 'plain',
@@ -228,8 +326,20 @@ if ( $product_only ) {
                             )
                         );
                         ?>
+                        <p class="blaines-search-pagination__status">
+                            <?php
+                            echo esc_html(
+                                sprintf(
+                                    __( 'Page %1$d of %2$d', 'blainestwentysix' ),
+                                    $content_page,
+                                    $content_pages
+                                )
+                            );
+                            ?>
+                        </p>
                     </nav>
                 <?php endif; ?>
+
             </div>
         <?php endif; ?>
         <?php

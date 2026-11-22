@@ -73,6 +73,13 @@ add_action( 'after_setup_theme', function() {
         'footer_info'     => __( 'Footer – Info / Legal', 'blainestwentysix' ),
     ]);
 
+    /**
+     * Enable native WordPress excerpts for Pages.
+     * Used by unified site-wide search result cards.
+     */
+    add_action( 'init', function (): void {
+        add_post_type_support( 'page', 'excerpt' );
+    } );
 
     /**
      * -------------------------------------------------------
