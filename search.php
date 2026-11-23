@@ -42,8 +42,23 @@ $products_per_page = (
 $content_per_page  = 12;
 $product_count     = count( $product_ids );
 $content_count     = count( $content_ids );
-// For explicit Interiors department searches, show website content before appliances.
-$interiors_first = ! $product_only && in_array( strtolower( $search_term ), [ 'kitchen', 'kitchens', 'bathroom', 'bathrooms', 'bedroom', 'bedrooms' ], true );
+// Prioritise website information for Interiors departments and service enquiries.
+$editorial_first_terms = [
+    'kitchen',
+    'kitchens',
+    'bathroom',
+    'bathrooms',
+    'bedroom',
+    'bedrooms',
+    'delivery',
+    'installation',
+    'collection',
+    'returns',
+    'refunds',
+];
+
+$interiors_first = ! $product_only
+    && in_array( strtolower( $search_term ), $editorial_first_terms, true );
 $product_pages     = max( 1, (int) ceil( $product_count / $products_per_page ) );
 $content_pages     = max( 1, (int) ceil( $content_count / $content_per_page ) );
 $product_page      = min( $product_page, $product_pages );
@@ -116,9 +131,58 @@ if ( $product_only ) {
         </div>
     <?php elseif ( 0 === $product_count && 0 === $content_count ) : ?>
         <div class="mt-6 border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-            <h2 class="font-title text-xl font-semibold text-neutral-950"><?php esc_html_e( 'No matching results', 'blainestwentysix' ); ?></h2>
-            <p class="mt-2 text-neutral-600"><?php esc_html_e( 'Try a shorter phrase, a product model number, a room type, or another keyword.', 'blainestwentysix' ); ?></p>
-            <a class="mt-5 inline-flex items-center bg-[#143981] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0E295E]" href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"><?php esc_html_e( 'Contact Blaines', 'blainestwentysix' ); ?></a>
+            <h2 class="font-title text-xl font-semibold text-neutral-950">
+                <?php
+                printf(
+                    esc_html__( 'No results found for “%s”', 'blainestwentysix' ),
+                    esc_html( $search_term )
+                );
+                ?>
+            </h2>
+
+            <p class="mt-3 text-neutral-600">
+                <?php esc_html_e(
+                    'We couldn’t find anything matching your search. Try a different keyword, product model number or room type.',
+                    'blainestwentysix'
+                ); ?>
+            </p>
+
+            <form
+                role="search"
+                method="get"
+                action="<?php echo esc_url( home_url( '/' ) ); ?>"
+                class="mt-6 flex flex-col gap-3 sm:flex-row"
+            >
+                <label class="sr-only" for="search-again">
+                    <?php esc_html_e( 'Try another search', 'blainestwentysix' ); ?>
+                </label>
+
+                <input
+                    id="search-again"
+                    type="search"
+                    name="s"
+                    value="<?php echo esc_attr( $search_term ); ?>"
+                    placeholder="Search products, rooms or services"
+                    class="min-h-12 min-w-0 flex-1 border border-neutral-300 bg-white px-4 text-base text-neutral-950 focus:border-[#143981] focus:outline-none"
+                >
+
+                <button
+                    type="submit"
+                    class="min-h-12 bg-[#143981] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#215ED9]"
+                >
+                    <?php esc_html_e( 'Search again', 'blainestwentysix' ); ?>
+                </button>
+            </form>
+
+            <p class="mt-6 text-sm text-neutral-600">
+                <?php esc_html_e( 'Still need some help?', 'blainestwentysix' ); ?>
+                <a
+                    href="<?php echo esc_url( home_url( '/contact/' ) ); ?>"
+                    class="font-semibold text-[#143981] underline-offset-2 hover:underline"
+                >
+                    <?php esc_html_e( 'Contact Blaines', 'blainestwentysix' ); ?>
+                </a>
+            </p>
         </div>
     <?php else : ?>
 
@@ -217,6 +281,8 @@ if ( $product_only ) {
 
                             $department_labels = [
                                 'electrical'       => 'Electrical · Appliances & Entertainment',
+                                'delivery-installation-collection' => 'Delivery & Services',
+                                'electrical-returns-refunds-cancellations' => 'Returns & Refunds',
                                 'kitchens'         => 'Kitchens · Design & Installation',
                                 'bathrooms'        => 'Bathrooms · Design & Installation',
                                 'bedrooms'         => 'Bedrooms · Design & Installation',

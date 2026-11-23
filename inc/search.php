@@ -45,8 +45,8 @@ function blaines_search_excluded_page_slugs(): array {
         'test-for-mytheme',
         'electrical-product-test',
         'privacy-policy',
+        'cookie-policy',
         'electrical-terms-of-sale',
-        'electrical-returns-refunds-cancellations',
         // Electrical shopping departments are represented by WooCommerce archives.
         'electrical/cooking',
         'electrical/dishwashers',

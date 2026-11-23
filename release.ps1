@@ -164,6 +164,7 @@ finally {
 # ------------------------------------------------------------
 
 Add-Type -AssemblyName System.IO.Compression
+Add-Type -AssemblyName System.IO.Compression.FileSystem
 
 $Archive = [System.IO.Compression.ZipFile]::OpenRead($ZipFile)
 
