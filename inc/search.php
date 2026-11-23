@@ -47,6 +47,14 @@ function blaines_search_excluded_page_slugs(): array {
         'privacy-policy',
         'electrical-terms-of-sale',
         'electrical-returns-refunds-cancellations',
+        // Electrical shopping departments are represented by WooCommerce archives.
+        'electrical/cooking',
+        'electrical/dishwashers',
+        'electrical/floorcare',
+        'electrical/laundry',
+        'electrical/refrigeration',
+        'electrical/small-appliances',
+        'electrical/tv-entertainment',
     ];
 }
 

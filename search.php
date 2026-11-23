@@ -214,7 +214,9 @@ if ( $product_only ) {
                         $label = $labels[ $type ] ?? __( 'Explore', 'blainestwentysix' );
 
                         if ( 'page' === $type ) {
+
                             $department_labels = [
+                                'electrical'       => 'Electrical · Appliances & Entertainment',
                                 'kitchens'         => 'Kitchens · Design & Installation',
                                 'bathrooms'        => 'Bathrooms · Design & Installation',
                                 'bedrooms'         => 'Bedrooms · Design & Installation',
