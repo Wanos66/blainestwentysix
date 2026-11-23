@@ -288,6 +288,9 @@ if ( $product_only ) {
                                 'bedrooms'         => 'Bedrooms · Design & Installation',
                                 'classic-kitchens' => 'Kitchen Styles · Classic',
                                 'modern-kitchens'  => 'Kitchen Styles · Modern',
+                                'dereham' => 'Our Showrooms',
+                                'swaffham' => 'Our Showrooms',
+                                'watton'  => 'Our Showrooms',
                             ];
 
                             $page_slug = get_post_field( 'post_name', get_the_ID() );
