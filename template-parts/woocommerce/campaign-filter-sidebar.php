@@ -60,6 +60,32 @@ $heading_id = isset( $args['heading_id'] )
     ? sanitize_html_class( (string) $args['heading_id'] )
     : 'campaign-filter-heading';
 
+// Keep draft preview authentication intact when GET filter forms submit.
+$is_campaign_preview = function_exists( 'blaines_promotions_is_campaign_preview' )
+    && blaines_promotions_is_campaign_preview();
+$preview_campaign_id = $is_campaign_preview && function_exists( 'blaines_promotions_current_campaign_id' )
+    ? absint( blaines_promotions_current_campaign_id() )
+    : 0;
+
+// GET forms do not preserve the action URL's query parameters; preview
+// credentials must therefore be submitted as explicit hidden fields.
+$filter_action_url = $is_campaign_preview
+    ? home_url( '/' )
+    : remove_query_arg( [ 'department', 'type', 'brand', 'price', 'sort', 'pg' ] );
+$filter_action_url .= '#campaign-products-title';
+
+$render_preview_credentials = static function () use ( $preview_campaign_id ): void {
+    if ( ! $preview_campaign_id ) {
+        return;
+    }
+    ?>
+    <input type="hidden" name="blaines_campaign_preview" value="<?php echo esc_attr( (string) $preview_campaign_id ); ?>">
+    <input type="hidden" name="_wpnonce" value="<?php echo esc_attr( wp_create_nonce( 'blaines_campaign_preview_' . $preview_campaign_id ) ); ?>">
+    <?php
+};
+
+$catalogue_fragment = '#campaign-products-title';
+
 $active_query = [];
 
 if ( $department_filter ) {
@@ -157,7 +183,7 @@ $render_option = static function (
                 <div class="flex shrink-0 items-center gap-3">
                     <?php if ( $has_active_filters && $clear_all_url ) : ?>
                         <a
-                            href="<?php echo esc_url( $clear_all_url ); ?>"
+                            href="<?php echo esc_url( $clear_all_url . $catalogue_fragment ); ?>"
                             class="text-xs font-semibold text-blue-700 transition hover:text-blue-900 hover:underline hover:underline-offset-4"
                         >
                             Clear all
@@ -197,7 +223,7 @@ $render_option = static function (
 
                         <?php if ( $type_filter ) : ?>
                             <a
-                                href="<?php echo esc_url( remove_query_arg( [ 'type', 'pg' ] ) ); ?>"
+                                href="<?php echo esc_url( remove_query_arg( [ 'type', 'pg' ] ) . $catalogue_fragment ); ?>"
                                 class="text-xs font-semibold text-blue-700 transition hover:text-blue-900 hover:underline hover:underline-offset-4"
                             >
                                 Clear
@@ -205,7 +231,8 @@ $render_option = static function (
                         <?php endif; ?>
                     </div>
 
-                    <form method="get" class="mt-3 space-y-2 text-neutral-700">
+                    <form method="get" action="<?php echo esc_url( $filter_action_url ); ?>" class="mt-3 space-y-2 text-neutral-700">
+                        <?php $render_preview_credentials(); ?>
                         <?php foreach ( $get_preserved_query( 'type' ) as $name => $value ) : ?>
                             <input type="hidden" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $value ); ?>">
                         <?php endforeach; ?>
@@ -237,7 +264,7 @@ $render_option = static function (
 
                         <?php if ( $brand_filter ) : ?>
                             <a
-                                href="<?php echo esc_url( remove_query_arg( [ 'brand', 'pg' ] ) ); ?>"
+                                href="<?php echo esc_url( remove_query_arg( [ 'brand', 'pg' ] ) . $catalogue_fragment ); ?>"
                                 class="text-xs font-semibold text-blue-700 transition hover:text-blue-900 hover:underline hover:underline-offset-4"
                             >
                                 Clear
@@ -245,7 +272,8 @@ $render_option = static function (
                         <?php endif; ?>
                     </div>
 
-                    <form method="get" class="mt-3 space-y-2 text-neutral-700">
+                    <form method="get" action="<?php echo esc_url( $filter_action_url ); ?>" class="mt-3 space-y-2 text-neutral-700">
+                        <?php $render_preview_credentials(); ?>
                         <?php foreach ( $get_preserved_query( 'brand' ) as $name => $value ) : ?>
                             <input type="hidden" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $value ); ?>">
                         <?php endforeach; ?>
@@ -277,7 +305,7 @@ $render_option = static function (
 
                         <?php if ( $price_filter ) : ?>
                             <a
-                                href="<?php echo esc_url( remove_query_arg( [ 'price', 'pg' ] ) ); ?>"
+                                href="<?php echo esc_url( remove_query_arg( [ 'price', 'pg' ] ) . $catalogue_fragment ); ?>"
                                 class="text-xs font-semibold text-blue-700 transition hover:text-blue-900 hover:underline hover:underline-offset-4"
                             >
                                 Clear
@@ -285,7 +313,8 @@ $render_option = static function (
                         <?php endif; ?>
                     </div>
 
-                    <form method="get" class="mt-3 space-y-2 text-neutral-700">
+                    <form method="get" action="<?php echo esc_url( $filter_action_url ); ?>" class="mt-3 space-y-2 text-neutral-700">
+                        <?php $render_preview_credentials(); ?>
                         <?php foreach ( $get_preserved_query( 'price' ) as $name => $value ) : ?>
                             <input type="hidden" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( $value ); ?>">
                         <?php endforeach; ?>

@@ -95,17 +95,26 @@ $has_legal_sidebar = (
 <?php else : ?>
 
     <?php
+
+    $is_festive_hours_page = is_page( 'christmas-opening-hours' );
+
     get_template_part(
         'template-parts/components/page-header',
         null,
         [
-            'hero'        => $hero_image,
-            'title'       => $hero_heading,
-            'intro'       => $hero_intro ?: '',
-            'breadcrumbs' => true,
-            'align'       => 'center',
+            'hero'         => $hero_image,
+            'title'        => $hero_heading,
+            'intro'        => $hero_intro ?: '',
+            'breadcrumbs'  => true,
+            'align'        => 'center',
+            'show_overlay' => ! $is_festive_hours_page,
+            'show_title'   => ! $is_festive_hours_page,
+            'hero_height' => $is_festive_hours_page
+                ? 'blaines-festive-hero'
+                : '',
         ]
     );
+
     ?>
 
 <?php endif; ?>
