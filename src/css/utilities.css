@@ -1,21 +1,42 @@
+
 /* Loading State */
 .loading {
     @apply animate-pulse bg-gray-200;
 }
 
-/* Force Trustpilot widget to align left */
-.tp-left-wrapper {
-    text-align: left !important;
+/* Footer Trustpilot widget alignment */
+.trustpilot-widget {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
 }
 
-.tp-left-wrapper .trustpilot-widget iframe {
-    max-width: 180px !important; /* you can adjust this */
-    width: auto !important;
+.trustpilot-widget iframe {
+    display: block;
+    width: 100% !important;
+    transform: none;
 }
 
+/* Align Trustpilot with footer content on desktop and tablet */
+@media (min-width: 1024px) {
+    .trustpilot-widget iframe {
+        transform: translateX(-42px);
+    }
+}
+
+/* Prevent Trustpilot button wrapping in narrower footer columns */
+@media (min-width: 1024px) and (max-width: 1279px) {
+    .trustpilot-widget iframe {
+        width: 268px !important;
+        max-width: none;
+    }
+}
+
+/* Hide scrollbars where required */
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+
 .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;
